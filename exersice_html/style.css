@@ -127,3 +127,141 @@ input,button{
   color: #fff;
   font-family: Quicksand;
 }
+.container {
+  margin-top: 26px;
+  width: 100%;
+}
+.main-wrap {
+  width: 1120px;
+  margin: auto;
+}
+.banner-img {
+  width: 100%;
+  background-size: cover;
+}
+.toolbar {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.sort-uselessFirst {
+  width: 142px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #5A5B6A;
+}
+.sort {
+  position: relative;
+}
+.sort::before {
+  position: absolute;
+  top: -5px;
+  left: 12px;
+  content: "SORT BY";
+  font-size: 10px;
+  font-weight: 500;
+  color: #787885;
+  background-color: #fff;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.sort-condition {
+  width: 118px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #B4B4BB;
+}
+.sort-delivery {
+  width: 158px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #B4B4BB;
+}
+.action {
+  display: flex;
+}
+.action-btn {
+  width: 85px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #EBF2FF;
+}
+.action-btn:nth-child(2),
+.type-show-btn:nth-child(2) {
+  background-color: #fff;
+  box-shadow: 0px 1px 2px 0px #1B4EA3;
+}
+.type-show {
+  margin-left: 24px; 
+}
+.type-show-btn {
+  width: 68px;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.product{
+  width: calc(25% - 10px);
+  padding: 16px 16px 12px 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 24px;
+}
+.product:hover {
+  box-shadow: 0px 4px 8px 0px #5A5B6A;
+}
+.product-content {
+  font-family: Inter;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  color:#19191D;
+  margin-top: 12px;
+  height: 74px;
+}
+.product-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+.product-detail {
+  height: 41px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 8px;
+  margin-bottom: 9px;
+  color:#787885;
+}
+.btn-add-cart {
+  width: 105px;
+  height: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid #9DC2FF;
+}
+.product-info-group {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-extra {
+  width: 70px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.product-cool-deal {
+  background-color: #FDEDF2;
+  color: #C23564;
+}
+.product-sale {
+  background-color: #ECF7ED;
+  color: #37833B;
+}
