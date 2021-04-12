@@ -13,7 +13,7 @@ input,button{
   outline: none;
 }
 .page-header {
-  border: 1px solid #B4BBE2;
+  border-bottom: 1px solid #B4BBE2;
 }
 .header-container{
   max-width: 1120px;
@@ -58,6 +58,8 @@ input,button{
   border-radius: 99px;
   border: none;
   padding: 0 48px;
+  font-size: 20px;
+  font-weight: 400;
 }
 .header-center {
   display: flex;
@@ -71,6 +73,10 @@ input,button{
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
+}
+.search-icon .fa-search {
+  font-size: 17.5px;
+  color: #787885;
 }
 .header-right {
   display: flex;
@@ -109,27 +115,27 @@ input,button{
   background-color: #fff;
 }
 .sign-in {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 40px;
-  height: 40px;
-  font-family: Quicksand;
   margin-left: 34px;
   margin-right: 28px;
+  color:#2264D1;
 }
-.btn-primary {
+.sign-in, .btn-primary {
   line-height: 40px;
   font-size: 20px;
   font-weight: 700;
+  height: 40px;
+  font-family: 'Quicksand', sans-serif;
+}
+.btn-primary {
   width: 104px;
   height: 40px;
   background-color: #2264D1;
   color: #fff;
-  font-family: Quicksand;
 }
 .container {
   margin-top: 26px;
   width: 100%;
+  margin-bottom: 128px;
 }
 .main-wrap {
   width: 1120px;
@@ -145,14 +151,21 @@ input,button{
   display: flex;
   justify-content: space-between;
 }
-.sort-uselessFirst {
-  width: 142px;
-  height: 36px;
-  border-radius: 4px;
-  border: 1px solid #5A5B6A;
-}
 .sort {
   position: relative;
+}
+.sort > select{
+  border-radius: 4px;
+  padding-left: 12px;
+  font-size: 14px;
+  height: 36px;
+  font-family: 'inter', sans-serif;
+}
+.sort-uselessFirst {
+  width: 142px;
+  border: 1px solid #5A5B6A;
+  font-weight: 500;
+  color: #19191D;
 }
 .sort::before {
   position: absolute;
@@ -163,23 +176,26 @@ input,button{
   font-weight: 500;
   color: #787885;
   background-color: #fff;
-  padding-left: 2px;
-  padding-right: 2px;
+  font-family: 'inter', sans-serif;
 }
 .sort-condition {
   width: 118px;
-  height: 36px;
-  border-radius: 4px;
   border: 1px solid #B4B4BB;
+  font-weight: 400;
+  color: #787885;
 }
 .sort-delivery {
   width: 158px;
-  height: 36px;
-  border-radius: 4px;
   border: 1px solid #B4B4BB;
+  font-weight: 400;
+  color: #787885;
 }
 .action {
   display: flex;
+}
+.action-group, .type-show {
+  border-radius: 4px;
+  background-color: #EBF2FF;
 }
 .action-btn {
   width: 85px;
@@ -187,6 +203,7 @@ input,button{
   font-size: 14px;
   font-weight: 400;
   background-color: #EBF2FF;
+  font-family: 'inter', sans-serif;
 }
 .action-btn:nth-child(2),
 .type-show-btn:nth-child(2) {
@@ -199,24 +216,29 @@ input,button{
 .type-show-btn {
   width: 68px;
 }
+.type-show-btn .fa.fa-list {
+  color: #787885;
+  font-size: 17px;
+}
+.type-show-btn .fa.fa-th-large {
+  color: #2979FF;
+  font-size: 18px;
+}
 .products {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px;
 }
 .product{
   width: calc(25% - 10px);
   padding: 16px 16px 12px 16px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 24px;
+  border-radius: 4px;
+  margin: 0 5px 24px 5px;
 }
 .product:hover {
   box-shadow: 0px 4px 8px 0px #5A5B6A;
 }
 .product-content {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: 400;
@@ -227,9 +249,11 @@ input,button{
 .product-price {
   font-size: 24px;
   font-weight: 700;
+  font-family: 'inter', sans-serif;
   color: #000;
 }
 .product-detail {
+  font-family: 'inter', sans-serif;
   height: 41px;
   font-size: 14px;
   font-weight: 400;
@@ -242,7 +266,12 @@ input,button{
   height: 32px;
   font-weight: 500;
   font-size: 14px;
+  font-family: 'inter', sans-serif;
   border: 1px solid #9DC2FF;
+}
+.btn-add-cart:hover {
+  background-color: #2264D1;
+  color: #fff;
 }
 .product-info-group {
   margin-top: 8px;
@@ -256,6 +285,7 @@ input,button{
   line-height: 24px;
   font-size: 12px;
   font-weight: 400;
+  font-family: 'roboto', sans-serif;
 }
 .product-cool-deal {
   background-color: #FDEDF2;
@@ -275,18 +305,19 @@ input,button{
   flex-direction: column;
   justify-content: center;
 }
+.footer-wrap > p{
+  text-align: center;
+  color: #fff;
+  font-family: 'inter', sans-serif;
+}
 .footer-text-top {
   font-size: 16px;
   font-weight: 400;
-  text-align: center;
-  color: #fff;
   opacity: 50%;
 }
 .footer-text-middle {
   font-size: 48px;
   font-weight: 700;
-  color: #fff;
-  text-align: center;
   line-height: 72px;
   margin-top: 15px;
   margin-bottom: 16px;
@@ -294,7 +325,5 @@ input,button{
 .footer-text-bottom {
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
-  text-align: center;
   opacity: 50%;
 }
