@@ -1,0 +1,129 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+input,button{
+  outline: none;
+}
+.page-header {
+  border: 1px solid #B4BBE2;
+}
+.header-container{
+  max-width: 1120px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  flex-direction: none;
+}
+.menu {
+  margin-right: 32px;
+  position: relative;
+}
+.menu-list {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  border: 1px solid rgb(1,1,1);
+  padding-left: 32px;
+  background-color: #fff;
+}
+.menu-link {
+  color: #787885;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  padding-bottom: 31px;
+}
+.fa.fa-bars {
+  font-size: 32px;
+  color: #2264D1;
+}
+.search-group {
+  position: relative;
+}
+.search {
+  width: 430px;
+  height: 48px;
+  background: #EDEDF0;
+  border-radius: 99px;
+  border: none;
+  padding: 0 48px;
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.search-icon {
+  position: absolute;
+  width: 17.5px;
+  height: 17.5px;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.cart {
+  position: relative;
+}
+.cart-amount {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 700;
+  top: 0;
+  left: 22px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: rgb(243, 113, 20);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.fa.fa-shopping-cart{
+  font-size: 24px;
+  color:#2264D1;
+}
+.btn {
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+}
+.btn-secondary {
+  color:#2264D1;
+  background-color: #fff;
+}
+.sign-in {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  height: 40px;
+  font-family: Quicksand;
+  margin-left: 34px;
+  margin-right: 28px;
+}
+.btn-primary {
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  width: 104px;
+  height: 40px;
+  background-color: #2264D1;
+  color: #fff;
+  font-family: Quicksand;
+}
