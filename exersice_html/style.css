@@ -265,3 +265,36 @@ input,button{
   background-color: #ECF7ED;
   color: #37833B;
 }
+.page-footer {
+  background-color:#2264D1;
+  height: 275px;
+}
+.footer-wrap {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-text-top {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  opacity: 50%;
+}
+.footer-text-middle {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 72px;
+  margin-top: 15px;
+  margin-bottom: 16px;
+}
+.footer-text-bottom {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  opacity: 50%;
+}
