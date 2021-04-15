@@ -15,6 +15,15 @@ a {
 input,button {
   outline: none;
 }
+.btn {
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+}
+.btn-secondary {
+  color: #2264D1;
+  background-color: #fff;
+}
 .container {
   max-width: 1120px;
   width: 100%;
@@ -36,6 +45,10 @@ input,button {
 .logo {
   flex-direction: none;
 }
+.header-center {
+  display: flex;
+  align-items: center;
+}
 .menu {
   margin-right: 32px;
 }
@@ -49,11 +62,6 @@ input,button {
   font-weight: 400;
   display: flex;
   padding-bottom: 31px;
-}
-.header-center {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .search-group {
   position: relative;
@@ -87,6 +95,10 @@ input,button {
 .cart {
   position: relative;
 }
+.cart .icon{
+  font-size: 24px;
+  color:#2264D1;
+}
 .cart::after {
   content: "4";
   position: absolute;
@@ -100,19 +112,6 @@ input,button {
   background-color: rgb(243, 113, 20);
   border-radius: 50%;
   text-align: center;
-}
-.cart .icon{
-  font-size: 24px;
-  color:#2264D1;
-}
-.btn {
-  text-align: center;
-  border-radius: 4px;
-  border: none;
-}
-.btn-secondary {
-  color: #2264D1;
-  background-color: #fff;
 }
 .sign-in {
   margin-left: 34px;
@@ -176,23 +175,28 @@ input,button {
   border-radius: 4px;
   background-color: #EBF2FF;
   display: flex;
+  margin-left: 24px;
 }
-.action-group-right .action-btn {
-  padding-left: 25px;
-  padding-right: 25px;
+.action-group > input {
+  display:none;
 }
 .action-btn {
   line-height: 20px;
   padding: 8px 12px;
   background-color: #EBF2FF;
 }
-.action-group > input {
-  display:none;
+.action-group-right .action-btn {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .action-btn > label {
   font-size: 14px;
   font-weight: 400;
   display: inline-block;
+}
+.action-btn .icon {
+  color: #787885;
+  font-size: 17px;
 }
 input[type="radio"]:checked + label {
   background-color: #fff;
@@ -201,13 +205,6 @@ input[type="radio"]:checked + label {
 }
 input[type="radio"]:checked + label .icon {
   color: #2264D1;
-}
-.action-group{
-  margin-left: 24px; 
-}
-.action-btn .icon {
-  color: #787885;
-  font-size: 17px;
 }
 .grid-list {
   display: flex;
