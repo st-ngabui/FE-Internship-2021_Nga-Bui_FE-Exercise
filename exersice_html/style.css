@@ -12,6 +12,9 @@ ul {
 a {
   text-decoration: none;
 }
+h1 {
+  line-height: 0;
+}
 input,button {
   outline: none;
 }
@@ -36,8 +39,6 @@ input,button {
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,6 +73,7 @@ input,button {
   border: none;
   width: 430px;
   padding: 8px 8px 8px 44px;
+  color:#9696A0;
   line-height: 1.6;
   font-size: 20px;
   font-weight: 400;
@@ -210,8 +212,6 @@ input[type="radio"]:checked + label .icon {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-.products {
   padding: 0 16px;
 }
 .grid-item {
@@ -220,20 +220,20 @@ input[type="radio"]:checked + label .icon {
   border-radius: 8px;
   margin-bottom: 16px;
 }
-.product{
+.grid-item{
   transition: all 0.5s;
 }
-.product:hover {
+.grid-item:hover {
   box-shadow: 0px 4px 8px rgba(90, 91, 106, 0.2);
 }
-.product-name {
+.product .product-name {
   font-size: 16px;
   font-weight: 400;
   color: #19191D;
   margin-top: 12px;
   height: 74px;
 }
-.product-price {
+.product .product-price {
   font-size: 24px;
   font-weight: 700;
   color: #000;
@@ -262,7 +262,7 @@ input[type="radio"]:checked + label .icon {
   background-color: #ECF7ED;
   color: #37833B;
 }
-.product-description {
+.product .product-description {
   height: 41px;
   font-size: 14px;
   font-weight: 400;
