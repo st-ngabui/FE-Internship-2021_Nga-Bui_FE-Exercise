@@ -1,0 +1,281 @@
+.container {
+  max-width: 1152px;
+  width: 100%;
+  margin:0 auto;
+}
+.grid-list {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title {
+  font-weight: 300;
+  font-size: 32px;
+  color: $base-text-color;
+  line-height: $text-linehight;
+}
+
+.banner {
+  position: relative;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%),url('../img/banner.png');
+  background-size: cover;
+  height: 800px;
+  width: 100%;
+  margin-bottom: 48px;
+
+  > ul {
+    position: absolute;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 1100px;
+    padding: 38px 88px 24px 240px;
+    border-radius: 0px 70px 0px 0px;
+    z-index: 100;
+  }
+}
+.banner-title {
+  padding-top: 222px ;
+  margin-left: 240px;
+  font-weight: bold;
+  font-size: 72px;
+  color: $secondary-text-color;
+  z-index: 9999; 
+  width: 403px;
+  padding-bottom: 24px;
+  .text-special {
+    color: $base-color;
+  }
+}
+.shopping {
+  margin-left: 240px;
+  display: flex;
+  align-items: center;
+  .shopping-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: $secondary-text-color;
+    padding-left: 21px;
+  }
+}
+.grid-item {
+  &.footer-banner {
+    width: calc((100% - 2*24px) / 3);
+  }
+  .footer-banner-item {
+    display: flex;
+    justify-content: space-between;
+    .footer-banner-icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  .footer-banner-detail {
+    width: calc(100% - 57px);
+    .footer-banner-name {
+      color: $base-color;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: $text-linehight;
+      margin-bottom: 4px;
+    }
+    .footer-banner-description {
+      color: #A8A8A8;
+      font-size: 12px;
+      line-height: $text-linehight;
+    }
+  }
+}
+
+.category {
+  width: calc((100% - 2*20px)/4);
+  height: 360px;
+  .category-item::before {
+    @include overlay($base-text-color);
+    opacity: 0.5;
+  }
+  &:first-child {
+    width: calc((100% - 2*20px)/2);
+  }
+}
+.category-item {
+  position: relative;
+  height: 360px;
+  > img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+  }
+  .category-name {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    color:$base-text-color;
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: $text-linehight;
+    &.badge-sale::after {
+      @include badge-sale(0);
+      content: "-50%";
+      bottom: calc(100% + 8px);
+    }
+  }
+  > a{
+    position: absolute;
+    bottom: 53px;
+    left: 40px;
+  }
+}
+.recommend-cloth {
+  margin-top: 96px;
+  .container {
+    .section-title {
+      padding-bottom: 40px;
+    }
+    position: relative;
+    .btn-secondary {
+      position: absolute;
+      content: "SHOW MORE";
+      right: 0;
+      top: 0;
+      padding: 14px 30px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: $text-linehight;
+      border-radius: 39px;
+      color: $base-text-color;
+      border: 1px solid #C4C4C4;
+      background-color: #E5E5E5;;
+    }
+  }
+}
+.product-today {
+  margin-bottom: 62px;
+  .container {
+    .section-title {
+      text-align: center;
+      padding:48px 0 39px;
+    }
+  }
+}
+.product {
+  width: calc((100% - 3*20px)/4);
+  .product-item {
+    position: relative;
+    &.badge-sale::after {
+      @include badge-sale(27px);
+      top: 30px;
+      content: "-30%";
+    }
+  }
+}
+.product-name {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: $base-text-color;
+  padding-top: 16px;
+}
+.product-price-group {
+  @extend .flex-space-between;
+  font-size: 20px;
+  line-height: $text-linehight;
+  font-weight: 400;
+  &.product-sale {
+    .product-price {
+      color: $sale-color;
+    }
+  }
+  .product-price {
+    color: $base-text-color;
+  }
+  .price-before-sale {
+    color: #CECECE ;
+  }
+}
+.benefits {
+  background-color: #F7F7F7;
+  margin-top: 60px;
+  .container {
+    .section-title {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      text-align: center;
+    }
+    .benefit-list {
+      padding-bottom: 54px;
+    }
+  }
+}
+.grid-item {
+  width: calc((100% - 3*20px)/4);
+}
+.benefit-item-info {
+  .icon-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 46px;
+    .icon {
+      color: $base-text-color;
+      font-size: 30px;
+    }
+  }
+  .benefit-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: $base-text-color;
+    line-height: $text-linehight;
+    margin: 46px 0 16px;
+  }
+}
+.benefit-description {
+  color: #808080;
+  font-size: 14px;
+  font-weight: 400;
+}
+.subcribe {
+  background-image: url('../img/footer.png');
+  background-size: cover;
+  height: 241px;
+  width: 100%;
+  position: relative;
+  .overlay {
+    @include overlay(linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%));
+    .container {
+      @extend .flex-space-between;
+      margin: 85px auto;
+    }
+  }
+}
+.subscribe-title {
+  max-width: 493px;
+  color: $secondary-text-color;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: $text-linehight;
+}
+.form-subscribe {
+  .email {
+    padding: 14px 23px;
+    border-radius: 61px;
+    width: 351px;
+    margin-right: 40px;
+  }
+  .btn-subscribe {
+    font-size: 13px;
+    font-weight: 700px;
+    width: 175px;
+    padding: 14px 30px;
+    background-color: $base-color;
+    border-radius: 56px;
+    color: $base-text-color;
+  }
+}

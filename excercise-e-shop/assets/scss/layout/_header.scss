@@ -1,0 +1,37 @@
+.page-header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 999;
+  .header-wrap {
+    @extend .container;
+    @extend .flex-space-between;
+    padding-top: 55px;
+  }
+}
+.header-center {
+  @extend .flex-space-between;
+  .menu-item {
+    margin-left: 96px;
+  }
+  .menu-item > a {
+    color: $base-color;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+.header-right {
+  display: flex;
+}
+.header-right-item {
+  .header-right-link {
+    padding-left: 24px;
+    .icon {
+      font-size: 24px;
+      color: $secondary-text-color;
+    }
+  }
+}
+
+

@@ -1,0 +1,20 @@
+@mixin overlay ($background) {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $background;
+}
+@mixin badge-sale($left) {
+  position: absolute;
+  background-color: $sale-color;
+  font-size: 12px;
+  font-weight: bold;
+  color: $secondary-text-color;
+  display: block;
+  padding: 6px 9px;
+  border-radius: 20px;
+  left: $left;
+}

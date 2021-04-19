@@ -1,0 +1,11 @@
+.btn{
+  &.btn-primary {
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: $text-linehight;
+    background-color: $secondary-text-color;
+    border-radius: 24px;
+    color: $base-text-color;
+  }
+}
