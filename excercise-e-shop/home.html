@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
   <title>E-shop</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
   <header class="page-header">
     <div class="header-wrap">
@@ -19,12 +21,14 @@
             <img src="./assets/img/Logo.png" alt="logo">
           </a>
         </h1>
-      </div> 
-      <ul class="header-center">
-        <li class="menu-item"><a href="#">Men</a></li>
-        <li class="menu-item"><a href="#">Women</a></li>
-        <li class="menu-item"><a href="#">Kids</a></li>
-      </ul> 
+      </div>
+      <nav class="header-center">
+        <ul class="menu-list">
+          <li class="menu-item"><a href="#">Men</a></li>
+          <li class="menu-item"><a href="#">Women</a></li>
+          <li class="menu-item"><a href="#">Kids</a></li>
+        </ul>
+      </nav>
       <ul class="header-right">
         <li class="header-right-item">
           <a href="#" class="header-right-link">
@@ -220,7 +224,7 @@
               </p>
             </div>
           </li>
-        </div>
+      </div>
       </div>
     </section>
     <section class="product-today">
@@ -278,16 +282,14 @@
       </div>
     </section>
     <section class="subcribe">
-      <div class="overlay">
-        <div class="container">
-          <p class="subscribe-title">
-            Subscribe to our newsletter andreceive exclusive offers every week
-          </p>
-          <form class="form-subscribe">
-            <input type="text" class="email">
-            <button type="submit" class="btn btn-subscribe">SUBSCRIBE</button>
-          </form>
-        </div>
+      <div class="container">
+        <p class="subscribe-title">
+          Subscribe to our newsletter andreceive exclusive offers every week
+        </p>
+        <form class="form-subscribe">
+          <input type="text" class="email" placeholder="Enter your email">
+          <button type="submit" class="btn btn-subscribe">SUBSCRIBE</button>
+        </form>
       </div>
     </section>
   </main>
@@ -297,7 +299,8 @@
         <div class="footer-top-left">
           <img src="./assets/img/Logo.png" alt="logo">
           <p class="infor-content">
-            House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the fashionable
+            House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the
+            fashionable
           </p>
           <ul class="social-group">
             <li class="social-item">
@@ -328,67 +331,68 @@
           </ul>
         </div>
         <ul class="grid-list footer-content">
-            <li class="grid-item footer-content-item">
-              <div class="infor-shop-content">
-                <p class="infor-shop-name">Shopping online</p>
-                <ul class="infor-shop-list">
-                  <li class="infor-shop">
-                    <a href="#">Order Status</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Shipping and Delivery </a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Returns</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Payment options</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Contactus</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="grid-item footer-content-item">
-              <div class="infor-shop-content">
-                <p class="infor-shop-name">Information</p>
-                <ul class="infor-shop-list">
-                  <li class="infor-shop">
-                    <a href="#">Gift Cards</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Find a store</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Newsletter</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Bacome a member</a>
-                  </li>
-                  <li class="infor-shop">
-                    <a href="#">Site feedback</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="grid-item footer-content-item">
-              <div class="infor-shop-content">
-                <p class="infor-shop-name">Contact</p>
-                <ul class="infor-shop-list">
-                  <li class="infor-shop">
-                    <p>store@uikit.com</p>
-                  </li>
-                  <li class="infor-shop">
-                    <p>Hotline: +1 131 138 138</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
+          <li class="grid-item footer-content-item">
+            <div class="infor-shop-content">
+              <p class="infor-shop-name">Shopping online</p>
+              <ul class="infor-shop-list">
+                <li class="infor-shop">
+                  <a href="#">Order Status</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Shipping and Delivery </a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Returns</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Payment options</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Contactus</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="grid-item footer-content-item">
+            <div class="infor-shop-content">
+              <p class="infor-shop-name">Information</p>
+              <ul class="infor-shop-list">
+                <li class="infor-shop">
+                  <a href="#">Gift Cards</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Find a store</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Newsletter</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Bacome a member</a>
+                </li>
+                <li class="infor-shop">
+                  <a href="#">Site feedback</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="grid-item footer-content-item">
+            <div class="infor-shop-content">
+              <p class="infor-shop-name">Contact</p>
+              <ul class="infor-shop-list">
+                <li class="infor-shop">
+                  <p>store@uikit.com</p>
+                </li>
+                <li class="infor-shop">
+                  <p>Hotline: +1 131 138 138</p>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
     <p class="footer-bottom-text">DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.</p>
   </footer>
 </body>
+
 </html>

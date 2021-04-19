@@ -45,10 +45,10 @@ body {
   .page-header .header-wrap {
     padding-top: 55px; }
 
-.header-center .menu-item {
+.menu-list .menu-item {
   margin-left: 96px; }
 
-.header-center .menu-item > a {
+.menu-list .menu-item > a {
   color: #FBB03B;
   font-size: 18px;
   font-weight: bold; }
@@ -124,7 +124,7 @@ body {
   display: flex;
   justify-content: space-between; }
 
-.flex-space-between, .page-header .header-wrap, .header-center, .product-price-group, .subcribe .overlay .container, .subcribe .overlay .page-header .header-wrap, .page-header .subcribe .overlay .header-wrap {
+.flex-space-between, .page-header .header-wrap, .menu-list, .product-price-group, .subcribe .container {
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -175,7 +175,7 @@ body {
     padding-left: 21px; }
 
 .grid-item.footer-banner {
-  width: calc((100% - 2*24px) / 3); }
+  width: calc((100% - 2 * 24px) / 3); }
 
 .grid-item .footer-banner-item {
   display: flex;
@@ -193,28 +193,28 @@ body {
     line-height: 1.5;
     margin-bottom: 4px; }
   .grid-item .footer-banner-detail .footer-banner-description {
-    color: #A8A8A8;
+    color: #a8a8a8;
     font-size: 12px;
     line-height: 1.5; }
 
 .category {
-  width: calc((100% - 2*20px)/4);
+  width: calc((100% - 2 * 20px) / 4);
   height: 360px; }
-  .category .category-item::before {
+  .category:first-child {
+    width: calc((100% - 2 * 20px) / 2); }
+
+.category-item {
+  position: relative;
+  height: 360px; }
+  .category-item::before {
     position: absolute;
     content: "";
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #333333;
+    background-color: #333333;
     opacity: 0.5; }
-  .category:first-child {
-    width: calc((100% - 2*20px)/2); }
-
-.category-item {
-  position: relative;
-  height: 360px; }
   .category-item > img {
     width: 100%;
     height: 100%;
@@ -263,8 +263,8 @@ body {
       line-height: 1.5;
       border-radius: 39px;
       color: #333333;
-      border: 1px solid #C4C4C4;
-      background-color: #E5E5E5; }
+      border: 1px solid #c4c4c4;
+      background-color: #fff; }
 
 .product-today {
   margin-bottom: 62px; }
@@ -273,7 +273,7 @@ body {
     padding: 48px 0 39px; }
 
 .product {
-  width: calc((100% - 3*20px)/4); }
+  width: calc((100% - 3 * 20px) / 4); }
   .product .product-item {
     position: relative; }
     .product .product-item.badge-sale::after {
@@ -305,10 +305,10 @@ body {
   .product-price-group .product-price {
     color: #333333; }
   .product-price-group .price-before-sale {
-    color: #CECECE; }
+    color: #cecece; }
 
 .benefits {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   margin-top: 60px; }
   .benefits .container .section-title, .benefits .page-header .header-wrap .section-title, .page-header .benefits .header-wrap .section-title {
     padding-top: 48px;
@@ -316,9 +316,6 @@ body {
     text-align: center; }
   .benefits .container .benefit-list, .benefits .page-header .header-wrap .benefit-list, .page-header .benefits .header-wrap .benefit-list {
     padding-bottom: 54px; }
-
-.grid-item {
-  width: calc((100% - 3*20px)/4); }
 
 .benefit-item-info .icon-wrap {
   width: 68px;
@@ -343,43 +340,35 @@ body {
   font-weight: 400; }
 
 .subcribe {
-  background-image: url("../img/footer.png");
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/footer.png");
   background-size: cover;
   height: 241px;
   width: 100%;
-  position: relative; }
-  .subcribe .overlay {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%); }
-    .subcribe .overlay .container, .subcribe .overlay .page-header .header-wrap, .page-header .subcribe .overlay .header-wrap {
-      margin: 85px auto; }
-
-.subscribe-title {
-  max-width: 493px;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.5; }
-
-.form-subscribe .email {
-  padding: 14px 23px;
-  border-radius: 61px;
-  width: 351px;
-  margin-right: 40px; }
-
-.form-subscribe .btn-subscribe {
-  font-size: 13px;
-  font-weight: 700px;
-  width: 175px;
-  padding: 14px 30px;
-  background-color: #FBB03B;
-  border-radius: 56px;
-  color: #333333; }
+  position: relative;
+  align-items: center; }
+  .subcribe .subscribe-title {
+    max-width: 493px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.5; }
+  .subcribe .form-subscribe .email {
+    padding: 14px 23px;
+    border-radius: 61px;
+    width: 351px;
+    margin-right: 40px;
+    font-size: 13px;
+    font-weight: 400; }
+  .subcribe .form-subscribe .btn-subscribe {
+    font-size: 13px;
+    font-weight: 700;
+    width: 175px;
+    padding: 14px 30px;
+    background-color: #FBB03B;
+    border-radius: 56px;
+    color: #333333; }
 
 .btn.btn-primary {
   padding: 14px 18px;
