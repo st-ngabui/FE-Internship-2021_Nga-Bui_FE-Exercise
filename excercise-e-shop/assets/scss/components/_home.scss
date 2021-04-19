@@ -68,14 +68,13 @@
   }
   .footer-banner-item {
     display: flex;
-    justify-content: space-between;
     .footer-banner-icon {
       width: 36px;
       height: 36px;
+      margin-right: 21px;
     }
   }
   .footer-banner-detail {
-    width: calc(100% - 57px);
     .footer-banner-name {
       color: $base-color;
       font-weight: bold;
@@ -90,7 +89,6 @@
     }
   }
 }
-
 .category {
   width: calc((100% - 2 * 20px) / 4);
   &:first-child {
@@ -148,14 +146,6 @@
       content: "SHOW MORE";
       right: 0;
       top: 0;
-      padding: 14px 30px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: $text-linehight;
-      border-radius: 39px;
-      color: $base-text-color;
-      border: 1px solid #c4c4c4;
-      background-color: #fff;
     }
   }
 }

@@ -12,6 +12,7 @@
 }
 .menu-list {
   @extend .flex-space-between;
+  margin-left: -96px;
   .menu-item {
     margin-left: 96px;
   }
