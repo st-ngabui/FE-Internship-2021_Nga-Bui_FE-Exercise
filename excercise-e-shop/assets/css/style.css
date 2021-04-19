@@ -71,6 +71,8 @@ body {
       justify-content: space-between;
       padding-bottom: 51px; }
   .page-footer .footer-bottom-text {
+    font-size: 12px;
+    font-weight: 400;
     text-align: center;
     color: #ffffff;
     padding-top: 24px;
@@ -198,8 +200,7 @@ body {
     line-height: 1.5; }
 
 .category {
-  width: calc((100% - 2 * 20px) / 4);
-  height: 360px; }
+  width: calc((100% - 2 * 20px) / 4); }
   .category:first-child {
     width: calc((100% - 2 * 20px) / 2); }
 
@@ -218,7 +219,6 @@ body {
   .category-item > img {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     background-size: cover; }
   .category-item .category-name {
     position: absolute;
@@ -314,8 +314,11 @@ body {
     padding-top: 48px;
     padding-bottom: 48px;
     text-align: center; }
-  .benefits .container .benefit-list, .benefits .page-header .header-wrap .benefit-list, .page-header .benefits .header-wrap .benefit-list {
-    padding-bottom: 54px; }
+
+.benefit-list {
+  padding-bottom: 54px; }
+  .benefit-list .grid-item {
+    width: calc((100% - 3*47px) /4); }
 
 .benefit-item-info .icon-wrap {
   width: 68px;
@@ -342,12 +345,11 @@ body {
 .subcribe {
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/footer.png");
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer.png");
   background-size: cover;
   height: 241px;
   width: 100%;
-  position: relative;
-  align-items: center; }
+  position: relative; }
   .subcribe .subscribe-title {
     max-width: 493px;
     color: #ffffff;
@@ -360,10 +362,12 @@ body {
     width: 351px;
     margin-right: 40px;
     font-size: 13px;
-    font-weight: 400; }
+    font-weight: 400;
+    color: #ABABAB; }
   .subcribe .form-subscribe .btn-subscribe {
     font-size: 13px;
     font-weight: 700;
+    line-height: 1.5;
     width: 175px;
     padding: 14px 30px;
     background-color: #FBB03B;
