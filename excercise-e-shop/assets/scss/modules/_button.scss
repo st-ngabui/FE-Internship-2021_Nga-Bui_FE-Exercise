@@ -1,21 +1,16 @@
 .btn {
+  @include button-style(14px, 30px);
+  @include text-style($sm-text-size,$bold-weight,$text-line-height,$base-text-color);
   &.btn-primary {
     padding: 14px 18px;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: $text-linehight;
-    background-color: $secondary-text-color;
     border-radius: 24px;
-    color: $base-text-color;
   }
   &.btn-secondary {
-    padding: 14px 30px;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: $text-linehight;
     border-radius: 39px;
-    color: $base-text-color;
-    border: 1px solid #c4c4c4;
-    background-color: #fff;
+    border: 1px solid #C4C4C4;
+  }
+  &.btn-subscribe {
+    border-radius: 56px;
+    background-color: $base-color;
   }
 }

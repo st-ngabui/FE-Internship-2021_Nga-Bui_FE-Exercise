@@ -6,20 +6,18 @@
   z-index: 999;
   .header-wrap {
     @extend .container;
-    @extend .flex-space-between;
+    @include flex(space-between);
     padding-top: 55px;
   }
 }
 .menu-list {
-  @extend .flex-space-between;
+  @include flex(space-between);
   margin-left: -96px;
   .menu-item {
     margin-left: 96px;
   }
   .menu-item > a {
-    color: $base-color;
-    font-size: 18px;
-    font-weight: bold;
+    @include text-style(18px, $bold-weight,$text-line-height, $base-color);
   }
 }
 .header-right {

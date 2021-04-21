@@ -1,0 +1,31 @@
+.category {
+  width: calc((100% - 2 * 20px) / 4);
+  &:first-child {
+    width: calc((100% - 2 * 20px) / 2);
+  }
+}
+.category-item {
+  position: relative;
+  height: 360px;
+  &::before {
+    @include content-absolute(0,0,0,0);
+    content: "";
+    background-color: $base-text-color;
+    opacity: 0.5;
+  }
+  > img {
+    @include img-style;
+  }
+  .category-name {
+    @include content-absolute(50%, 40px);
+    @include text-style($font-size: $md-text-size);
+    &.badge-sale::after {
+      @include badge-sale(0);
+      content: "-50%";
+      bottom: calc(100% + 8px);
+    }
+  }
+  > a {
+    @include content-absolute($left: 40px, $bottom: 53px);
+  }
+}

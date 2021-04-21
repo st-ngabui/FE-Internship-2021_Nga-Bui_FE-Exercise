@@ -1,0 +1,32 @@
+.benefits {
+  background-color: #f7f7f7;
+  margin-top: 60px;
+  .container {
+    .section-title {
+      padding: 48px 0;
+    }
+  }
+}
+.benefit-list {
+  padding-bottom: 54px;
+  .grid-item {
+    width: calc((100% - 3*51px) /4);
+  }
+}
+.benefit-item-info {
+  .icon-wrap {
+    @include block-style(68px, 68px, #fff,none, 10px);
+    margin-bottom: 46px;
+    .icon {
+      color: $base-text-color;
+      font-size: 30px;
+    }
+  }
+  .benefit-name {
+    @include text-style(16px, $bold-weight, $text-line-height, $base-text-color);
+    margin: 46px 0 16px;
+  }
+}
+.benefit-description {
+  @include text-style($color: #808080)
+}

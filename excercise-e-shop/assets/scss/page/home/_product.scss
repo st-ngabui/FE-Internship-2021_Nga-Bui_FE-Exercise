@@ -1,0 +1,57 @@
+.recommend-cloth {
+  margin-top: 96px;
+  .container {
+    .section-title {
+      padding-bottom: 40px;
+    }
+    position: relative;
+    .btn-secondary {
+      content: "SHOW MORE";
+      @include content-absolute($top: 0, $right: 0);
+    }
+  }
+}
+.product-today {
+  margin-bottom: 62px;
+  .container {
+    .section-title {
+      text-align: center;
+      padding: 48px 0 39px;
+    }
+  }
+}
+.product {
+  width: calc((100% - 3 * 20px) / 4);
+  .product-item {
+    position: relative;
+    &.badge-sale::after {
+      @include badge-sale(27px);
+      top: 30px;
+      content: "-30%";
+    }
+  }
+}
+.product-info{
+  > img {
+    @include img-style;
+  }
+  .product-name {
+    @include text-style(16px, 300, 1.9, $base-text-color);
+    padding-top: 16px;
+  }
+}
+.product-price-group {
+  @include flex(space-between);
+  @include text-style($font-size: 20px);
+  &.product-sale {
+    .product-price {
+      color: $sale-color;
+    }
+  }
+  .product-price {
+    color: $base-text-color;
+  }
+  .price-before-sale {
+    color: #cecece;
+  }
+}

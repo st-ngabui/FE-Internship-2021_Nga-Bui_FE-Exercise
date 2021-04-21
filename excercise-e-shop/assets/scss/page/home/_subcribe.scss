@@ -1,0 +1,22 @@
+.subcribe {
+  @include flex(space-between);
+  background: linear-gradient(90deg, rgba(0,0,0,0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer.png");
+  @include img-style(100%, 241px);
+  position: relative;
+  .container {
+    @include flex(space-between);
+  }
+  .subscribe-title {
+    max-width: 493px;
+    @include text-style($font-size: $md-text-size);
+  }
+  .form-subscribe {
+    .email {
+      padding: 14px 23px;
+      border-radius: 61px;
+      width: 351px;
+      margin-right: 40px;
+      @include text-style($sm-text-size, $color: #ABABAB)
+    }
+  }
+}

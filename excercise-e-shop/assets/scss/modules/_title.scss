@@ -1,0 +1,19 @@
+h1 {
+  font-size: $xl-text-size;
+}
+h2 {
+  font-size: $lg-text-size;
+}
+h3 {
+  font-size: $md-text-size;
+}
+h4 {
+  font-size: $base-text-color;
+}
+.section-title {
+  @include text-style($lg-text-size, $light-weight, $text-line-height, $base-text-color);
+}
+
+.text-center {
+  text-align: center;
+}

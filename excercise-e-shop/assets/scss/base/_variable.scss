@@ -2,6 +2,27 @@ $base-color: #FBB03B;
 $sale-color: #FF0000;
 $base-text-color: #333333;
 $secondary-text-color: #ffffff;
-$text-linehight: 1.5;
 
+$base-font-family: 'poppins', sans-serif;
+$text-line-height: 1.5;
 
+$base-text-size: 14px;
+$xs-text-size: 12px;
+$sm-text-size: 13px;
+$md-text-size: 24px;
+$lg-text-size: 32px;
+$xl-text-size: 72px;
+
+$light-weight: 300;
+$weight-primary: 400;
+$bold-weight: 700;
+
+$grid-columns: 12;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+$col-margin: 10px;
