@@ -1,5 +1,5 @@
 .page-header {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   background-color: transparent;
@@ -35,6 +35,9 @@
   display: flex;
 }
 .header-right-item {
+  &:last-child {
+    display: none;
+  }
   .header-right-link {
     padding-left: 24px;
     .icon {
@@ -67,6 +70,12 @@
     }
   }
   .header-right-item {
+    &:first-child {
+      display: none;
+    }
+    &:last-child {
+      display: block;
+    }
     .header-right-link {
       .icon {
         font-size: 20px;

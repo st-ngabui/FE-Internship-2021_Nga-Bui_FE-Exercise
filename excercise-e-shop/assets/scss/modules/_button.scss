@@ -15,14 +15,18 @@
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )){
   .btn {
-    @include button-style(2px, 3px);
+    @include button-style(3px, 10px);
     font-size: $xxs-text-size;
     &.btn-primary {
-      @include button-style(2px, 4px, 24px);
+      @include button-style(3px, 10px);
+      border-radius: 24px;
     }
     &.btn-secondary {
      font-size: $xxs-text-size;
      border: none;
+    }
+    &.btn-subscribe {
+      padding: 7px 20px;
     }
   }
 }

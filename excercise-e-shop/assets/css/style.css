@@ -157,17 +157,20 @@ body {
 
 @media only screen and (max-width: 576px) {
   .btn {
-    padding: 2px 3px;
+    padding: 3px 10px;
     border-radius: 0;
     background-color: #fff;
     font-size: 10px; }
     .btn.btn-primary {
-      padding: 2px 4px;
-      border-radius: 24px;
-      background-color: #fff; }
+      padding: 3px 10px;
+      border-radius: 0;
+      background-color: #fff;
+      border-radius: 24px; }
     .btn.btn-secondary {
       font-size: 10px;
-      border: none; } }
+      border: none; }
+    .btn.btn-subscribe {
+      padding: 7px 20px; } }
 
 h1 {
   font-size: 72px; }
@@ -195,7 +198,7 @@ h4 {
     font-size: 18px; } }
 
 .page-header {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   background-color: transparent;
@@ -229,6 +232,9 @@ h4 {
 .header-right {
   display: flex; }
 
+.header-right-item:last-child {
+  display: none; }
+
 .header-right-item .header-right-link {
   padding-left: 24px; }
   .header-right-item .header-right-link .icon {
@@ -251,6 +257,10 @@ h4 {
         display: none; }
       .header-left h1 .logo-sm {
         display: block; }
+  .header-right-item:first-child {
+    display: none; }
+  .header-right-item:last-child {
+    display: block; }
   .header-right-item .header-right-link .icon {
     font-size: 20px;
     color: #333333; } }
@@ -300,7 +310,8 @@ h4 {
 
 .infor-shop {
   padding-bottom: 15px; }
-  .infor-shop > a, .infor-shop > p {
+  .infor-shop > a,
+  .infor-shop > p {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
@@ -311,11 +322,24 @@ h4 {
   font-size: 18px; }
 
 @media only screen and (max-width: 576px) {
-  .footer-top, .footer-content {
-    display: flex;
-    flex-direction: column; }
+  .page-footer .container, .page-footer .page-header .header-wrap, .page-header .page-footer .header-wrap {
+    padding: 29px 0 24px; }
+    .page-footer .container .footer-top, .page-footer .page-header .header-wrap .footer-top, .page-header .page-footer .header-wrap .footer-top {
+      padding-bottom: 24px;
+      display: flex;
+      flex-direction: column; }
+  .footer-top-left .infor-content {
+    padding: 24px 0 48px; }
+  .footer-top-left .social-group {
+    display: none; }
   .footer-content {
-    margin-left: -4px; } }
+    display: flex;
+    flex-direction: column;
+    margin-left: -4px; }
+  .infor-shop-content .infor-shop-name {
+    margin-bottom: 16px; }
+  .infor-shop-content .infor-shop-list {
+    margin-bottom: 24px; } }
 
 .banner {
   position: relative;
@@ -627,3 +651,21 @@ h4 {
     font-weight: 400;
     line-height: 1.5;
     color: #ABABAB; }
+
+@media only screen and (max-width: 576px) {
+  .subcribe {
+    height: 217px; }
+    .subcribe .container, .subcribe .page-header .header-wrap, .page-header .subcribe .header-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      height: 100%; }
+    .subcribe .subscribe-title {
+      max-width: 200px;
+      font-size: 14px; }
+    .subcribe .form-subscribe .email {
+      padding: 6px 12px;
+      border-radius: 61px;
+      width: 100%;
+      margin-bottom: 16px;
+      font-size: 12px; } }

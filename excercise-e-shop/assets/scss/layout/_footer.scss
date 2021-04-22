@@ -3,7 +3,7 @@
   .container {
     padding-top: 40px;
     .footer-top {
-     @include flex(space-between);
+      @include flex(space-between);
       padding-bottom: 51px;
     }
   }
@@ -40,22 +40,47 @@
 }
 .infor-shop {
   padding-bottom: 15px;
-  > a, >p{
+  > a,
+  > p {
     @include text-style;
   }
 }
 .social-icon {
- .icon {
-   color: $secondary-text-color;
-   font-size: 18px;
- }
+  .icon {
+    color: $secondary-text-color;
+    font-size: 18px;
+  }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
-  .footer-top, .footer-content {
-    display: flex;
-    flex-direction: column;
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .page-footer {
+    .container {
+      padding: 29px 0 24px;
+      .footer-top {
+        padding-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .footer-top-left {
+    .infor-content {
+      padding: 24px 0 48px;
+    }
+    .social-group {
+      display: none;
+    }
   }
   .footer-content {
+    display: flex;
+    flex-direction: column;
     margin-left: -#{$col-padding-sm};
+  }
+  .infor-shop-content {
+    .infor-shop-name {
+      margin-bottom: 16px;
+    }
+    .infor-shop-list {
+      margin-bottom: 24px;
+    }
   }
 }
