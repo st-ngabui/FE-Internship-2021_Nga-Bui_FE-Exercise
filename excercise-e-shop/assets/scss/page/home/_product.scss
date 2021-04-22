@@ -6,8 +6,10 @@
     }
     position: relative;
     .btn-secondary {
+      position: absolute;
+      top: 0;
+      right: 0;
       content: "SHOW MORE";
-      @include content-absolute($top: 0, $right: 0);
     }
   }
 }
@@ -24,24 +26,28 @@
   .product-item {
     position: relative;
     &.badge-sale::after {
-      @include badge-sale(27px);
+      @extend %badge-sale;
+      left: 27px;
       top: 30px;
       content: "-30%";
     }
   }
 }
-.product-info{
+.product-info {
   > img {
-    @include img-style;
+    width: 100%;
   }
   .product-name {
-    @include text-style(16px, 300, 1.9, $base-text-color);
+    font-size: 16px;
+    font-weight: $light-weight;
+    line-height: 1.9;
     padding-top: 16px;
+    color: $base-text-color;
   }
 }
 .product-price-group {
-  @include flex(space-between);
-  @include text-style($font-size: 20px);
+  @extend %flex-space-between;
+  font-size: 20px;
   &.product-sale {
     .product-price {
       color: $sale-color;
@@ -54,7 +60,7 @@
     color: #cecece;
   }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .recommend-cloth {
     margin-top: 48px;
     margin-bottom: 40px;
@@ -80,20 +86,20 @@
     padding-bottom: 12px;
     .product-item {
       &.badge-sale::after {
-        @include badge-sale(9px);
+        left: 9px;
         top: 12px;
         padding: 2px;
         font-size: $xxs-text-size;
       }
     }
   }
-  .product-info{
+  .product-info {
     .product-name {
       font-size: $xs-text-size;
       padding-top: 2px;
     }
   }
-  .product-price-group  {
+  .product-price-group {
     font-size: $xxs-text-size;
   }
 }

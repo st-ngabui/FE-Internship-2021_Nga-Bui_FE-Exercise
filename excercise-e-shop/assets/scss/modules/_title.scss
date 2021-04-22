@@ -11,7 +11,8 @@ h4 {
   font-size: $base-text-color;
 }
 .section-title {
-  @include text-style($lg-text-size, $light-weight, $text-line-height, $base-text-color);
+  font-size: $lg-text-size;
+  font-weight: $light-weight;
 }
 
 .text-center {

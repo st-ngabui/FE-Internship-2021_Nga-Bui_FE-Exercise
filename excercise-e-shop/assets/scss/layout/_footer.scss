@@ -3,7 +3,7 @@
   .container {
     padding-top: 40px;
     .footer-top {
-      @include flex(space-between);
+      @extend %flex-space-between;
       padding-bottom: 51px;
     }
   }
@@ -11,14 +11,15 @@
     padding: 24px 0;
     text-align: center;
     border-top: 1px solid #fff;
-    @include text-style($font-size: $sm-text-size);
+    font-size: $sm-text-size;
+    color: $secondary-text-color;
   }
 }
 .footer-top-left {
   max-width: 373px;
   .infor-content {
     padding-top: 24px;
-    @include text-style;
+    color: $secondary-text-color;
   }
   .social-group {
     display: flex;
@@ -34,15 +35,17 @@
 }
 .infor-shop-content {
   .infor-shop-name {
-    @include text-style($font-size: 16px, $font-weight: $bold-weight);
+    font-size: 16px;
+    font-weight: $bold-weight;
     margin-bottom: 19px;
+    color: $secondary-text-color;
   }
 }
 .infor-shop {
   padding-bottom: 15px;
   > a,
   > p {
-    @include text-style;
+    color: $secondary-text-color;
   }
 }
 .social-icon {

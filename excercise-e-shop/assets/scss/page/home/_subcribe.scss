@@ -1,14 +1,16 @@
 .subcribe {
-  @include flex(space-between);
+  @extend %flex-space-between;
   background: linear-gradient(90deg, rgba(0,0,0,0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer.png");
-  @include img-style(100%, 241px);
+  width: 100%;
+  height: 241px;
   position: relative;
   .container {
-    @include flex(space-between);
+    @extend %flex-space-between;
   }
   .subscribe-title {
     max-width: 493px;
-    @include text-style($font-size: $md-text-size);
+    font-size: $md-text-size;
+    color: $secondary-text-color;
   }
   .form-subscribe {
     .email {
@@ -16,13 +18,15 @@
       border-radius: 61px;
       width: 351px;
       margin-right: 40px;
-      @include text-style($sm-text-size, $color: #ABABAB)
+      font-size:$sm-text-size;
+      color: #ABABAB;
     }
   }
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )){
   .subcribe {
     height: 217px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer-sm.png");
     .container {
       flex-direction: column;
       align-items: flex-start;

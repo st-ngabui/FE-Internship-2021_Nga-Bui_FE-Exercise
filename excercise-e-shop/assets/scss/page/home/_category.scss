@@ -2,43 +2,61 @@
   position: relative;
   height: 360px;
   &::before {
-    @include content-absolute(0,0,0,0);
+    position: absolute;
     content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: $base-text-color;
     opacity: 0.5;
   }
   > img {
-    @include img-style;
+    width: 100%;
   }
   .category-name {
-    @include content-absolute(50%, 40px);
-    @include text-style($font-size: $md-text-size);
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    font-size: $md-text-size;
+    color: $secondary-text-color;
     &.badge-sale::after {
-      @include badge-sale(0);
+      @extend %badge-sale;
       content: "-50%";
+      left: 0;
       bottom: calc(100% + 8px);
     }
   }
   > a {
-    @include content-absolute($left: 40px, $bottom: 53px);
+    position: absolute;
+    left: 40px;
+    bottom: 53px;
   }
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )){
   .category-item {
     height: 225px;
+    >img {
+      height: 100%;
+    }
     &:first-child {
       margin-bottom: 8px;
     }
     .category-name {
+      position: absolute;
+      left: 16px;
+      bottom: 44px;
+      top: unset;
       font-size: $base-text-size;
-      @include content-absolute($left: 16px, $bottom: 44px);
       &.badge-sale::after {
         font-size: 8px;
         padding: 2px;
       }
     } 
     >a {
-      @include content-absolute($left: 16px, $bottom: 16px);
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
     }
   }
 }

@@ -6,18 +6,20 @@
   z-index: 999;
   .header-wrap {
     @extend .container;
-    @include flex(space-between);
+    @extend %flex-space-between;
     padding-top: 55px;
   }
 }
 .menu-list {
-  @include flex(space-between);
-  margin-left: -96px;
+  @extend %flex-space-between;
+    margin-left: -96px;
   .menu-item {
     margin-left: 96px;
   }
   .menu-item > a {
-    @include text-style(18px, $bold-weight,$text-line-height, $base-color);
+    font-size: 18px;
+    font-weight: $bold-weight;
+    color: $base-color;
   }
 }
 .header-left {
@@ -49,6 +51,7 @@
 @media only screen and (max-width: map-get($grid-breakpoints, sm )){
   .page-header {
     background-color: #fff;
+    position: relative;
     .header-wrap {
       padding-top: 20px;
       padding-bottom: 20px;

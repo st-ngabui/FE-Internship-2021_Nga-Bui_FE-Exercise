@@ -1,72 +1,7 @@
-@mixin badge-sale($left:0) {
-  position: absolute;
-  background-color: $sale-color;
-  font-size: 12px;
-  font-weight: bold;
-  color: $secondary-text-color;
-  display: block;
-  padding: 6px 9px;
-  border-radius: 20px;
-  left: $left;
-}
-@mixin text-style($font-size: $base-text-size , $font-weight: $weight-primary, $line-height: $text-line-height, $color: #ffff){
-  font-size: $font-size;
-  font-weight: $font-weight;
-  line-height: $line-height;
-  color: $color;
-}
-@mixin content-absolute($top: unset, $left: unset, $bottom: unset, $right: unset){
-  position: absolute;
-  top: $top;
-  left: $left;
-  bottom: $bottom;
-  right: $right;
-}
-@mixin block-style($width: 100%, $height: 100%, $background-color: transparent , $border: none, $border-radius: 0 ){
-  width: $width;
-  height: $height;
-  background-color: $background-color;
-  border: $border;
-  border-radius: $border-radius;
-}
-@mixin flex($justify-content: flex-start, $align-item: center) {
-  display: flex;
-  align-items: $align-item;
-  justify-content: $justify-content;
-}
-@mixin button-style($padding-y, $padding-x, $border-radius: 0, $background-color: #fff){
-  padding: $padding-y $padding-x;
-  border-radius: $border-radius;
-  background-color: $background-color;
-}
-@mixin img-style($width: 100%, $height: 100%, $background-size: cover){
-  width: $width;
-  height: $height;
-  background-size: $background-size;
-}
 @mixin columns ($col-max){
   @for $i from 1 through $col-max{
     .col-#{$i}{
-      width: $i/$col-max*100%;
+      width: percentage($i/$col-max);
     }
-  }
-}
-@mixin columsResponsive($breakpoint, $size, $col-max, $col-padding, $width-container){
-  @media only screen and (max-width: $breakpoint ){
-    .container {
-      max-width: $width-container;
-      width: 100%;
-    }
-    .row {
-      margin: 0 -#{$col-padding};
-    }
-    .col {
-      padding: 0 $col-padding;
-    }
-   @for $i from 1 through $col-max {
-     .col-#{$size}-#{$i} {
-      width: $i/$col-max*100%;
-     }
-   }
   }
 }

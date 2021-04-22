@@ -1,11 +1,14 @@
 .banner {
   position: relative;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/banner.png");
-  @include img-style($height: 800px);
+  height: 800px;
+  width: 100%;
   margin-bottom: 48px;
   .container{
     > ul {
-      @include content-absolute($left: 0,$bottom: 0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
       background-color: #fff;
       width: 1100px;
       padding: 38px 88px 24px 240px;
@@ -16,18 +19,24 @@
 .banner-title {
   padding: 222px 0 24px;
   margin-left: 96px;
-  @include text-style($xl-text-size, $bold-weight, 1);
-  width: 403px;
+  font-size: $xl-text-size;
+  font-weight: $bold-weight;
+  line-height: 1;
+  max-width: 403px;
+  color: $secondary-text-color;
   .text-special {
     color: $base-color;
   }
 }
 .shopping {
   margin-left: 96px;
-  @include flex;
+  display: flex;
+  align-items: center;
   .shopping-text {
-    @include text-style($md-text-size, $bold-weight);
+    font-size: $md-text-size;
+    font-weight: $bold-weight;
     padding-left: 21px;
+    color: $secondary-text-color;
   }
 }
 .grid-item {
@@ -37,23 +46,27 @@
   .footer-banner-item {
     display: flex;
     .footer-banner-icon {
-     @include block-style(36px, 36px);
+     width: 36px;
+     height: 36px;
       margin-right: 21px;
     }
   }
   .footer-banner-detail {
     .footer-banner-name {
       margin-bottom: 4px;
-      @include text-style($font-weight: bold, $color: $base-text-color);
+      font-weight: bold;
     }
     .footer-banner-description {
-      @include text-style($font-size: $xs-text-size, $color: #a8a8a8);
+      font-size: $xs-text-size;
+      color: #a8a8a8;
     }
   }
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )){
   .banner {
     margin-bottom: 24px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/banner-sm.png");
+    height: 740px;
     .container {
       .banner-title, .shopping {
         margin-left: 0;
