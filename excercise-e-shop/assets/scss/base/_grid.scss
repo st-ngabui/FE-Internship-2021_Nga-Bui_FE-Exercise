@@ -6,8 +6,8 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -#{$col-margin};
-  margin-right: -#{$col-margin};
+  margin-left: -#{$col-padding};
+  margin-right: -#{$col-padding};
 }
 .row.no-gutters {
   margin-left: 0;
@@ -15,25 +15,16 @@
 }
 
 .col {
-  margin-left: $col-margin;
-  margin-right: $col-margin;
+  padding-left: $col-padding;
+  padding-right: $col-padding;
 }
-
 .row.no-gutters .col {
   padding-left: 0;
   padding-right: 0;
 }
+@include columns($grid-columns);
 .grid-list {
   display: flex;
   justify-content: space-between;
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
-  @for $i from 1 through 12 {
-    .col-sm-#{$i}{
-        flex: $i/12 *100%;
-        max-width: $i/12*100%;
-    }
-}
-}
-
-
+@include columsResponsive(map-get($grid-breakpoints, sm ), sm, $grid-columns, $col-padding-sm, 327px);

@@ -17,3 +17,8 @@ h4 {
 .text-center {
   text-align: center;
 }
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .section-title {
+    font-size: 18px;
+  }
+}

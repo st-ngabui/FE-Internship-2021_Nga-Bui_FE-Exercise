@@ -1,9 +1,3 @@
-.category {
-  width: calc((100% - 2 * 20px) / 4);
-  &:first-child {
-    width: calc((100% - 2 * 20px) / 2);
-  }
-}
 .category-item {
   position: relative;
   height: 360px;
@@ -27,5 +21,24 @@
   }
   > a {
     @include content-absolute($left: 40px, $bottom: 53px);
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .category-item {
+    height: 225px;
+    &:first-child {
+      margin-bottom: 8px;
+    }
+    .category-name {
+      font-size: $base-text-size;
+      @include content-absolute($left: 16px, $bottom: 44px);
+      &.badge-sale::after {
+        font-size: 8px;
+        padding: 2px;
+      }
+    } 
+    >a {
+      @include content-absolute($left: 16px, $bottom: 16px);
+    }
   }
 }

@@ -20,6 +20,17 @@
     @include text-style(18px, $bold-weight,$text-line-height, $base-color);
   }
 }
+.header-left {
+  h1 {
+    line-height: 0;
+    a {
+      font-size: unset;
+    }
+    .logo-sm {
+      display: none;
+    }
+  }
+}
 .header-right {
   display: flex;
 }
@@ -29,6 +40,38 @@
     .icon {
       font-size: 24px;
       color: $secondary-text-color;
+    }
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .page-header {
+    background-color: #fff;
+    .header-wrap {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .header-center {
+         display: none;
+      }
+    }
+  }
+  .header-left {
+    margin: 0;
+    h1 {
+      line-height: 0;
+      .logo {
+        display: none;
+      }
+      .logo-sm {
+        display: block;
+      }
+    }
+  }
+  .header-right-item {
+    .header-right-link {
+      .icon {
+        font-size: 20px;
+        color: $base-text-color;
+      }
     }
   }
 }

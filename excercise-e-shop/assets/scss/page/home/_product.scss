@@ -21,7 +21,6 @@
   }
 }
 .product {
-  width: calc((100% - 3 * 20px) / 4);
   .product-item {
     position: relative;
     &.badge-sale::after {
@@ -53,5 +52,48 @@
   }
   .price-before-sale {
     color: #cecece;
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .recommend-cloth {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    .container {
+      .section-title {
+        padding-bottom: 16px;
+      }
+      .btn-secondary {
+        line-height: 27px;
+      }
+    }
+  }
+  .product-today {
+    margin-bottom: 40px;
+    .container {
+      .section-title {
+        text-align: left;
+        padding: 48px 0 16px;
+      }
+    }
+  }
+  .product {
+    padding-bottom: 12px;
+    .product-item {
+      &.badge-sale::after {
+        @include badge-sale(9px);
+        top: 12px;
+        padding: 2px;
+        font-size: $xxs-text-size;
+      }
+    }
+  }
+  .product-info{
+    .product-name {
+      font-size: $xs-text-size;
+      padding-top: 2px;
+    }
+  }
+  .product-price-group  {
+    font-size: $xxs-text-size;
   }
 }

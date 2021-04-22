@@ -7,6 +7,7 @@ $base-font-family: 'poppins', sans-serif;
 $text-line-height: 1.5;
 
 $base-text-size: 14px;
+$xxs-text-size: 10px;
 $xs-text-size: 12px;
 $sm-text-size: 13px;
 $md-text-size: 24px;
@@ -25,4 +26,5 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px
 );
-$col-margin: 10px;
+$col-padding: 10px;
+$col-padding-sm: 4px;

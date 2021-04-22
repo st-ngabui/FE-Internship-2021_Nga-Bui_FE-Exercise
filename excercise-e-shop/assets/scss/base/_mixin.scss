@@ -44,3 +44,29 @@
   height: $height;
   background-size: $background-size;
 }
+@mixin columns ($col-max){
+  @for $i from 1 through $col-max{
+    .col-#{$i}{
+      width: $i/$col-max*100%;
+    }
+  }
+}
+@mixin columsResponsive($breakpoint, $size, $col-max, $col-padding, $width-container){
+  @media only screen and (max-width: $breakpoint ){
+    .container {
+      max-width: $width-container;
+      width: 100%;
+    }
+    .row {
+      margin: 0 -#{$col-padding};
+    }
+    .col {
+      padding: 0 $col-padding;
+    }
+   @for $i from 1 through $col-max {
+     .col-#{$size}-#{$i} {
+      width: $i/$col-max*100%;
+     }
+   }
+  }
+}

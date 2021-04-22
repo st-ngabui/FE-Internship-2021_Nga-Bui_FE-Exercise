@@ -9,24 +9,41 @@
 }
 .benefit-list {
   padding-bottom: 54px;
-  .grid-item {
-    width: calc((100% - 3*51px) /4);
-  }
 }
-.benefit-item-info {
-  .icon-wrap {
-    @include block-style(68px, 68px, #fff,none, 10px);
-    margin-bottom: 46px;
-    .icon {
-      color: $base-text-color;
-      font-size: 30px;
+.benefit-item{
+  .benefit-item-infor {
+    .benefit-name {
+      @include text-style(16px, $bold-weight, $text-line-height, $base-text-color);
+      margin: 46px 0 16px;
+    }
+    .benefit-description {
+      @include text-style($color: #808080)
     }
   }
-  .benefit-name {
-    @include text-style(16px, $bold-weight, $text-line-height, $base-text-color);
-    margin: 46px 0 16px;
-  }
 }
-.benefit-description {
-  @include text-style($color: #808080)
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .benefits {
+    .container {
+      .section-title {
+        padding: 24px 0 36px;
+      }
+    }
+  }
+  .benefit-list {
+    padding-bottom: 8px;
+  }
+  .benefit-item {
+    @include flex;
+    margin-bottom: 16px;
+    .benefit-item-infor {
+      margin-left: 17px;
+      .benefit-name {
+        margin: 0;
+        font-size: $xs-text-size;
+      }
+      .benefit-description {
+        font-size: $xxs-text-size;
+      }
+    }
+  }
 }

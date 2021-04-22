@@ -3,19 +3,19 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/banner.png");
   @include img-style($height: 800px);
   margin-bottom: 48px;
-
-  > ul {
-    @include content-absolute($left: 0,$bottom: 0);
-    background-color: #fff;
-    width: 1100px;
-    padding: 38px 88px 24px 240px;
-    border-top-right-radius:70px;
-    // z-index: 100;
+  .container{
+    > ul {
+      @include content-absolute($left: 0,$bottom: 0);
+      background-color: #fff;
+      width: 1100px;
+      padding: 38px 88px 24px 240px;
+      border-top-right-radius:70px;
+    }
   }
 }
 .banner-title {
   padding: 222px 0 24px;
-  margin-left: 240px;
+  margin-left: 96px;
   @include text-style($xl-text-size, $bold-weight, 1);
   width: 403px;
   .text-special {
@@ -23,7 +23,7 @@
   }
 }
 .shopping {
-  margin-left: 240px;
+  margin-left: 96px;
   @include flex;
   .shopping-text {
     @include text-style($md-text-size, $bold-weight);
@@ -48,6 +48,27 @@
     }
     .footer-banner-description {
       @include text-style($font-size: $xs-text-size, $color: #a8a8a8);
+    }
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .banner {
+    margin-bottom: 24px;
+    .container {
+      .banner-title, .shopping {
+        margin-left: 0;
+      }
+      .banner-title {
+        font-size: 48px;
+      }
+      .row{
+        display: none;
+      }
+    }
+  }
+  .shopping {
+    .shopping-text {
+      font-size: $base-text-size;
     }
   }
 }
