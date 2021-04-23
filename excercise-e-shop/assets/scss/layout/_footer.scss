@@ -1,5 +1,5 @@
-.page-footer {
-  background-color: $base-color;
+.footer-page {
+  background-color: map-get($color, base-color);
   .container {
     padding-top: 40px;
     .footer-top {
@@ -11,69 +11,72 @@
     padding: 24px 0;
     text-align: center;
     border-top: 1px solid #fff;
-    font-size: $sm-text-size;
-    color: $secondary-text-color;
+    font-size: map-get($font-size, sm-text-size);
+    color: map-get($color, secondary-text-color);
   }
 }
 .footer-top-left {
   max-width: 373px;
   .infor-content {
     padding-top: 24px;
-    color: $secondary-text-color;
+    color: map-get($color, secondary-text-color);
   }
-  .social-group {
+  .footer-social-group {
     display: flex;
     margin-top: 58px;
-    .social-item {
+    .footer-social-item {
       margin-right: 33px;
     }
   }
 }
-.footer-content {
+.footer-top-right {
   width: 100%;
   margin-left: 170px;
 }
 .infor-shop-content {
   .infor-shop-name {
     font-size: 16px;
-    font-weight: $bold-weight;
+    font-weight: map-get($font-size, bold-weight);
     margin-bottom: 19px;
-    color: $secondary-text-color;
+    color: map-get($color, secondary-text-color);
   }
 }
 .infor-shop {
   padding-bottom: 15px;
   > a,
   > p {
-    color: $secondary-text-color;
+    color: map-get($color, secondary-text-color);
   }
 }
-.social-icon {
+.footer-social-icon {
   .icon {
-    color: $secondary-text-color;
+    color: map-get($color, secondary-text-color);
     font-size: 18px;
   }
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )) {
-  .page-footer {
+  .footer-page {
     .container {
-      padding: 29px 0 24px;
+      padding-top: 29px;
       .footer-top {
-        padding-bottom: 24px;
+        padding-bottom: 14px;
         display: flex;
         flex-direction: column;
       }
+    }
+    .footer-bottom-text {
+      font-size: map-get($font-size, xs-text-size);
     }
   }
   .footer-top-left {
     .infor-content {
       padding: 24px 0 48px;
     }
-    .social-group {
+    .footer-social-group {
       display: none;
     }
   }
-  .footer-content {
+  .footer-top-right {
     display: flex;
     flex-direction: column;
     margin-left: -#{$col-padding-sm};
@@ -84,6 +87,12 @@
     }
     .infor-shop-list {
       margin-bottom: 24px;
+    }
+  }
+  .infor-shop {
+    padding-bottom: 10px;
+    > a, >p{
+      font-size: 12px;
     }
   }
 }

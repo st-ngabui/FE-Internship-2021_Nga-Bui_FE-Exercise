@@ -5,7 +5,7 @@
       padding-bottom: 40px;
     }
     position: relative;
-    .btn-secondary {
+    .product-btn {
       position: absolute;
       top: 0;
       right: 0;
@@ -39,10 +39,10 @@
   }
   .product-name {
     font-size: 16px;
-    font-weight: $light-weight;
+    font-weight: map-get($font-weight, light-weight);
     line-height: 1.9;
     padding-top: 16px;
-    color: $base-text-color;
+    color: map-get($color, base-text-color);
   }
 }
 .product-price-group {
@@ -50,11 +50,11 @@
   font-size: 20px;
   &.product-sale {
     .product-price {
-      color: $sale-color;
+      color: map-get($color, sale-color);
     }
   }
   .product-price {
-    color: $base-text-color;
+    color: map-get($color, base-text-color);
   }
   .price-before-sale {
     color: #cecece;
@@ -68,8 +68,10 @@
       .section-title {
         padding-bottom: 16px;
       }
-      .btn-secondary {
+      .product-btn {
+        border: none;
         line-height: 27px;
+        padding: 0;
       }
     }
   }
@@ -88,18 +90,18 @@
       &.badge-sale::after {
         left: 9px;
         top: 12px;
-        padding: 2px;
-        font-size: $xxs-text-size;
+        padding: 2px 4px;
+        font-size: 8px;
       }
     }
   }
   .product-info {
     .product-name {
-      font-size: $xs-text-size;
+      font-size: map-get($font-size, xs-text-size);
       padding-top: 2px;
     }
   }
   .product-price-group {
-    font-size: $xxs-text-size;
+    font-size: map-get($font-size, xxs-text-size);
   }
 }

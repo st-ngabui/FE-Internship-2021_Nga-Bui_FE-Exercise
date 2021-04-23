@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,19 +11,16 @@
   <title>E-shop</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
 <body>
-  <header class="page-header">
+  <header class="header-page">
     <div class="header-wrap">
       <div class="header-left">
-        <h1>
-          <a href="#" class="logo">
-            <img src="./assets/img/Logo.png" alt="e-shop">
-          </a>
-          <a href="#" class="logo-sm">
-            <img src="./assets/img/Logo_sm.png" alt="e-shop">
-          </a>
-        </h1>
+        <a href="#" class="logo">
+          <img src="./assets/img/Logo.png" alt="e-shop">
+        </a>
+        <a href="#" class="logo-sm">
+          <img src="./assets/img/Logo_sm.png" alt="e-shop">
+        </a>
       </div>
       <nav class="header-center">
         <ul class="menu-list">
@@ -36,22 +32,34 @@
       <ul class="header-right">
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <i class="fa fa-search icon"></i>
+            <img src="./assets/img/search.png" alt="search">
           </a>
         </li>
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <i class="fa fa-cart-plus icon"></i>
+            <img src="./assets/img/cart.png" alt="cart">
           </a>
         </li>
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <i class="fa fa-user icon"></i>
+            <img src="./assets/img/user.png" alt="avatar">
+          </a>
+        </li>
+      </ul>
+      <ul class="header-right-sm">
+        <li class="header-right-item">
+          <a href="#" class="header-right-link">
+            <img src="./assets/img/cart-sm.png" alt="cart">
           </a>
         </li>
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <i class="fa fa-bars icon"></i>
+            <img src="./assets/img/avartar-sm.png" alt="avatar">
+          </a>
+        </li>
+        <li class="header-right-item">
+          <a href="#" class="header-right-link">
+            <img src="./assets/img/menu-sm.png" alt="menu">
           </a>
         </li>
       </ul>
@@ -60,36 +68,36 @@
   <main>
     <section class="banner">
       <div class="container">
-        <h2 class="banner-title">Sale of the <span class="text-special">summer</span><br>collection</h2>
+        <h1 class="banner-title">Sale of the <span class="text-special">summer</span><br>collection</h1>
         <a href="#" class="shopping">
           <img src="./assets/img/arrow.png" alt="shop">
           <p class="shopping-text">Shop now</p>
         </a>
-        <ul class="row">
-          <li class="grid-item footer-banner">
-            <div class="footer-banner-item">
-              <img src="./assets/img/Group208.png" alt="advertisement" class="footer-banner-icon">
-              <div class="footer-banner-detail">
-                <h4 class="footer-banner-name">Free Shipping</h4>
-                <p class="footer-banner-description">On purchases over $199</p>
+        <ul class="row banner-footer-list">
+          <li class="col col-4 banner-footer">
+            <div class="banner-footer-item">
+              <img src="./assets/img/Group208.png" alt="advertisement" class="banner-footer-icon">
+              <div class="banner-footer-detail">
+                <h4 class="banner-footer-name">Free Shipping</h4>
+                <p class="banner-footer-description">On purchases over $199</p>
               </div>
             </div>
           </li>
-          <li class="grid-item footer-banner">
-            <div class="footer-banner-item">
-              <img src="./assets/img/Group209.png" alt="advertisement" class="footer-banner-icon">
-              <div class="footer-banner-detail">
-                <h4 class="footer-banner-name">99% Satisfied Customers</h4>
-                <p class="footer-banner-description">Our clients' opinions speak for themselves</p>
+          <li class="col col-4 banner-footer">
+            <div class="banner-footer-item">
+              <img src="./assets/img/Group209.png" alt="advertisement" class="banner-footer-icon">
+              <div class="banner-footer-detail">
+                <h4 class="banner-footer-name">99% Satisfied Customers</h4>
+                <p class="banner-footer-description">Our clients' opinions speak for themselves</p>
               </div>
             </div>
           </li>
-          <li class="grid-item footer-banner">
-            <div class="footer-banner-item">
-              <img src="./assets/img/Group210.png" alt="advertisement" class="footer-banner-icon">
-              <div class="footer-banner-detail">
-                <h4 class="footer-banner-name">Originality Guaranteed</h4>
-                <p class="footer-banner-description">30 days warranty for each product from our store</p>
+          <li class="col col-4 banner-footer">
+            <div class="banner-footer-item">
+              <img src="./assets/img/Group210.png" alt="advertisement" class="banner-footer-icon">
+              <div class="banner-footer-detail">
+                <h4 class="banner-footer-name">Originality Guaranteed</h4>
+                <p class="banner-footer-description">30 days warranty for each product from our store</p>
               </div>
             </div>
           </li>
@@ -103,7 +111,7 @@
             <div class="category-item">
               <img src="./assets/img/category-1.png" alt="category">
               <h3 class="category-name">New arrivalsare now in!</h3>
-              <a href="#" class="btn btn-primary">SHOW COLLECTION</a>
+              <a href="#" class="btn category-btn">SHOW COLLECTION</a>
             </div>
           </li>
           <li class="col col-3 col-sm-6">
@@ -111,14 +119,14 @@
               <img src="./assets/img/category-2.png" alt="category">
               <h3 class="category-name">Basic t-shirts<br>
                 $29,99</h3>
-              <a href="#" class="btn btn-primary">MORE DETAILS</a>
+              <a href="#" class="btn category-btn">MORE DETAILS</a>
             </div>
           </li>
           <li class="col col-3 col-sm-6">
             <div class="category-item">
               <img src="./assets/img/category-3.png" alt="category">
               <h3 class="category-name badge-sale">Sale this summer</h3>
-              <a href="#" class="btn btn-primary">VIEW ALL</a>
+              <a href="#" class="btn category-btn">VIEW ALL</a>
             </div>
           </li>
         </ul>
@@ -174,7 +182,7 @@
             </div>
           </li>
         </ul>
-        <a href="#" class="btn btn-secondary">SHOW MORE</a>
+        <a href="#" class="btn btn-outline product-btn">SHOW MORE</a>
       </div>
     </section>
     <section class="benefits">
@@ -292,19 +300,19 @@
         </ul>
       </div>
     </section>
-    <section class="subcribe">
-      <div class="container">
+    <section class="subscribe">
+      <div class="container subcribe-wrap">
         <p class="subscribe-title">
           Subscribe to our newsletter andreceive exclusive offers every week
         </p>
-        <form class="form-subscribe">
-          <input type="text" class="email" placeholder="Enter your email">
-          <button type="submit" class="btn btn-subscribe">SUBSCRIBE</button>
+        <form class="subscribe-form">
+          <input type="text" class="subscribe-form-email" placeholder="Enter your email">
+          <button type="submit" class="btn btn-primary subscribe-btn">SUBSCRIBE</button>
         </form>
       </div>
     </section>
   </main>
-  <footer class="page-footer">
+  <footer class="footer-page">
     <div class="container">
       <div class="footer-top">
         <div class="footer-top-left">
@@ -313,35 +321,35 @@
             House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the
             fashionable
           </p>
-          <ul class="social-group">
-            <li class="social-item">
-              <a href="#" class="social-icon">
+          <ul class="footer-social-group">
+            <li class="footer-social-item">
+              <a href="#" class="footer-social-icon">
                 <i class="fa fa-facebook-f icon"></i>
               </a>
             </li>
-            <li class="social-item">
-              <a href="#" class="social-icon">
+            <li class="footer-social-item">
+              <a href="#" class="footer-social-icon">
                 <i class="fa fa-twitter icon"></i>
               </a>
             </li>
-            <li class="social-item">
-              <a href="#" class="social-icon">
+            <li class="footer-social-item">
+              <a href="#" class="footer-social-icon">
                 <i class="fab fa-linkedin-in icon"></i>
               </a>
             </li>
-            <li class="social-item">
-              <a href="#" class="social-icon">
+            <li class="footer-social-item">
+              <a href="#" class="footer-social-icon">
                 <i class="fa fa-instagram icon"></i>
               </a>
             </li>
-            <li class="social-item">
-              <a href="#" class="social-icon">
+            <li class="footer-social-item">
+              <a href="#" class="footer-social-icon">
                 <i class="fab fa-youtube icon"></i>
               </a>
             </li>
           </ul>
         </div>
-        <ul class="row footer-content">
+        <ul class="row footer-top-right">
           <li class="col col-4 col-sm-12">
             <div class="infor-shop-content">
               <p class="infor-shop-name">Shopping online</p>
@@ -405,5 +413,4 @@
     <p class="footer-bottom-text">DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.</p>
   </footer>
 </body>
-
 </html>

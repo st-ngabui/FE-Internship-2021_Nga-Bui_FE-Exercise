@@ -1,8 +1,8 @@
 
 body {
   font-family: $base-font-family;
-  font-size: $base-text-size;
-  font-weight: $weight-primary;
+  font-size: map-get($font-size, base-text-size);
+  font-weight: map-get($font-weight, weight-primary);
   line-height: $text-line-height;
-  color: $base-text-color;
+  color: map-get($color, base-text-color);
 }

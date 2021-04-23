@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $base-text-color;
+    background-color: map-get($color, base-text-color);
     opacity: 0.5;
   }
   > img {
@@ -18,8 +18,8 @@
     position: absolute;
     top: 50%;
     left: 40px;
-    font-size: $md-text-size;
-    color: $secondary-text-color;
+    font-size: map-get($font-size, md-text-size);
+    color: map-get($color, secondary-text-color);
     &.badge-sale::after {
       @extend %badge-sale;
       content: "-50%";
@@ -27,13 +27,13 @@
       bottom: calc(100% + 8px);
     }
   }
-  > a {
+  .category-btn {
     position: absolute;
     left: 40px;
     bottom: 53px;
   }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .category-item {
     height: 225px;
     >img {
@@ -47,14 +47,14 @@
       left: 16px;
       bottom: 44px;
       top: unset;
-      font-size: $base-text-size;
+      max-width: 120px;
+      font-size: map-get($font-size, base-text-size);
       &.badge-sale::after {
         font-size: 8px;
-        padding: 2px;
+        padding: 2px 4px;
       }
     } 
-    >a {
-      position: absolute;
+    .category-btn {
       left: 16px;
       bottom: 16px;
     }

@@ -1,20 +1,20 @@
 h1 {
-  font-size: $xl-text-size;
+  font-size: map-get($font-size, xl-text-size);
+  font-weight: map-get($font-weight, bold-weight);
 }
 h2 {
-  font-size: $lg-text-size;
+  font-size: map-get($font-size, lg-text-size);
 }
 h3 {
-  font-size: $md-text-size;
+  font-size: map-get($font-size, md-text-size);
 }
 h4 {
-  font-size: $base-text-color;
+  font-size: map-get($color, base-text-color);
 }
 .section-title {
-  font-size: $lg-text-size;
-  font-weight: $light-weight;
+  font-size: map-get($font-size, lg-text-size);
+  font-weight: map-get($font-weight, light-weight);
 }
-
 .text-center {
   text-align: center;
 }

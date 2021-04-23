@@ -4,28 +4,15 @@
   height: 800px;
   width: 100%;
   margin-bottom: 48px;
-  .container{
-    > ul {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-color: #fff;
-      width: 1100px;
-      padding: 38px 88px 24px 240px;
-      border-top-right-radius:70px;
-    }
-  }
 }
 .banner-title {
   padding: 222px 0 24px;
   margin-left: 96px;
-  font-size: $xl-text-size;
-  font-weight: $bold-weight;
   line-height: 1;
   max-width: 403px;
-  color: $secondary-text-color;
+  color: map-get($color, secondary-text-color);
   .text-special {
-    color: $base-color;
+    color: map-get($color, base-color);
   }
 }
 .shopping {
@@ -33,55 +20,63 @@
   display: flex;
   align-items: center;
   .shopping-text {
-    font-size: $md-text-size;
-    font-weight: $bold-weight;
+    font-size: map-get($font-size, md-text-size);
+    font-weight: map-get($font-weight, bold-weight);
     padding-left: 21px;
-    color: $secondary-text-color;
+    color: map-get($color, secondary-text-color);
   }
 }
-.grid-item {
-  &.footer-banner {
-    width: calc((100% - 2 * 24px) / 3);
-  }
-  .footer-banner-item {
+.banner-footer-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 1100px;
+  padding: 38px 88px 24px 240px;
+  border-top-right-radius: 70px;
+}
+.banner-footer {
+  .banner-footer-item {
     display: flex;
-    .footer-banner-icon {
-     width: 36px;
-     height: 36px;
+    .banner-footer-icon {
+      width: 36px;
+      height: 36px;
       margin-right: 21px;
     }
   }
-  .footer-banner-detail {
-    .footer-banner-name {
+  .banner-footer-detail {
+    .banner-footer-name {
       margin-bottom: 4px;
       font-weight: bold;
     }
-    .footer-banner-description {
-      font-size: $xs-text-size;
+    .banner-footer-description {
+      font-size: map-get($font-size, xs-text-size);
       color: #a8a8a8;
     }
   }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .banner {
     margin-bottom: 24px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/banner-sm.png");
     height: 740px;
     .container {
-      .banner-title, .shopping {
+      .banner-title,
+      .shopping {
         margin-left: 0;
       }
       .banner-title {
         font-size: 48px;
       }
-      .row{
+      .row {
         display: none;
       }
     }
   }
   .shopping {
+    padding-left: 11px;
     .shopping-text {
-      font-size: $base-text-size;
+      font-size: map-get($font-size, base-text-size);
     }
   }
 }

@@ -1,7 +1,10 @@
-@mixin columns ($col-max){
-  @for $i from 1 through $col-max{
-    .col-#{$i}{
-      width: percentage($i/$col-max);
+@mixin responsive-col($col-max, $size, $breakpoint) {
+  @media (max-width: $breakpoint) {
+    @for $i from 1 through $col-max {
+      .col-#{$size}-#{$i}{
+        width: percentage($i/$col-max);
+        padding: 0 10px;
+      }
     }
   }
 }

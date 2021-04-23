@@ -10,11 +10,11 @@
 .benefit-list {
   padding-bottom: 54px;
 }
-.benefit-item{
+.benefit-item {
   .benefit-item-infor {
     .benefit-name {
       font-size: 16px;
-      font-weight: $bold-weight;
+      font-weight: map-get($font-weight, bold-weight);
       margin: 46px 0 16px;
     }
     .benefit-description {
@@ -22,7 +22,7 @@
     }
   }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .benefits {
     .container {
       .section-title {
@@ -37,13 +37,17 @@
     display: flex;
     margin-bottom: 16px;
     .benefit-item-infor {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px 0 4px;
       margin-left: 17px;
       .benefit-name {
         margin: 0;
-        font-size: $xs-text-size;
+        font-size: map-get($font-size, xs-text-size);
       }
       .benefit-description {
-        font-size: $xxs-text-size;
+        font-size: map-get($font-size, xxs-text-size);
       }
     }
   }

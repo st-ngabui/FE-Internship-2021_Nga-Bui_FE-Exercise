@@ -5,10 +5,10 @@
 };
 %badge-sale {
   position: absolute;
-  background-color: $sale-color;
+  background-color: map-get($color, sale-color);
   font-size: 12px;
   font-weight: bold;
-  color: $secondary-text-color;
+  color: map-get($color, secondary-text-color);
   display: block;
   padding: 6px 9px;
   border-radius: 20px;

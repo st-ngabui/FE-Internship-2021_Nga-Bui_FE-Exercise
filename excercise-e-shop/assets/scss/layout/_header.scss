@@ -1,4 +1,4 @@
-.page-header {
+.header-page {
   position: fixed;
   left: 0;
   width: 100%;
@@ -12,78 +12,68 @@
 }
 .menu-list {
   @extend %flex-space-between;
-    margin-left: -96px;
+  margin-left: -96px;
   .menu-item {
     margin-left: 96px;
   }
   .menu-item > a {
     font-size: 18px;
-    font-weight: $bold-weight;
-    color: $base-color;
+    font-weight: map-get($font-weight, bold-weight);
+    color: map-get($color, base-color);
   }
 }
 .header-left {
-  h1 {
-    line-height: 0;
-    a {
-      font-size: unset;
-    }
-    .logo-sm {
-      display: none;
-    }
+  a {
+    font-size: unset;
+  }
+  .logo-sm {
+    display: none;
   }
 }
-.header-right {
+.header-right, .header-right-sm {
   display: flex;
 }
 .header-right-item {
-  &:last-child {
-    display: none;
-  }
   .header-right-link {
     padding-left: 24px;
-    .icon {
-      font-size: 24px;
-      color: $secondary-text-color;
-    }
   }
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
-  .page-header {
+.header-right-sm {
+  display: none;
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .header-page {
     background-color: #fff;
-    position: relative;
     .header-wrap {
       padding-top: 20px;
       padding-bottom: 20px;
       .header-center {
-         display: none;
+        display: none;
       }
     }
   }
   .header-left {
     margin: 0;
-    h1 {
+    .logo {
+      display: none;
+    }
+    .logo-sm {
+      display: block;
       line-height: 0;
-      .logo {
-        display: none;
-      }
-      .logo-sm {
-        display: block;
-      }
     }
   }
   .header-right-item {
-    &:first-child {
-      display: none;
-    }
-    &:last-child {
-      display: block;
-    }
     .header-right-link {
       .icon {
         font-size: 20px;
-        color: $base-text-color;
+        color: map-get($color, base-text-color);
       }
     }
+  }
+  .header-right {
+    display: none;
+  }
+  .header-right-sm {
+    display: flex;
   }
 }

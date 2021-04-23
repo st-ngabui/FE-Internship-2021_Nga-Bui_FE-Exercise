@@ -11,19 +11,22 @@
 .row.no-gutters {
   margin: 0;
 }
-
 .col {
   padding:0 $col-padding;
 }
 .row.no-gutters .col {
   padding: 0;
 }
-@include columns($grid-columns);
+@for $i from 1 through $grid-columns {
+  .col-#{$i}{
+    width: percentage($i/$grid-columns);
+  }
+}
 .grid-list {
   display: flex;
   justify-content: space-between;
 }
-@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .container {
     max-width: 327px;
     width: 100%;
