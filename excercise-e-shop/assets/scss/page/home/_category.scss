@@ -1,6 +1,5 @@
 .category-item {
   position: relative;
-  height: 360px;
   &::before {
     position: absolute;
     content: "";
@@ -13,6 +12,8 @@
   }
   > img {
     width: 100%;
+    max-width: 100%;
+    display: block;
   }
   .category-name {
     position: absolute;

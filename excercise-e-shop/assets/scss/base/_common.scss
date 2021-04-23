@@ -5,4 +5,5 @@ body {
   font-weight: map-get($font-weight, weight-primary);
   line-height: $text-line-height;
   color: map-get($color, base-text-color);
+  overflow-x: hidden;
 }
