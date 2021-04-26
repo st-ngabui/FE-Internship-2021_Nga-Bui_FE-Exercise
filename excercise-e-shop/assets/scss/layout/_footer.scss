@@ -3,8 +3,7 @@
   .container {
     padding-top: 40px;
     .footer-top {
-      @extend %flex-space-between;
-      padding-bottom: 51px;
+      margin-bottom: 51px;
     }
   }
   .footer-bottom-text {
@@ -16,8 +15,8 @@
   }
 }
 .footer-top-left {
-  max-width: 373px;
   .infor-content {
+    max-width: 373px;
     padding-top: 24px;
     color: map-get($color, secondary-text-color);
   }
@@ -28,10 +27,6 @@
       margin-right: 33px;
     }
   }
-}
-.footer-top-right {
-  width: 100%;
-  margin-left: 170px;
 }
 .infor-shop-content {
   .infor-shop-name {
@@ -59,7 +54,7 @@
     .container {
       padding-top: 29px;
       .footer-top {
-        padding-bottom: 14px;
+        margin-bottom: 14px;
         display: flex;
         flex-direction: column;
       }
@@ -70,6 +65,7 @@
   }
   .footer-top-left {
     .infor-content {
+      width: 100%;
       padding: 24px 0 48px;
     }
     .footer-social-group {
@@ -91,7 +87,8 @@
   }
   .infor-shop {
     padding-bottom: 10px;
-    > a, >p{
+    > a,
+    > p {
       font-size: 12px;
     }
   }

@@ -5,12 +5,12 @@
   background-color: transparent;
   z-index: 999;
   padding-bottom: 10px;
-    background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
   .header-wrap {
     @extend .container;
     @extend %flex-space-between;
     padding-top: 55px;
-    line-height: 0
+    line-height: 0;
   }
 }
 .menu-list {
@@ -25,7 +25,8 @@
     color: map-get($color, base-color);
   }
 }
-.header-right, .header-right-sm {
+.header-right,
+.header-right-sm {
   display: flex;
 }
 .header-right-item {
@@ -55,12 +56,11 @@
   }
   .header-right-img_1 {
     content: url(../img/cart-sm.png);
-  }     
+  }
   .header-right-img_2 {
     content: url(../img/avartar-sm.png);
   }
   .header-right-img_3 {
     content: url(../img/menu-sm.png);
   }
-  
 }
