@@ -223,7 +223,8 @@ h4 {
   padding-bottom: 10px;
   background: rgba(0, 0, 0, 0.7); }
   .header-page .header-wrap {
-    padding-top: 55px; }
+    padding-top: 55px;
+    line-height: 0; }
 
 .menu-list {
   margin-left: -96px; }
@@ -234,20 +235,11 @@ h4 {
     font-weight: 700;
     color: #fbb03b; }
 
-.header-left a {
-  font-size: unset; }
-
-.header-left .logo-sm {
-  display: none; }
-
 .header-right, .header-right-sm {
   display: flex; }
 
 .header-right-item .header-right-link {
   padding-left: 24px; }
-
-.header-right-sm {
-  display: none; }
 
 @media only screen and (max-width: 375px) {
   .header-page {
@@ -259,18 +251,16 @@ h4 {
         display: none; }
   .header-left {
     margin: 0; }
-    .header-left .logo {
-      display: none; }
-    .header-left .logo-sm {
-      display: block;
+    .header-left a {
       line-height: 0; }
-  .header-right-item .header-right-link .icon {
-    font-size: 20px;
-    color: #333333; }
-  .header-right {
-    display: none; }
-  .header-right-sm {
-    display: flex; } }
+      .header-left a img {
+        content: url(../img/Logo_sm.png); }
+  .header-right-img_1 {
+    content: url(../img/cart-sm.png); }
+  .header-right-img_2 {
+    content: url(../img/avartar-sm.png); }
+  .header-right-img_3 {
+    content: url(../img/menu-sm.png); } }
 
 .footer-page {
   background-color: #fbb03b; }

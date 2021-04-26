@@ -10,6 +10,7 @@
     @extend .container;
     @extend %flex-space-between;
     padding-top: 55px;
+    line-height: 0
   }
 }
 .menu-list {
@@ -24,14 +25,6 @@
     color: map-get($color, base-color);
   }
 }
-.header-left {
-  a {
-    font-size: unset;
-  }
-  .logo-sm {
-    display: none;
-  }
-}
 .header-right, .header-right-sm {
   display: flex;
 }
@@ -39,9 +32,6 @@
   .header-right-link {
     padding-left: 24px;
   }
-}
-.header-right-sm {
-  display: none;
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .header-page {
@@ -56,26 +46,21 @@
   }
   .header-left {
     margin: 0;
-    .logo {
-      display: none;
-    }
-    .logo-sm {
-      display: block;
+    a {
       line-height: 0;
-    }
-  }
-  .header-right-item {
-    .header-right-link {
-      .icon {
-        font-size: 20px;
-        color: map-get($color, base-text-color);
+      img {
+        content: url(../img/Logo_sm.png);
       }
     }
   }
-  .header-right {
-    display: none;
+  .header-right-img_1 {
+    content: url(../img/cart-sm.png);
+  }     
+  .header-right-img_2 {
+    content: url(../img/avartar-sm.png);
   }
-  .header-right-sm {
-    display: flex;
+  .header-right-img_3 {
+    content: url(../img/menu-sm.png);
   }
+  
 }
