@@ -2,50 +2,50 @@
   @extend %flex-space-between;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer.png");
   width: 100%;
-  height: 241px;
   position: relative;
   .subcribe-wrap {
-    @extend %flex-space-between;
-    .subscribe-title {
-      max-width: 493px;
-      font-size: map-get($font-size, md-text-size);
-      color: map-get($color, secondary-text-color);
-    }
-    .subscribe-form {
-      .subscribe-form-email {
-        padding: 14px 23px;
-        border-radius: 61px;
-        width: 351px;
-        margin-right: 40px;
-        font-size: map-get($font-size, sm-text-size);
-        color: #ababab;
+    margin: 85px auto;
+    .row {
+      align-items: center;
+      .subscribe-title {
+        font-size: map-get($font-size, md-text-size);
+        color: map-get($color, secondary-text-color);
+      }
+      .subscribe-form {
+        .subscribe-form-email {
+          padding: 14px 23px;
+          border-radius: 61px;
+          width: 351px;
+          margin-right: 40px;
+          font-size: map-get($font-size, sm-text-size);
+          color: #ababab;
+        }
       }
     }
   }
 }
 @media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .subscribe {
-    height: 217px;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 33.28%, rgba(0, 0, 0, 0) 94.05%), url("../img/footer-sm.png");
     .subcribe-wrap {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      height: 100%;
-      .subscribe-title {
-        max-width: 200px;
-        font-size: map-get($font-size, base-text-size);
-      }
-      .subscribe-form {
-        .subscribe-form-email {
-          padding: 6px 12px;
-          border-radius: 61px;
-          width: 100%;
-          margin-bottom: 16px;
-          font-size: map-get($font-size, xs-text-size);
+      margin: 24px auto ;
+      .row {
+        .subscribe-title {
+          max-width: 200px;
+          font-size: map-get($font-size, base-text-size);
+          margin-bottom: 24px;
         }
-        .subscribe-btn {
-          padding: 7px 20px;
+        .subscribe-form {
+          .subscribe-form-email {
+            padding: 6px 12px;
+            border-radius: 61px;
+            width: 100%;
+            margin-bottom: 16px;
+            font-size: map-get($font-size, xs-text-size);
+          }
+          .subscribe-btn {
+            padding: 7px 20px;
+          }
         }
       }
     }

@@ -37,6 +37,7 @@
 @media only screen and (max-width: map-get($grid-breakpoints, sm )) {
   .header-page {
     background-color: #fff;
+    padding-bottom: 0;
     .header-wrap {
       padding-top: 20px;
       padding-bottom: 20px;
