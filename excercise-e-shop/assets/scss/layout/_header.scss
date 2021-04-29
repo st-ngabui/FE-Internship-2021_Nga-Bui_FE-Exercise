@@ -1,0 +1,67 @@
+.header-page {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 999;
+  padding-bottom: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  .header-wrap {
+    @extend .container;
+    @extend %flex-space-between;
+    padding-top: 55px;
+    line-height: 0;
+  }
+}
+.menu-list {
+  @extend %flex-space-between;
+  margin-left: -96px;
+  .menu-item {
+    margin-left: 96px;
+  }
+  .menu-item > a {
+    font-size: 18px;
+    font-weight: map-get($font-weight, bold-weight);
+    color: map-get($color, base-color);
+  }
+}
+.header-right,
+.header-right-sm {
+  display: flex;
+}
+.header-right-item {
+  .header-right-link {
+    padding-left: 24px;
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .header-page {
+    background-color: #fff;
+    padding-bottom: 0;
+    .header-wrap {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .header-center {
+        display: none;
+      }
+    }
+  }
+  .header-left {
+    margin: 0;
+    a {
+      line-height: 0;
+      img {
+        content: url(../img/Logo_sm.png);
+      }
+    }
+  }
+  .header-right-img_1 {
+    content: url(../img/cart-sm.png);
+  }
+  .header-right-img_2 {
+    content: url(../img/avartar-sm.png);
+  }
+  .header-right-img_3 {
+    content: url(../img/menu-sm.png);
+  }
+}

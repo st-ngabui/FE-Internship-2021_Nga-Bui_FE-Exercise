@@ -1,0 +1,110 @@
+.banner {
+  position: relative;
+  max-height: 800px;
+  width: 100%;
+  margin-bottom: 48px;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+  }
+}
+.banner-content {
+  position: absolute;
+  left: calc((100% - 1152px)/2 + 96px);
+  top: 27.75%;
+  z-index: 900;
+  .banner-title {
+    max-width: 403px;
+    margin-bottom: 24px;
+    line-height: 1;
+    color: map-get($color, secondary-text-color);
+    .text-special {
+      color: map-get($color, base-color);
+    }
+  }
+  .shopping {
+    display: flex;
+    align-items: center;
+    .shopping-text {
+      font-size: map-get($font-size, md-text-size);
+      font-weight: map-get($font-weight, bold-weight);
+      padding-left: 21px;
+      color: map-get($color, secondary-text-color);
+    }
+  }
+}
+.banner-footer-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: calc((100% - 1152px)/2 + 196px);
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 38px 88px 24px calc((100% - 1152px)/2 + 96px);
+  border-top-right-radius: 70px;
+  z-index: 900;
+}
+.banner-footer {
+  // width: calc((100% - 2 * 48px) / 3);
+  max-width: 237px;
+  .banner-footer-item {
+    display: flex;
+    .banner-footer-icon {
+      width: 36px;
+      height: 36px;
+      margin-right: 21px;
+    }
+  }
+  .banner-footer-detail {
+    .banner-footer-name {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+    .banner-footer-description {
+      font-size: map-get($font-size, xs-text-size);
+      color: #a8a8a8;
+    }
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .banner {
+    margin-bottom: 24px;
+    // height: 740px;
+    .banner-img {
+      content: url("../img/banner-sm.png");
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      .banner-content {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 24px;
+        .banner-title,
+        .shopping {
+          margin-left: 0;
+        }
+        .banner-title {
+          font-size: 48px;
+          margin-bottom: 16px;
+        }
+        .shopping {
+          padding-left: 11px;
+          .shopping-text {
+            font-size: map-get($font-size, base-text-size);
+          }
+        }
+      }
+      .banner-footer-list {
+        display: none;
+      }
+    }
+  }
+}

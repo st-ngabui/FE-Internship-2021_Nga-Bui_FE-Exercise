@@ -1,0 +1,25 @@
+h1 {
+  font-size: map-get($font-size, xl-text-size);
+  font-weight: map-get($font-weight, bold-weight);
+}
+h2 {
+  font-size: map-get($font-size, lg-text-size);
+}
+h3 {
+  font-size: map-get($font-size, md-text-size);
+}
+h4 {
+  font-size: map-get($color, base-text-color);
+}
+.section-title {
+  font-size: map-get($font-size, lg-text-size);
+  font-weight: map-get($font-weight, light-weight);
+}
+.text-center {
+  text-align: center;
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )){
+  .section-title {
+    font-size: 18px;
+  }
+}

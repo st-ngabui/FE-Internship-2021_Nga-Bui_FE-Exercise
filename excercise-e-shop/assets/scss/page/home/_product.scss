@@ -1,0 +1,107 @@
+.recommend-cloth {
+  margin-top: 96px;
+  .container {
+    .section-title {
+      margin-bottom: 40px;
+    }
+    position: relative;
+    .product-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "SHOW MORE";
+    }
+  }
+}
+.product-today {
+  margin-bottom: 62px;
+  .container {
+    .section-title {
+      text-align: center;
+      padding: 48px 0 39px;
+    }
+  }
+}
+.product {
+  .product-item {
+    position: relative;
+    &.badge-sale::after {
+      @extend %badge-sale;
+      left: 27px;
+      top: 30px;
+      content: "-30%";
+    }
+  }
+}
+.product-info {
+  > img {
+    width: 100%;
+  }
+  .product-name {
+    font-size: 16px;
+    font-weight: map-get($font-weight, light-weight);
+    line-height: 1.9;
+    padding-top: 16px;
+    color: map-get($color, base-text-color);
+  }
+}
+.product-price-group {
+  @extend %flex-space-between;
+  font-size: 20px;
+  &.product-sale {
+    .product-price {
+      color: map-get($color, sale-color);
+    }
+  }
+  .product-price {
+    color: map-get($color, base-text-color);
+  }
+  .price-before-sale {
+    color: #cecece;
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .recommend-cloth {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    .container {
+      .section-title {
+        margin-bottom: 16px;
+      }
+      .product-btn {
+        border: none;
+        line-height: 27px;
+        padding: 0;
+      }
+    }
+  }
+  .product-today {
+    margin-bottom: 40px;
+    .container {
+      .section-title {
+        text-align: left;
+        padding: 48px 0 16px;
+      }
+    }
+  }
+  .product {
+    padding-bottom: 12px;
+    .product-item {
+      &.badge-sale::after {
+        left: 9px;
+        top: 12px;
+        padding: 2px 4px;
+        font-size: 8px;
+      }
+    }
+  }
+  .product-info {
+    .product-name {
+      font-size: map-get($font-size, xs-text-size);
+      padding-top: 2px;
+    }
+  }
+  .product-price-group {
+    font-size: map-get($font-size, xxs-text-size);
+  }
+}

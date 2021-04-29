@@ -1,0 +1,66 @@
+.category-item {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: map-get($color, base-text-color);
+    opacity: 0.5;
+  }
+  > img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+  .category-sale {
+    @extend %badge-sale;
+    left: 40px;
+    top: 50%;
+    transform: translateY(calc(-100% - 8px));
+  }
+  .category-name {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    font-size: map-get($font-size, md-text-size);
+    color: map-get($color, secondary-text-color);
+  }
+  .category-btn {
+    position: absolute;
+    left: 40px;
+    bottom: 53px;
+  }
+}
+@media only screen and (max-width: map-get($grid-breakpoints, sm )) {
+  .category-item {
+    height: 225px;
+    > img {
+      height: 100%;
+    }
+    &:first-child {
+      margin-bottom: 8px;
+    }
+    .category-sale {
+      font-size: 8px;
+      padding: 2px 4px;
+      left: 16px;
+      transform: translateY(6px);
+    }
+    .category-name {
+      position: absolute;
+      left: 16px;
+      bottom: 44px;
+      top: unset;
+      max-width: 120px;
+      font-size: map-get($font-size, base-text-size);
+    }
+    .category-btn {
+      left: 16px;
+      bottom: 16px;
+    }
+  }
+}
