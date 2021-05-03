@@ -740,3 +740,17 @@ h4 {
     text-align: center;
     border-radius: 4px;
     padding: 8px; }
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .cart-empty .cart-empty-img {
+    width: 200px; }
+  .cart-empty .cart-empty-text {
+    margin-top: 30px; }
+  .cart-empty .btn-shopping {
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 24px; }
