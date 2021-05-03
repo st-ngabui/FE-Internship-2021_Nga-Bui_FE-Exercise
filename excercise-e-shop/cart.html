@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <title>E-shop-cart</title>
 </head>
 <body>
   <header class="header-page">
@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="header-right-item">
-          <a href="#" class="header-right-link">
+          <a href="#" class="header-right-link cart-icon">
             <img class="header-right-img_2" src="./assets/img/cart.png" alt="cart">
           </a>
         </li>
@@ -42,63 +42,8 @@
     </div>
   </header>
   <section class = "cart-page">
-    <div class="container">
+    <div class="container cart-wrap">
       <p class="cart-page-title">Giỏ Hàng</p>
-      <div class="row">
-        <div class="col-9">
-          <ul class="cart-product-list">
-            <li class="cart-product">
-              <div class="cart-product-wrap">
-                <img class = "cart-product-img" src="./assets/img/product-2.png" alt="T-Shirt Summer Vibes">
-                <div class="cart-product-right">
-                  <div class="cart-product-info">
-                    <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                    <p class="cart-product-price">$89.98</p>
-                    <div class="cart-product-quantity">
-                      <button class="btn btn-outline btn-quantity">-</button>
-                      <input value = "1" type="text" class="cart-product-input">
-                      <button class="btn btn-outline btn-quantity">+</button>
-                    </div>
-                  </div>
-                  <div class="cart-product-action">
-                    <a href="" class="cart-product-link">Xóa</a>
-                  </div>
-
-                </div>
-              </div>
-            </li>
-            <li class="cart-product">
-              <div class="cart-product-wrap">
-                <img class = "cart-product-img" src="./assets/img/product-1.png" alt="T-Shirt Summer Vibes">
-                <div class="cart-product-right">
-                  <div class="cart-product-info">
-                    <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                    <p class="cart-product-price">$100.03</p>
-                    <div class="cart-product-quantity">
-                      <button class="btn btn-outline btn-quantity">-</button>
-                      <input value = "1" type="text" class="cart-product-input">
-                      <button class="btn btn-outline btn-quantity">+</button>
-                    </div>
-                  </div>
-                  <div class="cart-product-action">
-                    <a href="" class="cart-product-link">Xóa</a>
-                  </div>
-
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-3">
-          <div class="cart-page-left">
-            <p class="address-title">Address<br>
-              <span class="address">363 Nguyễn Hữu Thọ</span>
-            </p>
-            <p class="total-price-text">Total<span class="total-price">$199.99</span> </p>
-            <a href="#" class="btn btn-primary btn-pay">Pay</a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
   <footer class="footer-page">
@@ -203,5 +148,7 @@
     </div>
     <p class="footer-bottom-text">DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.</p>
   </footer>
+  <script src="./js/index.js"></script>
+  <script src="./js/cart.js"></script>
 </body>
 </html>
