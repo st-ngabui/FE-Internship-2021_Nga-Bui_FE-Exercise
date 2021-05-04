@@ -1,10 +1,9 @@
 //get total price
-var price = cart.reduce((price, product) => {
-  return price += product.price * product.quantity;
+var price = cart.reduce(function(price, product) {
+  return price + product.price * product.quantity;
 }, 0)
-console.log(cart);
-//check cart is product or not
-if (cart !== null && cart.length > 0) {
+// check cart is product or not
+if (cart.length) {
   //create element show products in carts
   var row = document.createElement('div');
   row.className = "row";
@@ -18,7 +17,7 @@ if (cart !== null && cart.length > 0) {
   cartProductList.className = "cart-product-list";
   cartLeft.appendChild(cartProductList);
   //loop the product in cart
-  cart.forEach((product) => {
+  cart.forEach(function(product) {
     //create element show product
     var cartProduct = document.createElement('li');
     cartProduct.className = "cart-product";
@@ -53,13 +52,14 @@ if (cart !== null && cart.length > 0) {
 
     var cartProductPrice = document.createElement('p');
     cartProductPrice.className = "cart-product-price";
-    cartProductPrice.innerHTML = `$${product.price.toFixed(2)}`;
+    console.log(product.price);
+    cartProductPrice.innerHTML = "$" + product.price.toFixed(2);
     cartPriceGroup.appendChild(cartProductPrice);
     //check product has discount or not
     if (product.discount) {
       var cartPriceBefore = document.createElement('p');
       cartPriceBefore.className = "cart-product-price-before";
-      cartPriceBefore.innerHTML = `$${(product.price * 100 / (100 - product.discount)).toFixed(2)}`;
+      cartPriceBefore.innerHTML = "$" +(product.price * 100 / (100 - product.discount)).toFixed(2);
       cartPriceGroup.appendChild(cartPriceBefore);
     }
     var cartProductQuantity = document.createElement('div');
@@ -122,7 +122,7 @@ if (cart !== null && cart.length > 0) {
 
   var totalPrice = document.createElement('span');
   totalPrice.className = "total-price";
-  totalPrice.innerHTML = `$${price.toFixed(2)}`;
+  totalPrice.innerHTML = "$" + price.toFixed(2);
   totalPriceText.appendChild(totalPrice);
 
   var btnPay = document.createElement('a');
@@ -158,14 +158,16 @@ else {
 //handle click decrease of increase button
 function handleClickQuantity(productId, id, e) {
   //get index of product in cart
-  var index = cart.findIndex(product => product.id === productId);
+  var index = -1;
+  for(var j = 0; j < cart.length; j++) {
+    if(cart[j].id === productId) {
+      index = j;
+    }
+  }
   //get quantity of product
   var quantity = cart[index].quantity;
   //check id to know button is decrease(id=1) or increase(id=2);
-  if (id == 1) {
-    if (quantity === 2) {
-      e.target.setAttribute("style", "background-color: rgba(1,1,1,0.05)");
-    }
+  if (id === 1) {
     //decrease product if quantity !== 1
     if (quantity !== 1) {
       //change cart and price
@@ -173,6 +175,9 @@ function handleClickQuantity(productId, id, e) {
       price -= cart[index].price;
       //show quantity product of cart after decrease
       document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - 1;
+    }
+    if (quantity === 2) {
+      e.target.setAttribute("style", "background-color: rgba(1,1,1,0.05)");
     }
   }
   //increase quantity
@@ -189,17 +194,23 @@ function handleClickQuantity(productId, id, e) {
   }
   //show change value after change quantity
   document.getElementsByClassName("cart-product-input")[index].value = cart[index].quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
+  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
   //save cart into localStorage
   localStorage.setItem("test", JSON.stringify(cart));
 }
 //handle remove product from cart
 function handleRemove(productId) {
   //get product remove
-  var product = cart.find(product => product.id === productId);
+  var product = {};
+  for(var i = 0; i < cart.length; i++) {
+    if(cart[i].id === productId) {
+      product = cart[i];
+      break;
+    }
+  }
   //change price after remove product
   price -= product.price * product.quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
+  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
   document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - product.quantity;
   //change cart
   cart = cart.filter((product) => product.id !== productId);
@@ -211,10 +222,15 @@ function handleChangeQuantity(productId, e) {
   //get quantity input
   var quantity = e.target.value;
   //get index product in cart
-  var index = cart.findIndex(product => product.id === productId);
+  var index = -1;
+  for(var j = 0; j < cart.length; j++) {
+    if(cart[j].id === productId) {
+      index = j;
+    }
+  }
   //check quantity < 1 or not
   if (quantity < 1) {
-    //not change if quantity<1
+    //not change if quantity < 1
     e.target.value = cart[index].quantity;
     return;
   }
@@ -223,7 +239,7 @@ function handleChangeQuantity(productId, e) {
     document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + (quantity - cart[index].quantity);
     //change price
     price = price + cart[index].price * (quantity - cart[index].quantity);
-    document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
+    document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
     //change cart
     cart[index].quantity = quantity;
     localStorage.setItem("test", JSON.stringify(cart));

@@ -30,19 +30,15 @@ var products = [
   },
 ]
 //get cart from localstorage
-var cart = JSON.parse(localStorage.getItem("test"));
+var cart = localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
 
 //create element show quantity product in cart
 var cartQuantity = document.createElement('p');
 cartQuantity.className = "cart-quantity";
 
 //show quantity product in cart
-if(cart !== null && cart.length > 0) {
-  cartQuantity.innerHTML = cart.reduce((quantity, product) => {
-    return quantity += product.quantity;
-  },0);
-}
-else {
-  cartQuantity.innerHTML = "0";
-}
+cartQuantity.innerHTML = cart.reduce(function(quantity, product) {
+  return quantity + product.quantity;
+},0);
+
 document.getElementsByClassName("cart-icon")[0].appendChild(cartQuantity);

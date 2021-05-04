@@ -1,4 +1,3 @@
-
 //show product in 2 section
 for (var i = 0; i < 2; i++) {
   //create element show list product
@@ -6,7 +5,7 @@ for (var i = 0; i < 2; i++) {
   productList.className = 'row';
   document.getElementsByClassName("products-wrap")[i].appendChild(productList);
 
-  products.forEach((product, index) => {
+  products.forEach(function(product) {
     //create element show product
     var li = document.createElement('li');
     li.className = "product col-3 col-sm-6";
@@ -67,16 +66,31 @@ for (var i = 0; i < 2; i++) {
 }
 //handle when click add to cart
 function addToCart(productId) {
+  var product;
+  var index = -1;
   //find product has id = productId
-  var infoProduct = products.find((product) => product.id === productId);
-  //get cart from localstorage
-  var cart = localStorage.getItem("test");
-  //check cart is null or not
-  cart === null ? cart = [] : cart = JSON.parse(cart);
-  var index = cart.findIndex((cartItem) => cartItem.id === productId);
-  //check product is exists?
+  for(var i = 0; i < products.length; i++) {
+    if(products[i].id === productId) {
+      product = products[i];
+      break;
+    }
+  }
+  //find index product in cart
+  for(var j = 0; j < cart.length; j++) {
+    if(cart[j].id === productId) {
+      index = j;
+    }
+  }
+  //check product is exits in cart or not
   if (index >= 0) cart[index].quantity += 1;
-  else cart.push({ ...infoProduct, quantity: 1 });
+  else cart.push({
+    id: product.id,
+    image: product.image,
+    name: product.name,
+    price: product.price,
+    discount: product.discount,
+    quantity: 1 
+    });
   localStorage.setItem("test", JSON.stringify(cart));
   //show quantity product in cart
   document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + 1;
