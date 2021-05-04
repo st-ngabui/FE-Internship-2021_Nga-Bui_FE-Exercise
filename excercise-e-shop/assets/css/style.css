@@ -693,11 +693,18 @@ h4 {
       margin-bottom: 24px; }
       .cart-product-wrap .cart-product-right .cart-product-info .cart-product-name {
         font-weight: 700; }
-      .cart-product-wrap .cart-product-right .cart-product-info .cart-product-price {
-        color: #fbb03b;
-        font-size: 16px; }
     .cart-product-wrap .cart-product-right .cart-product-action .cart-product-link {
       color: #f10a0a; }
+
+.cart-product-price-group {
+  display: flex; }
+  .cart-product-price-group .cart-product-price {
+    color: #fbb03b;
+    font-size: 16px; }
+  .cart-product-price-group .cart-product-price-before {
+    color: #cecece;
+    font-size: 16px;
+    margin-left: 16px; }
 
 .cart-product-quantity .btn-quantity {
   padding: 4px 10px;

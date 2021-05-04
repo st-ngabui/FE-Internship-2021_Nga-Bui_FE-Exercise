@@ -47,11 +47,21 @@ if (cart !== null && cart.length > 0) {
     cartProductName.innerHTML = product.name;
     cartProductInfo.appendChild(cartProductName);
 
+    var cartPriceGroup = document.createElement('div');
+    cartPriceGroup.className = "cart-product-price-group";
+    cartProductInfo.appendChild(cartPriceGroup);
+
     var cartProductPrice = document.createElement('p');
     cartProductPrice.className = "cart-product-price";
-    cartProductPrice.innerHTML = product.price.toFixed(2);
-    cartProductInfo.appendChild(cartProductPrice);
-
+    cartProductPrice.innerHTML = `$${product.price.toFixed(2)}`;
+    cartPriceGroup.appendChild(cartProductPrice);
+    //check product has discount or not
+    if (product.discount) {
+      var cartPriceBefore = document.createElement('p');
+      cartPriceBefore.className = "cart-product-price-before";
+      cartPriceBefore.innerHTML = `$${(product.price * 100 / (100 - product.discount)).toFixed(2)}`;
+      cartPriceGroup.appendChild(cartPriceBefore);
+    }
     var cartProductQuantity = document.createElement('div');
     cartProductQuantity.className = "cart-product-quantity";
     cartProductInfo.appendChild(cartProductQuantity);
