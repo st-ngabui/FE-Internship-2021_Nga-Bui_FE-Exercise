@@ -30,16 +30,24 @@
       .cart-product-name {
         font-weight: map-get($font-weight, bold-weight);
       }
-      .cart-product-price {
-        color: map-get($color, base-color);
-        font-size: 16px;
-      }
     }
     .cart-product-action {
       .cart-product-link {
         color: rgb(241, 10, 10);
       }
     }
+  }
+}
+.cart-product-price-group {
+  display: flex;
+  .cart-product-price {
+    color: map-get($color, base-color);
+    font-size: 16px;
+  }
+  .cart-product-price-before {
+    color: #cecece;
+    font-size: 16px;
+    margin-left: 16px;
   }
 }
 .cart-product-quantity {
