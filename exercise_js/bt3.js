@@ -1,8 +1,8 @@
 function maskedNumber(a) {
-  var array = [];
-  for(var j = 0; j < 10; j++){
-    var b = a.replace('*', j);
-    if(Number(b) % 3 == 0) array.push(b);
+  let array = [];
+  for(let j = 0; j < 10; j++){
+    let b = a.replace('*', j);
+    if(Number(b) % 3 === 0) array.push(b);
   }
   return array;
 }
