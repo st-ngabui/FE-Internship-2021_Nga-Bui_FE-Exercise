@@ -3,7 +3,8 @@ var price = cart.reduce((price, product) => {
   return price += product.price * product.quantity;
 }, 0)
 console.log(cart);
-if (cart !==null && cart.length>0) {
+//check cart is product or not
+if (cart !== null && cart.length > 0) {
   //create element show products in carts
   var row = document.createElement('div');
   row.className = "row";
@@ -16,8 +17,9 @@ if (cart !==null && cart.length>0) {
   var cartProductList = document.createElement('ul');
   cartProductList.className = "cart-product-list";
   cartLeft.appendChild(cartProductList);
-
+  //loop the product in cart
   cart.forEach((product) => {
+    //create element show product
     var cartProduct = document.createElement('li');
     cartProduct.className = "cart-product";
     cartProductList.appendChild(cartProduct);
@@ -47,7 +49,7 @@ if (cart !==null && cart.length>0) {
 
     var cartProductPrice = document.createElement('p');
     cartProductPrice.className = "cart-product-price";
-    cartProductPrice.innerHTML = product.price;
+    cartProductPrice.innerHTML = product.price.toFixed(2);
     cartProductInfo.appendChild(cartProductPrice);
 
     var cartProductQuantity = document.createElement('div');
@@ -64,6 +66,7 @@ if (cart !==null && cart.length>0) {
     var cartProductInput = document.createElement('input');
     cartProductInput.className = "cart-product-input";
     cartProductInput.value = product.quantity;
+    cartProductInput.addEventListener('change', handleChangeQuantity.bind(this, product.id));
     cartProductQuantity.appendChild(cartProductInput);
 
     var btnIncrease = document.createElement('button');
@@ -83,6 +86,7 @@ if (cart !==null && cart.length>0) {
     cartProductAction.addEventListener('click', handleRemove.bind(this, product.id));
     cartProductActions.appendChild(cartProductAction);
   })
+  //create right element of cart page
   var colRight = document.createElement('div');
   colRight.className = "col-3";
   row.appendChild(colRight);
@@ -108,7 +112,7 @@ if (cart !==null && cart.length>0) {
 
   var totalPrice = document.createElement('span');
   totalPrice.className = "total-price";
-  totalPrice.innerHTML = price;
+  totalPrice.innerHTML = `$${price.toFixed(2)}`;
   totalPriceText.appendChild(totalPrice);
 
   var btnPay = document.createElement('a');
@@ -117,6 +121,7 @@ if (cart !==null && cart.length>0) {
   btnPay.innerHTML = "Pay";
   cartRight.appendChild(btnPay);
 }
+//show cart page if cart empty
 else {
   var cartEmpty = document.createElement('div')
   cartEmpty.className = "cart-empty";
@@ -136,43 +141,81 @@ else {
   var cartEmptyBtn = document.createElement('a');
   cartEmptyBtn.className = "btn btn-primary btn-shopping";
   cartEmptyBtn.innerHTML = "Tiếp tục mua sắm";
-  cartEmptyBtn.href="/home.html";
+  cartEmptyBtn.href = "/home.html";
   cartEmpty.appendChild(cartEmptyBtn);
 }
+
+//handle click decrease of increase button
 function handleClickQuantity(productId, id, e) {
-  console.log("id", id);
+  //get index of product in cart
   var index = cart.findIndex(product => product.id === productId);
+  //get quantity of product
   var quantity = cart[index].quantity;
-  //check id to know button is decrease or increase
+  //check id to know button is decrease(id=1) or increase(id=2);
   if (id == 1) {
     if (quantity === 2) {
       e.target.setAttribute("style", "background-color: rgba(1,1,1,0.05)");
     }
+    //decrease product if quantity !== 1
     if (quantity !== 1) {
+      //change cart and price
       cart[index].quantity -= 1;
       price -= cart[index].price;
+      //show quantity product of cart after decrease
       document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - 1;
     }
   }
+  //increase quantity
   else {
+    //change background color for decrease button
     if (quantity === 1) {
       document.getElementsByClassName("btn-quantity")[2 * index].setAttribute("style", "background-color: white");
     }
+    //change cart and price
     cart[index].quantity += 1;
     price += cart[index].price;
+    //show quantity product of cart after increase
     document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + 1;
   }
+  //show change value after change quantity
   document.getElementsByClassName("cart-product-input")[index].value = cart[index].quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = price;
+  document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
+  //save cart into localStorage
   localStorage.setItem("test", JSON.stringify(cart));
 }
-
+//handle remove product from cart
 function handleRemove(productId) {
+  //get product remove
   var product = cart.find(product => product.id === productId);
+  //change price after remove product
   price -= product.price * product.quantity;
+  document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
   document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - product.quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = price;
+  //change cart
   cart = cart.filter((product) => product.id !== productId);
   localStorage.setItem("test", JSON.stringify(cart));
   window.location.reload();
+}
+//handle change quantity in input 
+function handleChangeQuantity(productId, e) {
+  //get quantity input
+  var quantity = e.target.value;
+  //get index product in cart
+  var index = cart.findIndex(product => product.id === productId);
+  //check quantity < 1 or not
+  if (quantity < 1) {
+    //not change if quantity<1
+    e.target.value = cart[index].quantity;
+    return;
+  }
+  else {
+    //show quantity product of cart
+    document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + (quantity - cart[index].quantity);
+    //change price
+    price = price + cart[index].price * (quantity - cart[index].quantity);
+    document.getElementsByClassName("total-price")[0].innerHTML = `$${price.toFixed(2)}`;
+    //change cart
+    cart[index].quantity = quantity;
+    localStorage.setItem("test", JSON.stringify(cart));
+  }
 }
