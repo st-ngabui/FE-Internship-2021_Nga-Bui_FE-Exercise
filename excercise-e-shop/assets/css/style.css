@@ -34,7 +34,7 @@ table {
 a {
   text-decoration: none; }
 
-.header-page .header-wrap, .menu-list, .product-price-group, .subscribe, .cart-product-wrap, .cart-product-wrap .cart-product-right .cart-product-info, .cart-page-left .total-price-text {
+.header-page .header-wrap, .menu-list, .product-price-group, .subscribe, .cart-product-wrap, .cart-product-wrap .cart-product-right .cart-product-info, .cart-page-left .cart-summary, .cart-page-left .total-price-text {
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -666,18 +666,15 @@ h4 {
     margin-left: 16px; }
 
 .cart-product-quantity .btn-quantity {
-  padding: 4px 10px;
-  line-height: 1;
   border-radius: 4px;
-  font-size: 16px;
+  padding: 2px 12px;
   font-weight: 400; }
 
 .cart-product-quantity .cart-product-input {
   text-align: center;
-  padding: 4px 10px;
-  line-height: 1;
+  padding: 2px;
   border-radius: 4px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   max-width: 50px; }
 
 .cart-page-left {
@@ -688,10 +685,17 @@ h4 {
   padding: 16px; }
   .cart-page-left .address-title {
     font-weight: 700;
-    margin-bottom: 10px; }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dad6d6; }
     .cart-page-left .address-title .address {
       display: block;
       margin-top: 8px;
+      font-size: 14px;
+      font-weight: 300; }
+  .cart-page-left .cart-summary {
+    font-weight: 700;
+    margin: 16px 0px; }
+    .cart-page-left .cart-summary .cart-summary-number {
       font-size: 14px;
       font-weight: 300; }
   .cart-page-left .total-price-text {

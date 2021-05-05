@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/5d96d7f15a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Document</title>
 </head>
+
 <body>
   <header class="header-page">
     <div class="header-wrap">
       <div class="header-left">
         <a href="#" class="logo">
-          <img class="aab" src="./assets/img/Logo.png" alt="e-shop">
+          <img class="aab" src="./assets/img/Logo.png" alt="e-shop" />
         </a>
       </div>
       <nav class="header-center">
@@ -25,101 +31,114 @@
       <ul class="header-right">
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <img class="header-right-img_1" src="./assets/img/search.png" alt="search">
+            <img class="header-right-img_1" src="./assets/img/search.png" alt="search" />
           </a>
         </li>
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <img class="header-right-img_2" src="./assets/img/cart.png" alt="cart">
+            <img class="header-right-img_2" src="./assets/img/cart.png" alt="cart" />
           </a>
         </li>
         <li class="header-right-item">
           <a href="#" class="header-right-link">
-            <img class="header-right-img_3" src="./assets/img/user.png" alt="avatar">
+            <img class="header-right-img_3" src="./assets/img/user.png" alt="avatar" />
           </a>
         </li>
       </ul>
     </div>
-
   </header>
-  <section class = "cart-page">
-    <div class="container">
-      <p class="cart-page-title">Giỏ Hàng</p>
-      <div class="row">
-        <div class="col-9">
-          <ul class="cart-product-list">
-            <li class="cart-product">
-              <div class="cart-product-wrap">
-                <img class = "cart-product-img" src="./assets/img/product-2.png" alt="T-Shirt Summer Vibes">
-                <div class="cart-product-right">
-                  <div class="cart-product-info">
-                    <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                    <div class="cart-product-price-group">
-                      <p class="cart-product-price">$89.98</p>
-                      <p class="cart-product-price-before">$128.89</p>
+  <main>
+    <section class="cart-page">
+      <div class="container">
+        <p class="cart-page-title">Cart</p>
+        <div class="row">
+          <div class="col-8">
+            <ul class="cart-product-list">
+              <li class="cart-product">
+                <div class="cart-product-wrap">
+                  <img class="cart-product-img" src="./assets/img/product-2.png" alt="T-Shirt Summer Vibes" />
+                  <div class="cart-product-right">
+                    <div class="cart-product-info">
+                      <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
+                      <div class="cart-product-price-group">
+                        <p class="cart-product-price">$89.98</p>
+                        <p class="cart-product-price-before">$128.89</p>
+                      </div>
+                      <div class="cart-product-quantity">
+                        <button class="btn btn-outline btn-quantity">
+                          -
+                        </button>
+                        <input value="1" type="text" class="cart-product-input" />
+                        <button class="btn btn-outline btn-quantity">
+                          +
+                        </button>
+                      </div>
                     </div>
-                    <div class="cart-product-quantity">
-                      <button class="btn btn-outline btn-quantity">-</button>
-                      <input value = "1" type="text" class="cart-product-input">
-                      <button class="btn btn-outline btn-quantity">+</button>
+                    <div class="cart-product-action">
+                      <a href="" class="cart-product-link">Delete</a>
                     </div>
                   </div>
-                  <div class="cart-product-action">
-                    <a href="" class="cart-product-link">Xóa</a>
-                  </div>
-
                 </div>
-              </div>
-            </li>
-            <li class="cart-product">
-              <div class="cart-product-wrap">
-                <img class = "cart-product-img" src="./assets/img/product-1.png" alt="T-Shirt Summer Vibes">
-                <div class="cart-product-right">
-                  <div class="cart-product-info">
-                    <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                    <div class="cart-product-price-group">
-                      <p class="cart-product-price">$100.03</p>
+              </li>
+              <li class="cart-product">
+                <div class="cart-product-wrap">
+                  <img class="cart-product-img" src="./assets/img/product-1.png" alt="T-Shirt Summer Vibes" />
+                  <div class="cart-product-right">
+                    <div class="cart-product-info">
+                      <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
+                      <div class="cart-product-price-group">
+                        <p class="cart-product-price">$100.03</p>
+                      </div>
+                      <div class="cart-product-quantity">
+                        <button class="btn btn-outline btn-quantity">
+                          -
+                        </button>
+                        <input value="1" type="text" class="cart-product-input" />
+                        <button class="btn btn-outline btn-quantity">
+                          +
+                        </button>
+                      </div>
                     </div>
-                    <div class="cart-product-quantity">
-                      <button class="btn btn-outline btn-quantity">-</button>
-                      <input value = "1" type="text" class="cart-product-input">
-                      <button class="btn btn-outline btn-quantity">+</button>
+                    <div class="cart-product-action">
+                      <a href="" class="cart-product-link">Delete</a>
                     </div>
                   </div>
-                  <div class="cart-product-action">
-                    <a href="" class="cart-product-link">Xóa</a>
-                  </div>
-
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-3">
-          <div class="cart-page-left">
-            <p class="address-title">Address<br>
-              <span class="address">363 Nguyễn Hữu Thọ</span>
-            </p>
-            <p class="total-price-text">Total<span class="total-price">$199.99</span> </p>
-            <a href="#" class="btn btn-primary btn-pay">Pay</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <div class="cart-page-left">
+              <p class="address-title">
+                Address<br />
+                <span class="address">363 Nguyen Huu Tho</span>
+              </p>
+              <p class="cart-summary">
+                Summary:<span class="cart-summary-number">2 products</span>
+              </p>
+              <p class="total-price-text">
+                Total<span class="total-price">$199.99</span>
+              </p>
+              <a href="#" class="btn btn-primary btn-pay">Pay</a>
+            </div>
           </div>
         </div>
+        <div class="cart-empty">
+          <img src="./assets/img/cart-empty.png" alt="cart-empty" class="cart-empty-img" />
+          <p class="cart-empty-text">No product in your cart</p>
+          <a href="/home.html" class="btn btn-primary btn-shopping">Continue to shop</a>
+        </div>
       </div>
-      <div class="cart-empty">
-        <img src="./assets/img/cart-empty.png" alt="cart-empty" class="cart-empty-img">
-        <p class="cart-empty-text">Không có sản phẩm trong giỏ hàng của bạn</p>
-        <a href="/home.html" class="btn btn-primary btn-shopping">Tiếp tục mua sắm</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
   <footer class="footer-page">
     <div class="container">
       <div class="row footer-top">
         <div class="footer-top-left col-5 col-sm-12">
-          <img src="./assets/img/Logo.png" alt="logo">
+          <img src="./assets/img/Logo.png" alt="logo" />
           <p class="infor-content">
-            House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the
-            fashionable
+            House My Brand designs clothing for the young, the old &everyone
+            in between – but most importantly, for the fashionable
           </p>
           <ul class="footer-social-group">
             <li class="footer-social-item">
@@ -212,7 +231,10 @@
         </div>
       </div>
     </div>
-    <p class="footer-bottom-text">DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.</p>
+    <p class="footer-bottom-text">
+      DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.
+    </p>
   </footer>
 </body>
+
 </html>
