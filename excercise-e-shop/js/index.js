@@ -32,13 +32,29 @@ var products = [
 //get cart from localstorage
 var cart = localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
 
+//get quantity product in cart
+var quantity = cart.reduce(function (quantity, product) {
+  return quantity + product.quantity;
+}, 0);
 //create element show quantity product in cart
 var cartQuantity = document.createElement('p');
 cartQuantity.className = "cart-quantity";
-
-//show quantity product in cart
-cartQuantity.innerHTML = cart.reduce(function(quantity, product) {
-  return quantity + product.quantity;
-},0);
-
+cartQuantity.innerHTML = quantity;
 document.getElementsByClassName("cart-icon")[0].appendChild(cartQuantity);
+
+function getIndex(id, array) {
+  for (var j = 0; j < array.length; j++) {
+    if (array[j].id === id) {
+      return j;
+    }
+  }
+  return -1;
+}
+function getProduct(id, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].id === id) {
+      return array[i];
+    }
+  }
+  return null;
+}

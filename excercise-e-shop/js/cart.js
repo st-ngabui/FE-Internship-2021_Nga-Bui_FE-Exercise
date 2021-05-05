@@ -1,5 +1,5 @@
 //get total price
-var price = cart.reduce(function(price, product) {
+var price = cart.reduce(function (price, product) {
   return price + product.price * product.quantity;
 }, 0)
 // check cart is product or not
@@ -17,7 +17,7 @@ if (cart.length) {
   cartProductList.className = "cart-product-list";
   cartLeft.appendChild(cartProductList);
   //loop the product in cart
-  cart.forEach(function(product) {
+  cart.forEach(function (product) {
     //create element show product
     var cartProduct = document.createElement('li');
     cartProduct.className = "cart-product";
@@ -59,7 +59,7 @@ if (cart.length) {
     if (product.discount) {
       var cartPriceBefore = document.createElement('p');
       cartPriceBefore.className = "cart-product-price-before";
-      cartPriceBefore.innerHTML = "$" +(product.price * 100 / (100 - product.discount)).toFixed(2);
+      cartPriceBefore.innerHTML = "$" + (product.price * 100 / (100 - product.discount)).toFixed(2);
       cartPriceGroup.appendChild(cartPriceBefore);
     }
     var cartProductQuantity = document.createElement('div');
@@ -69,7 +69,7 @@ if (cart.length) {
     var btnDecrease = document.createElement('button');
     btnDecrease.className = "btn btn-outline btn-quantity";
     btnDecrease.innerHTML = "-";
-    if (product.quantity === 1) btnDecrease.setAttribute("style", "background-color: rgba(1,1,1,0.05)")
+    if (product.quantity === 1) btnDecrease.setAttribute("disabled", "disabled")
     btnDecrease.addEventListener('click', handleClickQuantity.bind(this, product.id, 1));
     cartProductQuantity.appendChild(btnDecrease);
 
@@ -158,76 +158,58 @@ else {
 //handle click decrease of increase button
 function handleClickQuantity(productId, id, e) {
   //get index of product in cart
-  var index = -1;
-  for(var j = 0; j < cart.length; j++) {
-    if(cart[j].id === productId) {
-      index = j;
-    }
-  }
+  var index = getIndex(productId, cart);
   //get quantity of product
-  var quantity = cart[index].quantity;
+  var productQuantity = cart[index].quantity;
   //check id to know button is decrease(id=1) or increase(id=2);
   if (id === 1) {
     //decrease product if quantity !== 1
-    if (quantity !== 1) {
-      //change cart and price
+    if (productQuantity !== 1) {
       cart[index].quantity -= 1;
       price -= cart[index].price;
-      //show quantity product of cart after decrease
-      document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - 1;
+      quantity -= 1;
     }
-    if (quantity === 2) {
-      e.target.setAttribute("style", "background-color: rgba(1,1,1,0.05)");
+    if (productQuantity === 2) {
+      e.target.setAttribute("disabled", "disabled");
     }
   }
   //increase quantity
   else {
     //change background color for decrease button
-    if (quantity === 1) {
-      document.getElementsByClassName("btn-quantity")[2 * index].setAttribute("style", "background-color: white");
+    if (productQuantity === 1) {
+      document.getElementsByClassName("btn-quantity")[2 * index].disabled = false;
     }
-    //change cart and price
     cart[index].quantity += 1;
     price += cart[index].price;
-    //show quantity product of cart after increase
-    document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + 1;
+    quantity += 1;
   }
   //show change value after change quantity
   document.getElementsByClassName("cart-product-input")[index].value = cart[index].quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
-  //save cart into localStorage
-  localStorage.setItem("test", JSON.stringify(cart));
+  update();
 }
 //handle remove product from cart
 function handleRemove(productId) {
+  //get index of product in cart
+  var index = getIndex(productId, cart);
   //get product remove
-  var product = {};
-  for(var i = 0; i < cart.length; i++) {
-    if(cart[i].id === productId) {
-      product = cart[i];
-      break;
-    }
-  }
+  var product = getProduct(productId, cart);
   //change price after remove product
   price -= product.price * product.quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) - product.quantity;
+  quantity -= product.quantity;
+  //remove product
+  document.getElementsByClassName("cart-product")[index].remove();
   //change cart
   cart = cart.filter((product) => product.id !== productId);
-  localStorage.setItem("test", JSON.stringify(cart));
-  window.location.reload();
+  update();
+  console.log(cart.length);
+  if (!cart.length) window.location.reload();
 }
 //handle change quantity in input 
 function handleChangeQuantity(productId, e) {
   //get quantity input
-  var quantity = e.target.value;
+  var productQuantity = e.target.value;
   //get index product in cart
-  var index = -1;
-  for(var j = 0; j < cart.length; j++) {
-    if(cart[j].id === productId) {
-      index = j;
-    }
-  }
+  var index = getIndex(productId, cart);
   //check quantity < 1 or not
   if (quantity < 1) {
     //not change if quantity < 1
@@ -236,12 +218,16 @@ function handleChangeQuantity(productId, e) {
   }
   else {
     //show quantity product of cart
-    document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + (quantity - cart[index].quantity);
+    quantity += productQuantity - cart[index].quantity;
     //change price
     price = price + cart[index].price * (quantity - cart[index].quantity);
-    document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
     //change cart
-    cart[index].quantity = quantity;
-    localStorage.setItem("test", JSON.stringify(cart));
+    cart[index].quantity = productQuantity;
+    update();
   }
+}
+function update() {
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
+  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
+  localStorage.setItem("test", JSON.stringify(cart));
 }

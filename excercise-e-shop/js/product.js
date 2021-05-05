@@ -5,7 +5,7 @@ for (var i = 0; i < 2; i++) {
   productList.className = 'row';
   document.getElementsByClassName("products-wrap")[i].appendChild(productList);
 
-  products.forEach(function(product) {
+  products.forEach(function (product) {
     //create element show product
     var li = document.createElement('li');
     li.className = "product col-3 col-sm-6";
@@ -66,21 +66,10 @@ for (var i = 0; i < 2; i++) {
 }
 //handle when click add to cart
 function addToCart(productId) {
-  var product;
-  var index = -1;
   //find product has id = productId
-  for(var i = 0; i < products.length; i++) {
-    if(products[i].id === productId) {
-      product = products[i];
-      break;
-    }
-  }
+  var product = getProduct(productId, products);
   //find index product in cart
-  for(var j = 0; j < cart.length; j++) {
-    if(cart[j].id === productId) {
-      index = j;
-    }
-  }
+  var index = getIndex(productId, cart);
   //check product is exits in cart or not
   if (index >= 0) cart[index].quantity += 1;
   else cart.push({
@@ -89,9 +78,10 @@ function addToCart(productId) {
     name: product.name,
     price: product.price,
     discount: product.discount,
-    quantity: 1 
-    });
+    quantity: 1
+  });
+  quantity += 1;
   localStorage.setItem("test", JSON.stringify(cart));
   //show quantity product in cart
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = Number(cartQuantity.innerHTML) + 1;
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
 }
