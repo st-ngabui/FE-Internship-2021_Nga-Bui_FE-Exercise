@@ -211,7 +211,7 @@ function handleChangeQuantity(productId, e) {
   //get index product in cart
   var index = getIndex(productId, cart);
   //check quantity < 1 or not
-  if (quantity < 1) {
+  if (productQuantity < 1) {
     //not change if quantity < 1
     e.target.value = cart[index].quantity;
     return;
