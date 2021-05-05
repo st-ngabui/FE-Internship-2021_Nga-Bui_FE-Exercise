@@ -39,7 +39,7 @@ a {
   align-items: center;
   justify-content: space-between; }
 
-.category-item .category-sale, .product .product-item.badge-sale::after {
+.category-item .category-sale, .product-info .product-sale {
   position: absolute;
   background-color: #ff0000;
   font-size: 12px;
@@ -239,8 +239,23 @@ h4 {
 .header-right-sm {
   display: flex; }
 
-.header-right-item .header-right-link {
-  padding-left: 24px; }
+.header-right-item {
+  position: relative; }
+  .header-right-item .header-right-link {
+    padding-left: 24px; }
+    .header-right-item .header-right-link .cart-quantity {
+      position: absolute;
+      right: -10px;
+      bottom: calc(100% - 6px);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #fff;
+      text-align: center;
+      line-height: 15px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fbb03b; }
 
 @media only screen and (max-width: 375px) {
   .header-page {
@@ -495,15 +510,41 @@ h4 {
     text-align: center;
     padding: 48px 0 39px; }
 
-.product .product-item {
+.product-item {
   position: relative; }
-  .product .product-item.badge-sale::after {
-    left: 27px;
-    top: 30px;
-    content: "-30%"; }
 
-.product-info > img {
-  width: 100%; }
+.product-info .product-img-cart {
+  position: relative;
+  transition: all ease-in 1s; }
+  .product-info .product-img-cart:hover::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); }
+  .product-info .product-img-cart:hover .btn-add-cart {
+    display: block; }
+  .product-info .product-img-cart > img {
+    width: 100%;
+    display: block; }
+  .product-info .product-img-cart .btn-add-cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 24px;
+    z-index: 100;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: none; }
+    .product-info .product-img-cart .btn-add-cart:hover {
+      background-color: #fbb03b; }
+
+.product-info .product-sale {
+  left: 27px;
+  top: 30px; }
 
 .product-info .product-name {
   font-size: 16px;
@@ -538,11 +579,11 @@ h4 {
       padding: 48px 0 16px; }
   .product {
     padding-bottom: 12px; }
-    .product .product-item.badge-sale::after {
-      left: 9px;
-      top: 12px;
-      padding: 2px 4px;
-      font-size: 8px; }
+  .product-info .product-sale {
+    left: 9px;
+    top: 12px;
+    padding: 2px 4px;
+    font-size: 8px; }
   .product-info .product-name {
     font-size: 12px;
     padding-top: 2px; }
