@@ -59,7 +59,7 @@ function handleRemove(productId) {
   //change cart
   cart = cart.filter((product) => product.id !== productId);
   update(cart);
-  if (!cart.length) window.location.reload();
+  render();
 }
 //handle change quantity in input 
 function handleChangeQuantity(productId, productQuantity) {
