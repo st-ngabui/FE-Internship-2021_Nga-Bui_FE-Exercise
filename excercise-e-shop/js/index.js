@@ -30,10 +30,11 @@ var products = [
   },
 ]
 //get cart from localstorage
-var cart = localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
-
+function getCart() {
+  return localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
+}
 //get quantity product in cart
-var quantity = cart.reduce(function (quantity, product) {
+var quantity = getCart().reduce(function (quantity, product) {
   return quantity + product.quantity;
 }, 0);
 //show quantity product in cart
