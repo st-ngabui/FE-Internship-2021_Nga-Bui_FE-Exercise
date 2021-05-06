@@ -31,30 +31,6 @@
       top: 30px;
       content: "-30%";
     }
-  }
-}
-.product-info {
-  .product-img-cart {
-    position: relative;
-    transition: all ease-in 1s;
-    &:hover {
-      &::after {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.4);
-      }
-    }
-    &:hover .btn-add-cart {
-      display: block;
-    }
-    > img {
-      width: 100%;
-      display: block;
-    }
     .btn-add-cart {
       position: absolute;
       top: 50%;
@@ -70,6 +46,15 @@
       }
     }
   }
+}
+.product-item {
+    &:hover  .btn-add-cart {
+      display: block;
+    }
+    > img {
+      width: 100%;
+      display: block;
+    }   
   .product-name {
     font-size: 16px;
     font-weight: map-get($font-weight, light-weight);
