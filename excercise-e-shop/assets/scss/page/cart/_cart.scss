@@ -17,7 +17,6 @@
   padding: 16px;
   .cart-product-img {
     display: block;
-    width: 120px;
     height: 120px;
     background-size: cover;
   }
@@ -34,6 +33,7 @@
     .cart-product-action {
       .cart-product-link {
         color: rgb(241, 10, 10);
+        background-color: #fff;
       }
     }
   }

@@ -49,7 +49,7 @@ input[type=number] {
   align-items: center;
   justify-content: space-between; }
 
-.category-item .category-sale, .product .product-item.badge-sale::after {
+.category-item .category-sale, .product .product-item .product-discount {
   position: absolute;
   background-color: #ff0000;
   font-size: 12px;
@@ -522,7 +522,7 @@ h4 {
 
 .product .product-item {
   position: relative; }
-  .product .product-item.badge-sale::after {
+  .product .product-item .product-discount {
     left: 27px;
     top: 30px;
     content: "-30%"; }
@@ -683,7 +683,6 @@ h4 {
   padding: 16px; }
   .cart-product-wrap .cart-product-img {
     display: block;
-    width: 120px;
     height: 120px;
     background-size: cover; }
   .cart-product-wrap .cart-product-right {
@@ -694,7 +693,8 @@ h4 {
       .cart-product-wrap .cart-product-right .cart-product-info .cart-product-name {
         font-weight: 700; }
     .cart-product-wrap .cart-product-right .cart-product-action .cart-product-link {
-      color: #f10a0a; }
+      color: #f10a0a;
+      background-color: #fff; }
 
 .cart-product-price-group {
   display: flex; }
