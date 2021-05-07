@@ -46,7 +46,6 @@ function render() {
     document.querySelector(".cart-empty").setAttribute("style", "display: flex");
   }
 }
-render();
 //handle remove product from cart
 function handleRemove(productId) {
   var cart = getCart();
@@ -89,3 +88,4 @@ function update(cart) {
   document.querySelector(".cart-summary-number").innerHTML = quantity;
   localStorage.setItem("test", JSON.stringify(cart));
 }
+render();

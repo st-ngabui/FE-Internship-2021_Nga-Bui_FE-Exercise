@@ -21,7 +21,6 @@ function render() {
     })
   }
 }
-render();
 //handle when click add to cart
 function addToCart(productId) {
   var cart = getCart();
@@ -47,3 +46,4 @@ function updateAddCart(cart) {
   localStorage.setItem("test", JSON.stringify(cart));
   document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
 }
+render();
