@@ -7,10 +7,7 @@ function render() {
         '<li class="product col-3 col-sm-6">' +
         '<div class="product-item">' +
         '<a href="#" class="product-info">' +
-        '<div class="product-img-cart">' +
         '<img src="' + product.image + '" alt="' + product.name + '">' +
-        '<button class="btn btn-add-cart" onclick="addToCart(' + product.id + ')">Add to cart</button>' +
-        '</div>' +
         '<h4 class="product-name">' + product.name + '</h4>' +
         (product.discount ? '<p class = "product-sale">-' + product.discount + '%</p>' : "") +
         '</a>' +
@@ -18,6 +15,7 @@ function render() {
         '<p class="product-price">$' + product.price + '</p>' +
         priceBefore +
         '</div>' +
+        '<button class="btn btn-add-cart" onclick="addToCart(' + product.id + ')">Add to cart</button>' +
         '</div>' +
         '</li>'
     })
@@ -41,8 +39,11 @@ function addToCart(productId) {
     discount: product.discount,
     quantity: 1
   });
+  updateAddCart(cart);
+}
+//Update cart and show quanity 
+function updateAddCart(cart) {
   quantity += 1;
   localStorage.setItem("test", JSON.stringify(cart));
-  //show quantity product in cart
   document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
 }

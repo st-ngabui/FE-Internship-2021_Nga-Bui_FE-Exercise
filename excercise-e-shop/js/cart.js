@@ -2,6 +2,7 @@
 var price = getCart().reduce(function (price, product) {
   return price + product.price * product.quantity;
 }, 0)
+//show cart page
 function render() {
   var cart = getCart();
   // check cart is product or not
@@ -73,9 +74,7 @@ function handleChangeQuantity(productId, productQuantity) {
   }
   else {
     document.getElementsByClassName("cart-product-input")[index].value = productQuantity;
-    //show quantity product of cart
     quantity += productQuantity - cart[index].quantity;
-    //change price
     price = price + cart[index].price * (productQuantity - cart[index].quantity);
     //change cart
     cart[index].quantity = productQuantity;
