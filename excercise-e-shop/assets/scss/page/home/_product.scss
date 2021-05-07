@@ -25,7 +25,7 @@
 .product {
   .product-item {
     position: relative;
-    &.badge-sale::after {
+    .product-discount {
       @extend %badge-sale;
       left: 27px;
       top: 30px;

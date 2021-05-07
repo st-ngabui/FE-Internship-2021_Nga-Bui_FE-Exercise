@@ -39,7 +39,7 @@ a {
   align-items: center;
   justify-content: space-between; }
 
-.category-item .category-sale, .product .product-item.badge-sale::after {
+.category-item .category-sale, .product .product-item .product-discount {
   position: absolute;
   background-color: #ff0000;
   font-size: 12px;
@@ -497,7 +497,7 @@ h4 {
 
 .product .product-item {
   position: relative; }
-  .product .product-item.badge-sale::after {
+  .product .product-item .product-discount {
     left: 27px;
     top: 30px;
     content: "-30%"; }
