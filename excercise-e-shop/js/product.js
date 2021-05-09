@@ -15,7 +15,7 @@ function render() {
         '<p class="product-price">$' + product.price + '</p>' +
         priceBefore +
         '</div>' +
-        '<button class="btn btn-add-cart" onclick="addToCart(' + product.id + ')">Add to cart</button>' +
+        '<button class="btn btn-primary btn-add-cart" onclick="addToCart(' + product.id + ')">Add to cart</button>' +
         '</div>' +
         '</li>'
     })

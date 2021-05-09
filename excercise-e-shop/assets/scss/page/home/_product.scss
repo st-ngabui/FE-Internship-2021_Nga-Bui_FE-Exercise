@@ -25,7 +25,7 @@
 .product {
   .product-item {
     position: relative;
-    &.badge-sale::after {
+    .product-discount {
       @extend %badge-sale;
       left: 27px;
       top: 30px;
@@ -42,7 +42,7 @@
       cursor: pointer;
       display: none;
       &:hover {
-        background-color: map-get($color, base-color);
+        background-color: #f0b453;
       }
     }
   }

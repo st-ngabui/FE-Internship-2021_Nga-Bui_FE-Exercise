@@ -49,7 +49,7 @@ input[type=number] {
   align-items: center;
   justify-content: space-between; }
 
-.category-item .category-sale, .product .product-item.badge-sale::after {
+.category-item .category-sale, .product .product-item .product-discount {
   position: absolute;
   background-color: #ff0000;
   font-size: 12px;
@@ -361,6 +361,9 @@ h4 {
   max-height: 800px;
   width: 100%;
   margin-bottom: 48px; }
+  .banner .banner-img {
+    width: 100%;
+    display: block; }
   .banner::after {
     position: absolute;
     content: "";
@@ -522,7 +525,7 @@ h4 {
 
 .product .product-item {
   position: relative; }
-  .product .product-item.badge-sale::after {
+  .product .product-item .product-discount {
     left: 27px;
     top: 30px;
     content: "-30%"; }
@@ -537,7 +540,7 @@ h4 {
     cursor: pointer;
     display: none; }
     .product .product-item .btn-add-cart:hover {
-      background-color: #fbb03b; }
+      background-color: #f0b453; }
 
 .product-item:hover .btn-add-cart {
   display: block; }
