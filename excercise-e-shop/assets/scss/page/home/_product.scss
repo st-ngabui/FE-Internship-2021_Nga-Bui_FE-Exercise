@@ -25,18 +25,36 @@
 .product {
   .product-item {
     position: relative;
-    &.badge-sale::after {
+    .product-discount {
       @extend %badge-sale;
       left: 27px;
       top: 30px;
       content: "-30%";
     }
+    .btn-add-cart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 24px;
+      z-index: 100;
+      transition: all 0.5s;
+      cursor: pointer;
+      display: none;
+      &:hover {
+        background-color: map-get($color, base-color);
+      }
+    }
   }
 }
-.product-info {
-  > img {
-    width: 100%;
-  }
+.product-item {
+    &:hover  .btn-add-cart {
+      display: block;
+    }
+    > img {
+      width: 100%;
+      display: block;
+    }   
   .product-name {
     font-size: 16px;
     font-weight: map-get($font-weight, light-weight);
