@@ -73,10 +73,20 @@
   padding: 16px;
   .address-title {
     font-weight: map-get($font-weight, bold-weight);
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(218, 214, 214);
     .address {
       display: block;
       margin-top: 8px;
+      font-size: map-get($font-size, base-text-size);
+      font-weight: map-get($font-weight, light-weight);
+    }
+  }
+  .cart-summary {
+    @extend %flex-space-between;
+    font-weight: map-get($font-weight, bold-weight);
+    margin: 16px 0px;
+    .cart-summary-number {
       font-size: map-get($font-size, base-text-size);
       font-weight: map-get($font-weight, light-weight);
     }
