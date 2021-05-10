@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/5d96d7f15a.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>E-shop-cart</title>
 </head>
 
 <body>
@@ -35,8 +35,8 @@
           </a>
         </li>
         <li class="header-right-item">
-          <a href="#" class="header-right-link">
-            <img class="header-right-img_2" src="./assets/img/cart.png" alt="cart" />
+          <a href="#" class="header-right-link cart-icon">
+            <img class="header-right-img_2" src="./assets/img/cart.png" alt="cart">
           </a>
         </li>
         <li class="header-right-item">
@@ -49,85 +49,8 @@
   </header>
   <main>
     <section class="cart-page">
-      <div class="container">
+      <div class="container cart-wrap">
         <p class="cart-page-title">Cart</p>
-        <div class="row">
-          <div class="col-8">
-            <ul class="cart-product-list">
-              <li class="cart-product">
-                <div class="cart-product-wrap">
-                  <img class="cart-product-img" src="./assets/img/product-2.png" alt="T-Shirt Summer Vibes" />
-                  <div class="cart-product-right">
-                    <div class="cart-product-info">
-                      <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                      <div class="cart-product-price-group">
-                        <p class="cart-product-price">$89.98</p>
-                        <p class="cart-product-price-before">$128.89</p>
-                      </div>
-                      <div class="cart-product-quantity">
-                        <button class="btn btn-outline btn-quantity">
-                          -
-                        </button>
-                        <input value="1" type="text" class="cart-product-input" />
-                        <button class="btn btn-outline btn-quantity">
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div class="cart-product-action">
-                      <a href="" class="cart-product-link">Delete</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="cart-product">
-                <div class="cart-product-wrap">
-                  <img class="cart-product-img" src="./assets/img/product-1.png" alt="T-Shirt Summer Vibes" />
-                  <div class="cart-product-right">
-                    <div class="cart-product-info">
-                      <h4 class="cart-product-name">T-Shirt Summer Vibes</h4>
-                      <div class="cart-product-price-group">
-                        <p class="cart-product-price">$100.03</p>
-                      </div>
-                      <div class="cart-product-quantity">
-                        <button class="btn btn-outline btn-quantity">
-                          -
-                        </button>
-                        <input value="1" type="text" class="cart-product-input" />
-                        <button class="btn btn-outline btn-quantity">
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div class="cart-product-action">
-                      <a href="" class="cart-product-link">Delete</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <div class="cart-page-left">
-              <p class="address-title">
-                Address<br />
-                <span class="address">363 Nguyen Huu Tho</span>
-              </p>
-              <p class="cart-summary">
-                Summary:<span class="cart-summary-number">2 products</span>
-              </p>
-              <p class="total-price-text">
-                Total<span class="total-price">$199.99</span>
-              </p>
-              <a href="#" class="btn btn-primary btn-pay">Pay</a>
-            </div>
-          </div>
-        </div>
-        <div class="cart-empty">
-          <img src="./assets/img/cart-empty.png" alt="cart-empty" class="cart-empty-img" />
-          <p class="cart-empty-text">No product in your cart</p>
-          <a href="/home.html" class="btn btn-primary btn-shopping">Continue to shop</a>
-        </div>
       </div>
     </section>
   </main>
@@ -235,6 +158,8 @@
       DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.
     </p>
   </footer>
+  <script src="./js/index.js"></script>
+  <script src="./js/cart.js"></script>
 </body>
 
 </html>
