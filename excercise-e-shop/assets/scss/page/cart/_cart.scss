@@ -52,14 +52,13 @@
 }
 .cart-product-quantity {
   .btn-quantity {
-    padding: 4px 10px;
-    line-height: 1;
     border-radius: 4px;
-    font-weight: map-get($font-weight, weight-primary );
+    padding: 2px 12px;
+    font-weight: map-get($font-weight, weight-primary);
   }
   .cart-product-input {
     text-align: center;
-    line-height: 1;
+    padding: 2px;
     border-radius: 4px;
     border: 1px solid #C4C4C4;
     max-width: 50px;

@@ -1,233 +1,90 @@
 //get total price
-var price = cart.reduce(function (price, product) {
-  return price + product.price * product.quantity;
-}, 0)
-// check cart is product or not
-if (cart.length) {
-  //create element show products in carts
-  var row = document.createElement('div');
-  row.className = "row";
-  document.getElementsByClassName("cart-wrap")[0].appendChild(row);
-
-  var cartLeft = document.createElement('div');
-  cartLeft.className = "col-9";
-  row.appendChild(cartLeft);
-
-  var cartProductList = document.createElement('ul');
-  cartProductList.className = "cart-product-list";
-  cartLeft.appendChild(cartProductList);
-  //loop the product in cart
-  cart.forEach(function (product) {
-    //create element show product
-    var cartProduct = document.createElement('li');
-    cartProduct.className = "cart-product";
-    cartProductList.appendChild(cartProduct);
-
-    var cartProductWrap = document.createElement('div');
-    cartProductWrap.className = "cart-product-wrap";
-    cartProduct.appendChild(cartProductWrap);
-
-    var cartProductImg = document.createElement('img');
-    cartProductImg.className = "cart-product-img";
-    cartProductImg.src = product.image;
-    cartProductImg.alt = product.name;
-    cartProductWrap.appendChild(cartProductImg);
-
-    var cartProductRight = document.createElement('div');
-    cartProductRight.className = "cart-product-right";
-    cartProductWrap.appendChild(cartProductRight);
-
-    var cartProductInfo = document.createElement('div');
-    cartProductInfo.className = "cart-product-info";
-    cartProductRight.appendChild(cartProductInfo);
-
-    var cartProductName = document.createElement('h4');
-    cartProductName.className = "cart-product-name";
-    cartProductName.innerHTML = product.name;
-    cartProductInfo.appendChild(cartProductName);
-
-    var cartPriceGroup = document.createElement('div');
-    cartPriceGroup.className = "cart-product-price-group";
-    cartProductInfo.appendChild(cartPriceGroup);
-
-    var cartProductPrice = document.createElement('p');
-    cartProductPrice.className = "cart-product-price";
-    console.log(product.price);
-    cartProductPrice.innerHTML = "$" + product.price.toFixed(2);
-    cartPriceGroup.appendChild(cartProductPrice);
-    //check product has discount or not
-    if (product.discount) {
-      var cartPriceBefore = document.createElement('p');
-      cartPriceBefore.className = "cart-product-price-before";
-      cartPriceBefore.innerHTML = "$" + (product.price * 100 / (100 - product.discount)).toFixed(2);
-      cartPriceGroup.appendChild(cartPriceBefore);
-    }
-    var cartProductQuantity = document.createElement('div');
-    cartProductQuantity.className = "cart-product-quantity";
-    cartProductInfo.appendChild(cartProductQuantity);
-
-    var btnDecrease = document.createElement('button');
-    btnDecrease.className = "btn btn-outline btn-quantity";
-    btnDecrease.innerHTML = "-";
-    if (product.quantity === 1) btnDecrease.setAttribute("disabled", "disabled")
-    btnDecrease.addEventListener('click', handleClickQuantity.bind(this, product.id, 1));
-    cartProductQuantity.appendChild(btnDecrease);
-
-    var cartProductInput = document.createElement('input');
-    cartProductInput.className = "cart-product-input";
-    cartProductInput.value = product.quantity;
-    cartProductInput.addEventListener('change', handleChangeQuantity.bind(this, product.id));
-    cartProductQuantity.appendChild(cartProductInput);
-
-    var btnIncrease = document.createElement('button');
-    btnIncrease.className = "btn btn-outline btn-quantity";
-    btnIncrease.innerHTML = "+";
-    btnIncrease.addEventListener('click', handleClickQuantity.bind(this, product.id, 2));
-    cartProductQuantity.appendChild(btnIncrease);
-
-    var cartProductActions = document.createElement('div');
-    cartProductActions.className = "cart-product-action";
-    cartProductRight.appendChild(cartProductActions);
-
-    var cartProductAction = document.createElement('a');
-    cartProductAction.className = "cart-product-link";
-    cartProductAction.href = "#";
-    cartProductAction.innerHTML = "Xóa";
-    cartProductAction.addEventListener('click', handleRemove.bind(this, product.id));
-    cartProductActions.appendChild(cartProductAction);
-  })
-  //create right element of cart page
-  var colRight = document.createElement('div');
-  colRight.className = "col-3";
-  row.appendChild(colRight);
-
-  var cartRight = document.createElement('div');
-  cartRight.className = "cart-page-left";
-  colRight.appendChild(cartRight);
-
-  var addressTitle = document.createElement('p');
-  addressTitle.innerHTML = "Address";
-  addressTitle.className = "address-title";
-  cartRight.appendChild(addressTitle);
-
-  var address = document.createElement('span');
-  address.className = "address";
-  address.innerHTML = "363 Nguyễn Hữu Thọ";
-  addressTitle.appendChild(address);
-
-  var totalPriceText = document.createElement('p');
-  totalPriceText.className = "total-price-text";
-  totalPriceText.innerHTML = "Total";
-  cartRight.appendChild(totalPriceText);
-
-  var totalPrice = document.createElement('span');
-  totalPrice.className = "total-price";
-  totalPrice.innerHTML = "$" + price.toFixed(2);
-  totalPriceText.appendChild(totalPrice);
-
-  var btnPay = document.createElement('a');
-  btnPay.href = "#";
-  btnPay.className = "btn btn-primary btn-pay";
-  btnPay.innerHTML = "Pay";
-  cartRight.appendChild(btnPay);
+function getPrice(cart) {
+  return cart.reduce(function (price, product) {
+    return price + product.price * product.quantity;
+  }, 0)
 }
-//show cart page if cart empty
-else {
-  var cartEmpty = document.createElement('div')
-  cartEmpty.className = "cart-empty";
-  document.getElementsByClassName("cart-wrap")[0].appendChild(cartEmpty);
-
-  var cartEmptyImg = document.createElement('img');
-  cartEmptyImg.src = "./assets/img/cart-empty.png";
-  cartEmptyImg.alt = "cart-empty";
-  cartEmptyImg.className = "cart-empty-img";
-  cartEmpty.appendChild(cartEmptyImg);
-
-  var cartEmptyText = document.createElement('p');
-  cartEmptyText.innerHTML = "Không có sản phẩm trong giỏ hàng của bạn";
-  cartEmptyText.className = "cart-empty-text";
-  cartEmpty.appendChild(cartEmptyText);
-
-  var cartEmptyBtn = document.createElement('a');
-  cartEmptyBtn.className = "btn btn-primary btn-shopping";
-  cartEmptyBtn.innerHTML = "Tiếp tục mua sắm";
-  cartEmptyBtn.href = "/home.html";
-  cartEmpty.appendChild(cartEmptyBtn);
-}
-
-//handle click decrease of increase button
-function handleClickQuantity(productId, id, e) {
-  //get index of product in cart
-  var index = getIndex(productId, cart);
-  //get quantity of product
-  var productQuantity = cart[index].quantity;
-  //check id to know button is decrease(id=1) or increase(id=2);
-  if (id === 1) {
-    //decrease product if quantity !== 1
-    if (productQuantity !== 1) {
-      cart[index].quantity -= 1;
-      price -= cart[index].price;
-      quantity -= 1;
-    }
-    if (productQuantity === 2) {
-      e.target.setAttribute("disabled", "disabled");
-    }
+//show cart page
+function render() {
+  var cart = getCart();
+  var price = getPrice(cart);
+  var quantity = getQuantity(cart);
+  document.querySelector(".cart-quantity").innerHTML = quantity;
+  // check cart is product or not
+  if (cart.length) {
+    document.querySelector(".cart-empty").setAttribute("style", "display: none");
+    //loop the product in cart
+    cart.forEach(function (product) {
+      //create element show product
+      var priceBefore = product.discount > 0 ? '<p class="cart-product-price-before">$' + (product.price * 100 / (100 - product.discount)).toFixed(2) + '</p>' : ''
+      document.querySelector(".cart-product-list").innerHTML +=
+        '<li class="cart-product">' +
+        '<div class="cart-product-wrap">' +
+        '<img class="cart-product-img" src="' + product.image + '" alt="' + product.name + '"/>' +
+        '<div class="cart-product-right">' +
+        '<div class="cart-product-info">' +
+        '<h4 class="cart-product-name">' + product.name + '</h4>' +
+        '<div class="cart-product-price-group">' +
+        '<p class="cart-product-price">$' + product.price + '</p>' +
+        priceBefore +
+        '</div>' +
+        '<div class="cart-product-quantity">' +
+        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity - 1) + ')">-</button>' +
+        '<input value=' + product.quantity + ' type="number" class="cart-product-input" onchange = "handleChangeQuantity(' + product.id + ', this.value)">' +
+        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity + 1) + ')">+</button>' +
+        '</div>' +
+        '</div>' +
+        '<div class="cart-product-action">' +
+        '<a href="" class="cart-product-link" onclick = "handleRemove(' + product.id + ')" >Delete</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</li>'
+    })
+    //create right element of cart page
+    document.getElementsByClassName("cart-summary-number")[0].innerHTML = quantity;
+    document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
   }
-  //increase quantity
+  //show cart page if cart empty
   else {
-    //change background color for decrease button
-    if (productQuantity === 1) {
-      document.getElementsByClassName("btn-quantity")[2 * index].disabled = false;
-    }
-    cart[index].quantity += 1;
-    price += cart[index].price;
-    quantity += 1;
+    document.querySelector(".cart-show").setAttribute("style", "display: none");
+    document.querySelector(".cart-empty").setAttribute("style", "display: flex");
   }
-  //show change value after change quantity
-  document.getElementsByClassName("cart-product-input")[index].value = cart[index].quantity;
-  update();
 }
 //handle remove product from cart
 function handleRemove(productId) {
-  //get index of product in cart
+  var cart = getCart();
   var index = getIndex(productId, cart);
-  //get product remove
-  var product = getProduct(productId, cart);
-  //change price after remove product
-  price -= product.price * product.quantity;
-  quantity -= product.quantity;
   //remove product
   document.getElementsByClassName("cart-product")[index].remove();
   //change cart
   cart = cart.filter((product) => product.id !== productId);
-  update();
-  console.log(cart.length);
-  if (!cart.length) window.location.reload();
+  update(cart);
+  render();
 }
 //handle change quantity in input 
-function handleChangeQuantity(productId, e) {
-  //get quantity input
-  var productQuantity = e.target.value;
-  //get index product in cart
+function handleChangeQuantity(productId, productQuantity) {
+  var cart = getCart();
   var index = getIndex(productId, cart);
   //check quantity < 1 or not
   if (productQuantity < 1) {
     //not change if quantity < 1
-    e.target.value = cart[index].quantity;
+    document.getElementsByClassName("cart-product-input")[index].value = cart[index].quantity;
     return;
   }
   else {
-    //show quantity product of cart
-    quantity += productQuantity - cart[index].quantity;
-    //change price
-    price = price + cart[index].price * (quantity - cart[index].quantity);
+    document.getElementsByClassName("cart-product-input")[index].value = productQuantity;
     //change cart
-    cart[index].quantity = productQuantity;
-    update();
+    cart[index].quantity = +productQuantity;
+    update(cart);
+    document.querySelector(".cart-product-list").innerHTML = "";
+    render();
   }
 }
-function update() {
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
+function update(cart) {
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = getQuantity(cart);
+  document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
+  document.querySelector(".cart-summary-number").innerHTML = getQuantity(cart);
   localStorage.setItem("test", JSON.stringify(cart));
 }
+render();
