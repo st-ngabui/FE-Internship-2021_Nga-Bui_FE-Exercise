@@ -31,15 +31,16 @@ function fetchData() {
     },
   ]
 }
-var products = fetchData();
 //get cart from localstorage
 function getCart() {
   return localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
 }
 //get quantity product in cart
-var quantity = getCart().reduce(function (quantity, product) {
-  return quantity + product.quantity;
-}, 0);
+function getQuantity(cart) {
+  return cart.reduce(function (quantity, product) {
+    return quantity + product.quantity;
+  }, 0);
+}
 function getIndex(id, array) {
   for (var j = 0; j < array.length; j++) {
     if (array[j].id === id) {
@@ -56,5 +57,3 @@ function getProduct(id, array) {
   }
   return null;
 }
-//show quantity product in cart
-document.querySelector(".cart-quantity").innerHTML = quantity;

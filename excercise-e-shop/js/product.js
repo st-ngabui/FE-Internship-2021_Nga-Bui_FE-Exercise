@@ -1,5 +1,8 @@
 //show product in 2 section
 function render() {
+  var cart = getCart();
+  var quantity = getQuantity(cart);
+  document.querySelector(".cart-quantity").innerHTML = quantity;
   for (var i = 0; i < 2; i++) {
     products.forEach(function (product) {
       var priceBefore = product.discount ? '<p class="price-before-sale">$' + (product.price * 100 / (100 - product.discount)).toFixed(2) + '</p>' : "";
@@ -42,8 +45,8 @@ function addToCart(productId) {
 }
 //Update cart and show quanity 
 function updateAddCart(cart) {
-  quantity += 1;
   localStorage.setItem("test", JSON.stringify(cart));
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = getQuantity(cart);
 }
+var products = fetchData();
 render();

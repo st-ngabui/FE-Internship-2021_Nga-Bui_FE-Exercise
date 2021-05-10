@@ -1,10 +1,15 @@
 //get total price
-var price = getCart().reduce(function (price, product) {
-  return price + product.price * product.quantity;
-}, 0)
+function getPrice(cart) {
+  return cart.reduce(function (price, product) {
+    return price + product.price * product.quantity;
+  }, 0)
+}
 //show cart page
 function render() {
   var cart = getCart();
+  var price = getPrice(cart);
+  var quantity = getQuantity(cart);
+  document.querySelector(".cart-quantity").innerHTML = quantity;
   // check cart is product or not
   if (cart.length) {
     document.querySelector(".cart-empty").setAttribute("style", "display: none");
@@ -24,9 +29,9 @@ function render() {
         priceBefore +
         '</div>' +
         '<div class="cart-product-quantity">' +
-        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (product.quantity - 1) + ')">-</button>' +
+        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity - 1) + ')">-</button>' +
         '<input value=' + product.quantity + ' type="number" class="cart-product-input" onchange = "handleChangeQuantity(' + product.id + ', this.value)">' +
-        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (product.quantity + 1) + ')">+</button>' +
+        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity + 1) + ')">+</button>' +
         '</div>' +
         '</div>' +
         '<div class="cart-product-action">' +
@@ -50,10 +55,6 @@ function render() {
 function handleRemove(productId) {
   var cart = getCart();
   var index = getIndex(productId, cart);
-  var product = getProduct(productId, cart);
-  //change price after remove product
-  price -= product.price * product.quantity;
-  quantity -= product.quantity;
   //remove product
   document.getElementsByClassName("cart-product")[index].remove();
   //change cart
@@ -73,19 +74,17 @@ function handleChangeQuantity(productId, productQuantity) {
   }
   else {
     document.getElementsByClassName("cart-product-input")[index].value = productQuantity;
-    quantity += productQuantity - cart[index].quantity;
-    price = price + cart[index].price * (productQuantity - cart[index].quantity);
     //change cart
-    cart[index].quantity = productQuantity;
+    cart[index].quantity = +productQuantity;
     update(cart);
     document.querySelector(".cart-product-list").innerHTML = "";
     render();
   }
 }
 function update(cart) {
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
-  document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
-  document.querySelector(".cart-summary-number").innerHTML = quantity;
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = getQuantity(cart);
+  document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
+  document.querySelector(".cart-summary-number").innerHTML = getQuantity(cart);
   localStorage.setItem("test", JSON.stringify(cart));
 }
 render();
