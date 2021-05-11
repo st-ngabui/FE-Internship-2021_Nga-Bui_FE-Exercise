@@ -5,7 +5,7 @@ function getPrice(cart) {
 }
 //show cart page
 function renderCart() {
-  let cart = getCart();
+  const cart = getCart();
   const quantity = getQuantity(cart);
   document.querySelector(".cart-quantity").innerHTML = quantity;
   // check cart is product or not
@@ -52,7 +52,7 @@ function renderCart() {
   }
 }
 function addEventQuantity() {
-  let cart = getCart();
+  const cart = getCart();
   const btnQuantitys= document.getElementsByClassName("btn-quantity");
   const cartInput = document.getElementsByClassName("cart-product-input");
   //add event for btnQuantity

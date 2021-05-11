@@ -2,7 +2,7 @@ import { fetchData, getCart, getQuantity } from "./index.js";
 
 //show product in 2 section
 function renderListProduct() {
-  let cart = getCart();
+  const cart = getCart();
   document.querySelector(".cart-quantity").innerHTML = getQuantity(cart);
   for (let i = 0; i < 2; i++) {
     products.forEach((product) => {
@@ -38,11 +38,15 @@ function addToCart() {
       //find index product in cart
       const index = cart.findIndex((product) => product.id === productId);
       //check product is exits in cart or not
-      if (index >= 0) cart[index].quantity += 1;
-      else cart.push({
-        ...product,
-        quantity: 1,
-      });
+      if (index >= 0) {
+        cart[index].quantity += 1;
+      }
+      else {
+        cart.push({
+          ...product,
+          quantity: 1,
+        });
+      }
       updateAddCart(cart);
     })
   }
@@ -53,5 +57,5 @@ function updateAddCart(cart) {
   document.getElementsByClassName("cart-quantity")[0].innerHTML = getQuantity(cart);
 }
 
-let products = fetchData();
+const products = fetchData();
 renderListProduct();
