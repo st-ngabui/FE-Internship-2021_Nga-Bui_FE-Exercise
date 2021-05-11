@@ -1,6 +1,6 @@
 import {fetchData, getCart, getQuantity, IProduct, IProductCart, } from "./index.js";
 //show product in 2 section
-function renderListProduct() {
+function renderListProduct(): void {
   const cart: IProductCart[] = getCart();
   document.querySelector(".cart-quantity").innerHTML = `${getQuantity(cart)}`;
   for (let i = 0; i < 2; i++) {
@@ -29,7 +29,7 @@ function renderListProduct() {
   addToCart();
 }
 //handle when click add to cart
-function addToCart() {
+function addToCart(): void {
   const btns = document.getElementsByClassName("btn-add-cart");
   for (let btn of btns) {
     btn.addEventListener("click", () => {
@@ -58,7 +58,7 @@ function addToCart() {
   }
 }
 //Update cart and show quanity
-function updateAddCart(cart: IProductCart[]) {
+function updateAddCart(cart: IProductCart[]): void {
   localStorage.setItem("cart", JSON.stringify(cart));
   document.querySelector(".cart-quantity").innerHTML = `${getQuantity(cart)}`;
 }

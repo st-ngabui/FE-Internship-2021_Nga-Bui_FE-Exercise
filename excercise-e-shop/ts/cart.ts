@@ -4,7 +4,7 @@ function getPrice(cart: IProductCart[]): number {
   return cart.reduce((price, product) => price + product.quantity * product.price,0);
 }
 //show cart page
-function renderCart() {
+function renderCart(): void {
   const cart: IProductCart[] = getCart();
   const quantity: number = getQuantity(cart);
   document.querySelector(".cart-quantity").innerHTML = `${quantity}`;
@@ -54,7 +54,7 @@ function renderCart() {
     document.querySelector(".cart-empty").setAttribute("style", "display: flex");
   }
 }
-function addEventQuantity() {
+function addEventQuantity(): void {
   const cart: IProductCart[] = getCart();
   const btnQuantitys = document.getElementsByClassName("btn-quantity");
   const cartInput = document.getElementsByClassName("cart-product-input");
@@ -74,14 +74,14 @@ function addEventQuantity() {
   }
 }
 //add event remove product from cart
-function addEventRemove() {
+function addEventRemove(): void {
   const deletes = document.getElementsByClassName("cart-delete");
   for (let deleteAction of deletes) {
     const productId: number = +deleteAction.getAttribute("productid");
     deleteAction.addEventListener("click", () => removeProductCart(productId));
   }
 }
-function removeProductCart(productId: number) {
+function removeProductCart(productId: number): void {
   let cart: IProductCart[] = getCart();
   cart = cart.filter((product) => product.id !== productId);
   update(cart);
@@ -89,7 +89,7 @@ function removeProductCart(productId: number) {
   renderCart();
 }
 //handle change quantity in input
-function handleChangeQuantity(productId: number, productQuantity: number) {
+function handleChangeQuantity(productId: number, productQuantity: number): void {
   let cart: IProductCart[] = getCart();
   const index: number = cart.findIndex((product) => product.id === productId);
   //check quantity < 1 or not
@@ -107,7 +107,7 @@ function handleChangeQuantity(productId: number, productQuantity: number) {
     renderCart();
   }
 }
-function update(cart: IProductCart[]) {
+function update(cart: IProductCart[]): void {
   const quantity: number = getQuantity(cart);
   document.getElementsByClassName("cart-quantity")[0].innerHTML = `${quantity}`;
   document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
