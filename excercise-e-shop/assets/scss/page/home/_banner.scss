@@ -3,6 +3,10 @@
   max-height: 800px;
   width: 100%;
   margin-bottom: 48px;
+  .banner-img {
+    width: 100%;
+    display: block;
+  }
   &::after {
     position: absolute;
     content: "";

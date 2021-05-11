@@ -6,7 +6,7 @@ function renderListProduct() {
   document.querySelector(".cart-quantity").innerHTML = getQuantity(cart);
   for (let i = 0; i < 2; i++) {
     products.forEach((product) => {
-      let priceBefore = product.discount ? `<p class="price-before-sale">&dollar;${(product.price * 100 / (100 - product.discount)).toFixed(2)}</p>` : "";
+      const priceBefore = product.discount ? `<p class="price-before-sale">&dollar;${(product.price * 100 / (100 - product.discount)).toFixed(2)}</p>` : "";
       document.getElementsByClassName("product-list")[i].innerHTML +=
         `<li class="product col-3 col-sm-6">
           <div class="product-item">
@@ -28,15 +28,15 @@ function renderListProduct() {
 }
 //handle when click add to cart
 function addToCart() {
-  let btns = document.getElementsByClassName("btn-add-cart");
+  const btns = document.getElementsByClassName("btn-add-cart");
   for(let btn of btns) {
     btn.addEventListener('click', () => {
-      let productId = Number(btn.getAttribute("productid"));
+      const productId = Number(btn.getAttribute("productid"));
       let cart = getCart();
       //find product has id = productId
-      let product = products.find((product) => product.id === productId);
+      const product = products.find((product) => product.id === productId);
       //find index product in cart
-      let index = cart.findIndex((product) => product.id === productId);
+      const index = cart.findIndex((product) => product.id === productId);
       //check product is exits in cart or not
       if (index >= 0) cart[index].quantity += 1;
       else cart.push({
