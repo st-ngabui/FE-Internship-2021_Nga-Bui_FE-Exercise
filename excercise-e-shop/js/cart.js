@@ -1,49 +1,49 @@
+import { getCart, getQuantity } from "./index.js";
 //get total price
 function getPrice(cart) {
-  return cart.reduce(function (price, product) {
-    return price + product.price * product.quantity;
-  }, 0)
+  return cart.reduce((price, product) => price + product.quantity * product.price, 0);
 }
 //show cart page
-function render() {
-  var cart = getCart();
-  var price = getPrice(cart);
-  var quantity = getQuantity(cart);
+function renderCart() {
+  const cart = getCart();
+  const quantity = getQuantity(cart);
   document.querySelector(".cart-quantity").innerHTML = quantity;
   // check cart is product or not
   if (cart.length) {
     document.querySelector(".cart-empty").setAttribute("style", "display: none");
     //loop the product in cart
-    cart.forEach(function (product) {
+    cart.forEach((product) => {
       //create element show product
-      var priceBefore = product.discount > 0 ? '<p class="cart-product-price-before">$' + (product.price * 100 / (100 - product.discount)).toFixed(2) + '</p>' : ''
+      const priceBefore = product.discount > 0 ? `<p class="cart-product-price-before">&dollar;${(product.price * 100 / (100 - product.discount)).toFixed(2)}</p>` : '';
       document.querySelector(".cart-product-list").innerHTML +=
-        '<li class="cart-product">' +
-        '<div class="cart-product-wrap">' +
-        '<img class="cart-product-img" src="' + product.image + '" alt="' + product.name + '"/>' +
-        '<div class="cart-product-right">' +
-        '<div class="cart-product-info">' +
-        '<h4 class="cart-product-name">' + product.name + '</h4>' +
-        '<div class="cart-product-price-group">' +
-        '<p class="cart-product-price">$' + product.price + '</p>' +
-        priceBefore +
-        '</div>' +
-        '<div class="cart-product-quantity">' +
-        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity - 1) + ')">-</button>' +
-        '<input value=' + product.quantity + ' type="number" class="cart-product-input" onchange = "handleChangeQuantity(' + product.id + ', this.value)">' +
-        '<button class="btn btn-outline btn-quantity" onclick = "handleChangeQuantity(' + product.id + ',' + (+product.quantity + 1) + ')">+</button>' +
-        '</div>' +
-        '</div>' +
-        '<div class="cart-product-action">' +
-        '<a href="" class="cart-product-link" onclick = "handleRemove(' + product.id + ')" >Delete</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</li>'
+        `<li class="cart-product"> 
+          <div class="cart-product-wrap"> 
+            <img class="cart-product-img" src="${product.image}" alt="${product.name}"/> 
+            <div class="cart-product-right"> 
+              <div class="cart-product-info"> 
+                <h4 class="cart-product-name">${product.name}</h4> 
+                <div class="cart-product-price-group"> 
+                  <p class="cart-product-price">&dollar;${product.price}</p> 
+                  ${priceBefore} 
+                </div> 
+                <div class="cart-product-quantity"> 
+                  <button class="btn btn-outline btn-quantity" productid="${product.id}">-</button> 
+                  <input value="${product.quantity}" type="number" class="cart-product-input" productid="${product.id}"> 
+                  <button class="btn btn-outline btn-quantity" productid="${product.id}">+</button> 
+                </div> 
+              </div> 
+              <div class="cart-product-action"> 
+                <button class="cart-product-link cart-delete" productid="${product.id}" >Delete</button> 
+              </div> 
+            </div> 
+          </div> 
+        </li>`
     })
+    addEventQuantity();
+    addEventRemove();
     //create right element of cart page
     document.getElementsByClassName("cart-summary-number")[0].innerHTML = quantity;
-    document.getElementsByClassName("total-price")[0].innerHTML = "$" + price.toFixed(2);
+    document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
   }
   //show cart page if cart empty
   else {
@@ -51,21 +51,44 @@ function render() {
     document.querySelector(".cart-empty").setAttribute("style", "display: flex");
   }
 }
-//handle remove product from cart
-function handleRemove(productId) {
-  var cart = getCart();
-  var index = getIndex(productId, cart);
-  //remove product
-  document.getElementsByClassName("cart-product")[index].remove();
-  //change cart
-  cart = cart.filter((product) => product.id !== productId);
+function addEventQuantity() {
+  const cart = getCart();
+  const btnQuantitys= document.getElementsByClassName("btn-quantity");
+  const cartInput = document.getElementsByClassName("cart-product-input");
+  //add event for btnQuantity
+  for(let btn of btnQuantitys) {
+    const productId = Number(btn.getAttribute("productid"));
+    const product = cart.find(product => product.id === productId);
+    const productQuantity = btn.innerHTML === "-" ? product.quantity - 1 : product.quantity + 1;
+    btn.addEventListener('click',() => handleChangeQuantity(productId, productQuantity));
+
+  }
+  //add event for input quantity
+  for(let input of cartInput) {
+    const productId = Number(input.getAttribute("productid"));
+    input.addEventListener('change', () => handleChangeQuantity(productId, input.value));
+  }
+}
+//add event remove product from cart
+function addEventRemove() {
+  const deletes = document.getElementsByClassName("cart-delete");
+  for(let deleteAction of deletes) {
+    const productId = +deleteAction.getAttribute("productid");
+    //handle event remove product
+    deleteAction.addEventListener('click', () => removeCart(productId)) 
+  }
+}
+function removeCart(productId) {
+  let cart = getCart();
+  cart = cart.filter(product => product.id !== productId);
   update(cart);
-  render();
+  document.querySelector(".cart-product-list").innerHTML = "";
+  renderCart();
 }
 //handle change quantity in input 
 function handleChangeQuantity(productId, productQuantity) {
-  var cart = getCart();
-  var index = getIndex(productId, cart);
+  let cart = getCart();
+  const index = cart.findIndex(product => product.id === productId);
   //check quantity < 1 or not
   if (productQuantity < 1) {
     //not change if quantity < 1
@@ -78,13 +101,14 @@ function handleChangeQuantity(productId, productQuantity) {
     cart[index].quantity = +productQuantity;
     update(cart);
     document.querySelector(".cart-product-list").innerHTML = "";
-    render();
+    renderCart();
   }
 }
 function update(cart) {
-  document.getElementsByClassName("cart-quantity")[0].innerHTML = getQuantity(cart);
+  const quantity = getQuantity(cart);
+  document.getElementsByClassName("cart-quantity")[0].innerHTML = quantity;
   document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
-  document.querySelector(".cart-summary-number").innerHTML = getQuantity(cart);
-  localStorage.setItem("test", JSON.stringify(cart));
+  document.querySelector(".cart-summary-number").innerHTML = quantity;
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
-render();
+renderCart();

@@ -1,5 +1,5 @@
 //fetch product
-function fetchData() {
+export function fetchData() {
   return [
     {
       id: 1,
@@ -32,28 +32,12 @@ function fetchData() {
   ]
 }
 //get cart from localstorage
-function getCart() {
-  return localStorage.getItem("test") ? JSON.parse(localStorage.getItem("test")) : [];
+export function getCart() {
+  return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 }
 //get quantity product in cart
-function getQuantity(cart) {
-  return cart.reduce(function (quantity, product) {
-    return quantity + product.quantity;
+export function getQuantity(cart) {
+  return cart.reduce((quantity, product) => {
+    return quantity + +product.quantity;
   }, 0);
-}
-function getIndex(id, array) {
-  for (var j = 0; j < array.length; j++) {
-    if (array[j].id === id) {
-      return j;
-    }
-  }
-  return -1;
-}
-function getProduct(id, array) {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].id === id) {
-      return array[i];
-    }
-  }
-  return null;
-}
+} 

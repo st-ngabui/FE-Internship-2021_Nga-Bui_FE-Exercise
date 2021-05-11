@@ -686,7 +686,6 @@ h4 {
   padding: 16px; }
   .cart-product-wrap .cart-product-img {
     display: block;
-    width: 120px;
     height: 120px;
     background-size: cover; }
   .cart-product-wrap .cart-product-right {
@@ -697,7 +696,8 @@ h4 {
       .cart-product-wrap .cart-product-right .cart-product-info .cart-product-name {
         font-weight: 700; }
     .cart-product-wrap .cart-product-right .cart-product-action .cart-product-link {
-      color: #f10a0a; }
+      color: #f10a0a;
+      background-color: #fff; }
 
 .cart-product-price-group {
   display: flex; }
