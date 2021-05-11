@@ -44,12 +44,15 @@ function addToCart() {
         (product) => product.id === productId
       );
       //check product is exits in cart or not
-      if (index >= 0) cart[index].quantity += 1;
-      else
+      if (index >= 0) {
+        cart[index].quantity += 1;
+      }
+      else {
         cart.push({
           ...product,
           quantity: 1,
         });
+      }
       updateAddCart(cart);
     });
   }

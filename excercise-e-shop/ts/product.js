@@ -39,10 +39,12 @@ function addToCart() {
             //find index product in cart
             const index = cart.findIndex((product) => product.id === productId);
             //check product is exits in cart or not
-            if (index >= 0)
+            if (index >= 0) {
                 cart[index].quantity += 1;
-            else
+            }
+            else {
                 cart.push(Object.assign(Object.assign({}, product), { quantity: 1 }));
+            }
             updateAddCart(cart);
         });
     }

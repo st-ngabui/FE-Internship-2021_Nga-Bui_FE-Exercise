@@ -5,7 +5,7 @@ function getPrice(cart) {
 }
 //show cart page
 function renderCart() {
-    let cart = getCart();
+    const cart = getCart();
     const quantity = getQuantity(cart);
     document.querySelector(".cart-quantity").innerHTML = `${quantity}`;
     // check cart is product or not
@@ -14,7 +14,7 @@ function renderCart() {
         //loop the product in cart
         cart.forEach((product) => {
             //create element show product
-            let priceBefore = product.discount > 0
+            const priceBefore = product.discount > 0
                 ? `<p class="cart-product-price-before">&dollar;${((product.price * 100) / (100 - product.discount)).toFixed(2)}</p>`
                 : "";
             document.querySelector(".cart-product-list").innerHTML +=
@@ -54,7 +54,7 @@ function renderCart() {
     }
 }
 function addEventQuantity() {
-    let cart = getCart();
+    const cart = getCart();
     const btnQuantitys = document.getElementsByClassName("btn-quantity");
     const cartInput = document.getElementsByClassName("cart-product-input");
     //add event for btnQuantity
