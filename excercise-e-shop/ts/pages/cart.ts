@@ -1,4 +1,6 @@
-import { getCart, getQuantity, IProductCart } from "./index.js";
+import { getCart, getQuantity } from "../common/index.js";
+import IProductCart from "../interfaces/IProductCart.js";
+
 //get total price
 function getPrice(cart: IProductCart[]): number {
   return cart.reduce((price, product) => price + product.quantity * product.price,0);
@@ -56,8 +58,8 @@ function renderCart(): void {
 }
 function addEventQuantity(): void {
   const cart: IProductCart[] = getCart();
-  const btnQuantitys = document.getElementsByClassName("btn-quantity");
-  const cartInput = document.getElementsByClassName("cart-product-input");
+  const btnQuantitys: HTMLCollection = document.getElementsByClassName("btn-quantity");
+  const cartInput: HTMLCollection = document.getElementsByClassName("cart-product-input");
   //add event for btnQuantity
   for (let btn of btnQuantitys) {
     const productId: number = +btn.getAttribute("productid");
@@ -75,7 +77,7 @@ function addEventQuantity(): void {
 }
 //add event remove product from cart
 function addEventRemove(): void {
-  const deletes = document.getElementsByClassName("cart-delete");
+  const deletes: HTMLCollection = document.getElementsByClassName("cart-delete");
   for (let deleteAction of deletes) {
     const productId: number = +deleteAction.getAttribute("productid");
     deleteAction.addEventListener("click", () => removeProductCart(productId));

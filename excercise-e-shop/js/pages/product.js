@@ -1,5 +1,4 @@
-import { fetchData, getCart, getQuantity, } from "./index.js";
-//show product in 2 section
+import { fetchData, getCart, getQuantity } from "../common/index.js";
 function renderListProduct() {
     const cart = getCart();
     document.querySelector(".cart-quantity").innerHTML = `${getQuantity(cart)}`;
@@ -27,18 +26,14 @@ function renderListProduct() {
     }
     addToCart();
 }
-//handle when click add to cart
 function addToCart() {
     const btns = document.getElementsByClassName("btn-add-cart");
     for (let btn of btns) {
         btn.addEventListener("click", () => {
             const productId = +btn.getAttribute("productid");
             let cart = getCart();
-            //find product has id = productId
             const product = products.find((product) => product.id === productId);
-            //find index product in cart
             const index = cart.findIndex((product) => product.id === productId);
-            //check product is exits in cart or not
             if (index >= 0) {
                 cart[index].quantity += 1;
             }
@@ -49,7 +44,6 @@ function addToCart() {
         });
     }
 }
-//Update cart and show quanity
 function updateAddCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
     document.querySelector(".cart-quantity").innerHTML = `${getQuantity(cart)}`;

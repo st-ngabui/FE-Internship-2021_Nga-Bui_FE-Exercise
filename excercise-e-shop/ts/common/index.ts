@@ -1,14 +1,6 @@
-export interface IProduct {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  discount: number;
-}
+import IProduct from "../interfaces/IProduct.js";
+import IProductCart from "../interfaces/IProductCart.js";
 
-export type IProductCart = IProduct & {
-  quantity: number;
-};
 export function fetchData(): IProduct[] {
   return [
     {

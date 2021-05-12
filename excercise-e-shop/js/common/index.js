@@ -30,11 +30,9 @@ export function fetchData() {
         },
     ];
 }
-//get cart from localstorage
 export function getCart() {
     return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 }
-//get quantity product in cart
 export function getQuantity(cart) {
     return cart.reduce((quantity, product) => {
         return quantity + +product.quantity;

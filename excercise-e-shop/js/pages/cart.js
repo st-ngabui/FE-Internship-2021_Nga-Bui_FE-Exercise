@@ -1,19 +1,14 @@
-import { getCart, getQuantity } from "./index.js";
-//get total price
+import { getCart, getQuantity } from "../common/index.js";
 function getPrice(cart) {
     return cart.reduce((price, product) => price + product.quantity * product.price, 0);
 }
-//show cart page
 function renderCart() {
     const cart = getCart();
     const quantity = getQuantity(cart);
     document.querySelector(".cart-quantity").innerHTML = `${quantity}`;
-    // check cart is product or not
     if (cart.length) {
         document.querySelector(".cart-empty").setAttribute("style", "display: none");
-        //loop the product in cart
         cart.forEach((product) => {
-            //create element show product
             const priceBefore = product.discount > 0
                 ? `<p class="cart-product-price-before">&dollar;${((product.price * 100) / (100 - product.discount)).toFixed(2)}</p>`
                 : "";
@@ -43,11 +38,9 @@ function renderCart() {
         });
         addEventQuantity();
         addEventRemove();
-        //create right element of cart page
         document.getElementsByClassName("cart-summary-number")[0].innerHTML = `${quantity}`;
         document.getElementsByClassName("total-price")[0].innerHTML = "$" + getPrice(cart).toFixed(2);
     }
-    //show cart page if cart empty
     else {
         document.querySelector(".cart-show").setAttribute("style", "display: none");
         document.querySelector(".cart-empty").setAttribute("style", "display: flex");
@@ -57,20 +50,17 @@ function addEventQuantity() {
     const cart = getCart();
     const btnQuantitys = document.getElementsByClassName("btn-quantity");
     const cartInput = document.getElementsByClassName("cart-product-input");
-    //add event for btnQuantity
     for (let btn of btnQuantitys) {
         const productId = +btn.getAttribute("productid");
         const product = cart.find((product) => product.id === productId);
         const productQuantity = btn.innerHTML === "-" ? product.quantity - 1 : product.quantity + 1;
         btn.addEventListener("click", () => handleChangeQuantity(productId, productQuantity));
     }
-    //add event for input quantity
     for (let input of cartInput) {
         const productId = +input.getAttribute("productid");
         input.addEventListener("change", () => handleChangeQuantity(productId, +input.value));
     }
 }
-//add event remove product from cart
 function addEventRemove() {
     const deletes = document.getElementsByClassName("cart-delete");
     for (let deleteAction of deletes) {
@@ -85,19 +75,15 @@ function removeProductCart(productId) {
     document.querySelector(".cart-product-list").innerHTML = "";
     renderCart();
 }
-//handle change quantity in input
 function handleChangeQuantity(productId, productQuantity) {
     let cart = getCart();
     const index = cart.findIndex((product) => product.id === productId);
-    //check quantity < 1 or not
     if (productQuantity < 1) {
-        //not change if quantity < 1
         (document.getElementsByClassName("cart-product-input")[index]).value = `${cart[index].quantity}`;
         return;
     }
     else {
         (document.getElementsByClassName("cart-product-input")[index]).value = `${productQuantity}`;
-        //change cart
         cart[index].quantity = productQuantity;
         update(cart);
         document.querySelector(".cart-product-list").innerHTML = "";

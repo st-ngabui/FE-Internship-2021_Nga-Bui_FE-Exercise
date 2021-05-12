@@ -1,4 +1,7 @@
-import {fetchData, getCart, getQuantity, IProduct, IProductCart, } from "./index.js";
+import { fetchData, getCart, getQuantity } from "../common/index.js";
+import IProduct from "../interfaces/IProduct.js";
+import IProductCart from "../interfaces/IProductCart.js";
+
 //show product in 2 section
 function renderListProduct(): void {
   const cart: IProductCart[] = getCart();
@@ -30,11 +33,11 @@ function renderListProduct(): void {
 }
 //handle when click add to cart
 function addToCart(): void {
-  const btns = document.getElementsByClassName("btn-add-cart");
+  const btns: HTMLCollection = document.getElementsByClassName("btn-add-cart");
   for (let btn of btns) {
     btn.addEventListener("click", () => {
       const productId: number = +btn.getAttribute("productid");
-      let cart = getCart();
+      let cart: IProductCart[] = getCart();
       //find product has id = productId
       const product: IProduct = products.find(
         (product) => product.id === productId
