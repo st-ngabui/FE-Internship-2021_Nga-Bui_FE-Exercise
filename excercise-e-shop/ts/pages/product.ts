@@ -1,6 +1,6 @@
-import { fetchData, getCart, getQuantity } from "../common/index.js";
-import IProduct from "../interfaces/IProduct.js";
-import IProductCart from "../interfaces/IProductCart.js";
+import { fetchData, getCart, getQuantity } from "../common/index";
+import IProduct from "../interfaces/IProduct";
+import IProductCart from "../interfaces/IProductCart";
 
 //show product in 2 section
 function renderListProduct(): void {

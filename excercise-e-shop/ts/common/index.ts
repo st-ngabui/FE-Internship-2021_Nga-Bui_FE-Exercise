@@ -1,5 +1,6 @@
-import IProduct from "../interfaces/IProduct.js";
-import IProductCart from "../interfaces/IProductCart.js";
+import IProduct from "../interfaces/IProduct";
+import IProductCart from "../interfaces/IProductCart";
+import '../../assets/scss/style.scss';
 
 export function fetchData(): IProduct[] {
   return [

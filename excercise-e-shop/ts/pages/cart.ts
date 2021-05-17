@@ -1,5 +1,5 @@
-import { getCart, getQuantity } from "../common/index.js";
-import IProductCart from "../interfaces/IProductCart.js";
+import { getCart, getQuantity } from "../common/index";
+import IProductCart from "../interfaces/IProductCart";
 
 //get total price
 function getPrice(cart: IProductCart[]): number {
