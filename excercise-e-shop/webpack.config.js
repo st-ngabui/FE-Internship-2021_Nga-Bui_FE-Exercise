@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const TerserJSPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -22,7 +23,9 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all'
-    }
+    },
+    minimize: true,
+    minimizer: [new TerserJSPlugin({})],
   },
   module: {
     rules: [
@@ -41,7 +44,16 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      browsers: ['>0.5%, not dead'],
+                    }
+                  }
+                ]
+              ]
             }
           },
           {
@@ -53,10 +65,7 @@ module.exports = {
         test: /\.(png|jpg|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-            },
+            loader: 'url-loader',
           },
         ],
       },
