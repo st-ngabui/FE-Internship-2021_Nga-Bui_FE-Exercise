@@ -14,7 +14,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname),
+    compress: true,
+    port: 9000,
   },
   devtool: 'inline-source-map',
   optimization: {
@@ -32,22 +34,16 @@ module.exports = {
           'sass-loader',
         ],
       },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
+      { 
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env']
             }
-          }
-        ]
-      },
-      { 
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
+          },
           {
             loader: 'ts-loader',
           }
@@ -79,8 +75,8 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      filename: 'home.html',
-      template: './home.html',
+      filename: 'index.html',
+      template: './index.html',
       chunks: ['homepage']
     }),
     new HtmlWebpackPlugin({
