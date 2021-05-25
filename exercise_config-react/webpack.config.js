@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -7,6 +9,19 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    minimize: true,
+    minimizer: [new TerserJSPlugin({})],
+  },
+  devtool: 'eval',
+  devServer: {
+    contentBase: path.join(__dirname),
+    compress: true,
+    port: 9000,
   },
   module: {
     rules: [
@@ -53,6 +68,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './public/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
     }),
   ],
   resolve: {
