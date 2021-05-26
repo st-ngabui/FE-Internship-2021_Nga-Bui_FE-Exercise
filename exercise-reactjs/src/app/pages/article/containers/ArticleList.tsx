@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Article from '../components/Article';
+import '../../../../assets/style.scss';
 
 function ArticleList() {
   const [articleList, setArticleList] = React.useState([]);
@@ -13,8 +15,15 @@ function ArticleList() {
       });
   }, [])
   return (
-    <>
-    </>
+    <div className="articles-wrap">
+      <div className="container article-list">
+        {articleList.map((article, idx) => {
+          return (
+            <Article article={article} key={idx} />
+          )
+        })}
+      </div>
+    </div>
   );
 }
 
