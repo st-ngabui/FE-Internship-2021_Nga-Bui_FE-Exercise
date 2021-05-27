@@ -7,7 +7,11 @@ interface PropsInterface {
   article: IArticle;
 }
 
-function Article(props: PropsInterface) {
+const replaceText = (text: string, value: string) => {
+  return text.replace('{value}', value);
+}
+
+const Article = (props: PropsInterface) => {
   const {article} = props;
   return (
     <div className="row article">
@@ -21,9 +25,9 @@ function Article(props: PropsInterface) {
         </h4>
         <p className="desc">{article.desc}</p>
         <div className="group-info">
-          <p className="author">{BY} <span className="author-right">{article.author}</span></p>
+          <p className="author">{replaceText(BY, article.author)}</p>
           <p className="create-date">{article.createdAt}</p>
-          <p className="minsRead">{article.minsRead} {MINSREAD}</p>
+          <p className="minsRead">{replaceText(MINSREAD, article.minsRead)}</p>
         </div>
       </div>
     </div>

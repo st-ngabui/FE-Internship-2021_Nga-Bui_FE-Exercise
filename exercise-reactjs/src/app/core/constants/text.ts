@@ -1,2 +1,2 @@
-export const MINSREAD = 'MINS READ';
-export const BY = 'BY';
+export const MINSREAD = '{value} MINS READ';
+export const BY = 'BY {value}';
