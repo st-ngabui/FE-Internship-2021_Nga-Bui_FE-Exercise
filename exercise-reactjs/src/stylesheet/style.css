@@ -36,6 +36,7 @@ a {
 
 .container {
   max-width: 1152px;
+  max-width: 72rem;
   width: 100%;
   margin: 0 auto; }
 
@@ -92,56 +93,56 @@ a {
   padding: 0; }
 
 .articles-wrap {
-  background-color: #e0dede;
-  padding: 16px;
-  padding: 1rem; }
-
-.article-wrap {
-  margin: 16px 0;
   padding: 16px;
   padding: 1rem;
-  border: 1px solid #d6d6d6;
+  background-color: #e6e4e4; }
+
+.article {
+  margin: 16px 0px;
+  margin: 1rem 0rem;
+  padding: 16px;
+  padding: 1rem;
   border-radius: 8px;
   border-radius: 0.5rem;
-  background-color: #fff; }
+  background-color: #ffffff; }
 
-.article-img {
-  width: 100%;
+.img {
   height: 250px;
-  height: 15.625rem; }
+  height: 15.625rem;
+  width: 100%; }
 
-.article-content {
+.content {
   padding: 16px;
   padding: 1rem; }
-  .article-content .article-category {
-    color: #ee3535;
+  .content .category {
     font-size: 16px;
     font-size: 1rem;
     margin-bottom: 16px;
-    margin-bottom: 1rem; }
-  .article-content .article-title {
+    margin-bottom: 1rem;
+    color: #e91f1f; }
+  .content .title {
     font-size: 24px;
     font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 16px;
-    margin-bottom: 1rem; }
-  .article-content .article-desc {
-    color: #706f6f;
+    margin-bottom: 1rem;
+    font-weight: 600; }
+  .content .desc {
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
     font-size: 16px;
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem; }
-  .article-content .article-group-info {
+    color: #9b9b9b; }
+  .content .group-info {
     display: flex;
-    color: #706f6f; }
-    .article-content .article-group-info .article-author {
+    color: #9b9b9b; }
+    .content .group-info .author {
       font-size: 16px;
       font-size: 1rem;
       margin-right: 24px;
       margin-right: 1.5rem; }
-      .article-content .article-group-info .article-author .article-author-right {
-        color: #272626; }
-    .article-content .article-group-info .article-create-date {
+      .content .group-info .author .author-right {
+        color: #3b3b3b; }
+    .content .group-info .create-date {
       margin-right: 24px;
       margin-right: 1.5rem; }

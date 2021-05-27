@@ -1,48 +1,47 @@
 .articles-wrap {
-  background-color: rgb(224, 222, 222);
   @include pxRem(padding, 16);
+  background-color: #e6e4e4;
 }
 
-.article-wrap {
-  margin: 16px 0;
+.article {
+  @include pxRem(margin, 16 0);
   @include pxRem(padding, 16);
-  border: 1px solid rgb(214, 214, 214);
   @include pxRem(border-radius, 8);
-  background-color: #fff;
+  background-color: map-get($color, white);
 }
-.article-img {
-  width: 100%;
+.img {
   @include pxRem(height, 250);
+  width: 100%;
 }
-.article-content {
+.content {
   @include pxRem(padding, 16);
-  .article-category {
-    color: rgb(238, 53, 53);
+  .category {
     @include pxRem(font-size, map-get($font-size, l));
     @include pxRem(margin-bottom, 16);
+    color: #e91f1f;
   }
-  .article-title {
+  .title {
     @include pxRem(font-size, map-get($font-size, xxl));
-    font-weight: 600;
     @include pxRem(margin-bottom, 16);
+    font-weight: 600;
   }
-  .article-desc {
-    color: $color-light;
+  .desc {
+    @include pxRem(margin-bottom, 24);
     @include pxRem(font-size, map-get($font-size, l));
     font-weight: 500;
-    @include pxRem(margin-bottom, 24);
+    color: map-get($color, light);
   }
-  .article-group-info {
+  .group-info {
     display: flex;
-    color: $color-light;
-    .article-author {
+    color: map-get($color, light);
+    .author {
       @include pxRem(font-size, map-get($font-size, l));
       @include pxRem(margin-right, 24);
-      .article-author-right {
-        color: rgb(39, 38, 38)
+      .author-right {
+        color: #3b3b3b;
       }
     }
-    .article-create-date {
+    .create-date {
       @include pxRem(margin-right, 24);
     }
   }

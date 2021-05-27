@@ -6,5 +6,7 @@ $font-size: (
   lg: 18px,
   xxl: 24px,
 );
-
-$color-light: rgb(112, 111, 111);
+$color: (
+  light: #9b9b9b,
+  white: #ffffff,
+);

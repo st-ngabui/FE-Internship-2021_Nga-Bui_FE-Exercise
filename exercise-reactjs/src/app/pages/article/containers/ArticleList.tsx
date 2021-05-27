@@ -3,6 +3,7 @@ import axios from 'axios';
 import Article from './Article';
 
 export interface IArticle {
+  id: number;
   title: string;
   desc: string;
   author: string;
@@ -17,7 +18,6 @@ const ArticleList = () => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/articles`)
       .then(response => {
         setArticleList(response.data);
-        console.log(articleList);
       })
       .catch(error => {
         console.log(error)
@@ -26,12 +26,10 @@ const ArticleList = () => {
   return (
     <div className="articles-wrap">
       <ul className="container article-list">
-        {articleList.map((article: IArticle, idx: number) => {
+        {articleList.map((article: IArticle) => {
           return (
-            <li className="article-item" key={idx}>
-              <div className="article">
-                <Article article={article}/>
-              </div>
+            <li className="article-item" key={article.id}>
+              <Article article={article}/>
             </li>
           )
         })}
