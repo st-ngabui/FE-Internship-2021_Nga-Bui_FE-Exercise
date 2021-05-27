@@ -8,11 +8,12 @@
   @include pxRem(padding, 16);
   @include pxRem(border-radius, 8);
   background-color: map-get($color, white);
+  .img {
+    @include pxRem(height, 250);
+    width: 100%;
+  }
 }
-.img {
-  @include pxRem(height, 250);
-  width: 100%;
-}
+
 .content {
   @include pxRem(padding, 16);
   .category {
@@ -24,12 +25,17 @@
     @include pxRem(font-size, map-get($font-size, xxl));
     @include pxRem(margin-bottom, 16);
     font-weight: 600;
+    color: map-get($color, base-text);
   }
   .desc {
     @include pxRem(margin-bottom, 24);
     @include pxRem(font-size, map-get($font-size, l));
     font-weight: 500;
     color: map-get($color, light);
+  }
+  .content-text {
+    @include pxRem(margin-bottom, 16);
+    color: map-get($color, base-text);
   }
   .group-info {
     display: flex;
@@ -38,9 +44,23 @@
       @include pxRem(font-size, map-get($font-size, l));
       @include pxRem(margin-right, 24);
       color: map-get($color, base-text);
+      font-weight: 600;
     }
     .create-date {
       @include pxRem(margin-right, 24);
     }
+  }
+}
+
+.article-detail {
+  @include pxRem(border-radius, 8);
+  @include pxRem(margin-top, 36);
+  border: 1px solid map-get($color, light);
+  .img {
+    @include pxRem(height, 300);
+    background-size: cover;
+  }
+  .content {
+    @include pxRem(padding, 24);
   }
 }
