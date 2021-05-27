@@ -13,7 +13,7 @@ interface IArticle {
 const ArticleList = () => {
   const [articleList, setArticleList] = React.useState<IArticle[]>([]);
   React.useEffect(() => {
-    axios.get(`https://6088e20da6f4a300174271e7.mockapi.io/articles`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/articles`)
       .then(response => {
         setArticleList(response.data);
       })
