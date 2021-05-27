@@ -1,0 +1,49 @@
+.articles-wrap {
+  background-color: rgb(224, 222, 222);
+  @include pxRem(padding, 16);
+}
+
+.article-wrap {
+  margin: 16px 0;
+  @include pxRem(padding, 16);
+  border: 1px solid rgb(214, 214, 214);
+  @include pxRem(border-radius, 8);
+  background-color: #fff;
+}
+.article-img {
+  width: 100%;
+  @include pxRem(height, 250);
+}
+.article-content {
+  @include pxRem(padding, 16);
+  .article-category {
+    color: rgb(238, 53, 53);
+    @include pxRem(font-size, map-get($font-size, l));
+    @include pxRem(margin-bottom, 16);
+  }
+  .article-title {
+    @include pxRem(font-size, map-get($font-size, xxl));
+    font-weight: 600;
+    @include pxRem(margin-bottom, 16);
+  }
+  .article-desc {
+    color: $color-light;
+    @include pxRem(font-size, map-get($font-size, l));
+    font-weight: 500;
+    @include pxRem(margin-bottom, 24);
+  }
+  .article-group-info {
+    display: flex;
+    color: $color-light;
+    .article-author {
+      @include pxRem(font-size, map-get($font-size, l));
+      @include pxRem(margin-right, 24);
+      .article-author-right {
+        color: rgb(39, 38, 38)
+      }
+    }
+    .article-create-date {
+      @include pxRem(margin-right, 24);
+    }
+  }
+}
