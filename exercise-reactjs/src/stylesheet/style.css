@@ -140,9 +140,8 @@ a {
       font-size: 16px;
       font-size: 1rem;
       margin-right: 24px;
-      margin-right: 1.5rem; }
-      .content .group-info .author .author-right {
-        color: #3b3b3b; }
+      margin-right: 1.5rem;
+      color: #3b3b3b; }
     .content .group-info .create-date {
       margin-right: 24px;
       margin-right: 1.5rem; }

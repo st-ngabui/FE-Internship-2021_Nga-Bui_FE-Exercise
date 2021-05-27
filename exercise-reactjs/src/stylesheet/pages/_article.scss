@@ -1,6 +1,6 @@
 .articles-wrap {
   @include pxRem(padding, 16);
-  background-color: #e6e4e4;
+  background-color: map-get($color, background-light);
 }
 
 .article {
@@ -18,7 +18,7 @@
   .category {
     @include pxRem(font-size, map-get($font-size, l));
     @include pxRem(margin-bottom, 16);
-    color: #e91f1f;
+    color: map-get($color, red-text);
   }
   .title {
     @include pxRem(font-size, map-get($font-size, xxl));
@@ -37,9 +37,7 @@
     .author {
       @include pxRem(font-size, map-get($font-size, l));
       @include pxRem(margin-right, 24);
-      .author-right {
-        color: #3b3b3b;
-      }
+      color: map-get($color, base-text);
     }
     .create-date {
       @include pxRem(margin-right, 24);
