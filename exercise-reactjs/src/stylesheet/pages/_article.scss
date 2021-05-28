@@ -1,0 +1,46 @@
+.articles-wrap {
+  @include pxRem(padding, 16);
+  background-color: map-get($color, background-light);
+}
+
+.article {
+  @include pxRem(margin, 16 0);
+  @include pxRem(padding, 16);
+  @include pxRem(border-radius, 8);
+  background-color: map-get($color, white);
+  .img {
+    @include pxRem(height, 250);
+    width: 100%;
+  }
+  .content {
+    @include pxRem(padding, 16);
+    .category {
+      @include pxRem(font-size, map-get($font-size, l));
+      @include pxRem(margin-bottom, 16);
+      color: map-get($color, red-text);
+    }
+    .title {
+      @include pxRem(font-size, map-get($font-size, xxl));
+      @include pxRem(margin-bottom, 16);
+      font-weight: 600;
+    }
+    .desc {
+      @include pxRem(margin-bottom, 24);
+      @include pxRem(font-size, map-get($font-size, l));
+      font-weight: 500;
+      color: map-get($color, light);
+    }
+    .group-info {
+      display: flex;
+      color: map-get($color, light);
+      .author {
+        @include pxRem(font-size, map-get($font-size, l));
+        @include pxRem(margin-right, 24);
+        color: map-get($color, base-text);
+      }
+      .create-date {
+        @include pxRem(margin-right, 24);
+      }
+    }
+  }
+}
