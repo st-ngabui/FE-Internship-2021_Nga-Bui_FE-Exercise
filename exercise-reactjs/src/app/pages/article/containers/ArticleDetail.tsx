@@ -25,18 +25,17 @@ interface IParam {
   id: string;
 }
 const ArticleDetail = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id }: IParam = useParams();
   const [articleDetail, setArticleDetail] = useState<IArticleDetail>(initialState);
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/articles/${+id}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/articles/${id}`)
       .then(response => {
         setArticleDetail(response.data);
       })
       .catch(error => {
         console.log(error)
       });
-  })
+  }, [id])
   return (
     <div className="container article-detail">
       <div className="row article">
@@ -57,7 +56,6 @@ const ArticleDetail = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
