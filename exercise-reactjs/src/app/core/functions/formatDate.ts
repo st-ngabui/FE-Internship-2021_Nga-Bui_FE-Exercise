@@ -1,6 +1,9 @@
 export const formatDate = (datetime: string) => {
-  const arr: string[] = datetime.split("T");
-  const date = arr[0].replaceAll("-", "/").split("/").reverse().join("/");
-  const time = arr[1] ? arr[1].split(".")[0].slice(0, -3) : "";
-  return `${date} ${time}`;
+  const date = new Date(datetime);
+  const day = `0${date.getDay()}`.slice(-2,);
+  const month = `0${date.getMonth()}`.slice(-2,);
+  const year = date.getFullYear();
+  const hour = `0${date.getHours()}`.slice(-2,);
+  const minute = `0${date.getMinutes()}`.slice(-2,);
+  return `${day}/${month}/${year} ${hour}:${minute}`;
 }
