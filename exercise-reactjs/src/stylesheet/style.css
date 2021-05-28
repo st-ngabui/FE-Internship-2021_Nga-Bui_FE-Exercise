@@ -109,47 +109,46 @@ a {
     height: 250px;
     height: 15.625rem;
     width: 100%; }
-
-.content {
-  padding: 16px;
-  padding: 1rem; }
-  .content .category {
-    font-size: 16px;
-    font-size: 1rem;
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
-    color: #e91f1f; }
-  .content .title {
-    font-size: 24px;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    color: #3b3b3b; }
-  .content .desc {
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
-    font-size: 16px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #9b9b9b; }
-  .content .content-text {
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
-    color: #3b3b3b; }
-  .content .group-info {
-    display: flex;
-    color: #9b9b9b; }
-    .content .group-info .author {
+  .article .content {
+    padding: 16px;
+    padding: 1rem; }
+    .article .content .category {
       font-size: 16px;
       font-size: 1rem;
-      margin-right: 24px;
-      margin-right: 1.5rem;
-      color: #3b3b3b;
-      font-weight: 600; }
-    .content .group-info .create-date {
-      margin-right: 24px;
-      margin-right: 1.5rem; }
+      margin-bottom: 16px;
+      margin-bottom: 1rem;
+      color: #e91f1f; }
+    .article .content .title {
+      font-size: 24px;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #3b3b3b; }
+    .article .content .desc {
+      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
+      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #9b9b9b; }
+    .article .content .content-text {
+      margin-bottom: 16px;
+      margin-bottom: 1rem;
+      color: #3b3b3b; }
+    .article .content .group-info {
+      display: flex;
+      color: #9b9b9b; }
+      .article .content .group-info .author {
+        font-size: 16px;
+        font-size: 1rem;
+        margin-right: 24px;
+        margin-right: 1.5rem;
+        color: #3b3b3b;
+        font-weight: 600; }
+      .article .content .group-info .create-date {
+        margin-right: 24px;
+        margin-right: 1.5rem; }
 
 .article-detail {
   border-radius: 8px;

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IArticle } from './ArticleList';
 import { BY, MINSREAD } from '../../../core/constants/text';
-import { Route, Switch } from 'react-router';
 
 interface PropsInterface {
   article: IArticle;
@@ -11,7 +10,10 @@ interface PropsInterface {
 export const replaceText = (text: string, value: string) => {
   return text.replace('{value}', value);
 }
-
+export const formatDate = (date: string) => {
+  let arr: string[] = date.split("T");
+  return `${arr[0]} ${arr[1].split(".")[0]}`;
+}
 const Article = (props: PropsInterface) => {
   const { article } = props;
   return (
@@ -29,7 +31,7 @@ const Article = (props: PropsInterface) => {
             <p className="desc">{article.desc}</p>
             <div className="group-info">
               <p className="author">{replaceText(BY, article.author)}</p>
-              <p className="create-date">{article.createdAt}</p>
+              <p className="create-date">{formatDate(article.createdAt)}</p>
               <p className="minsRead">{replaceText(MINSREAD, article.minsRead)}</p>
             </div>
           </div>

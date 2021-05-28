@@ -24,17 +24,25 @@ const ArticleList = () => {
       });
   }, [])
   return (
-    <div className="articles-wrap">
-      <ul className="container article-list">
-        {articleList.map((article: IArticle) => {
-          return (
-            <li className="article-item" key={article.id}>
-              <Article article={article}/>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+    <>
+      {!articleList.length
+        ?
+        (<p>Loading ... </p>)
+        :
+        (
+          <div className="articles-wrap">
+            <ul className="container article-list">
+              {articleList.map((article: IArticle) => {
+                return (
+                  <li className="article-item" key={article.id}>
+                    <Article article={article} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )}
+    </>
   );
 }
 
