@@ -14,7 +14,7 @@ export interface IArticle {
 }
 const ArticleList = () => {
   const [articleList, setArticleList] = React.useState<IArticle[]>([]);
-  const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [isLoading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setLoading(true);

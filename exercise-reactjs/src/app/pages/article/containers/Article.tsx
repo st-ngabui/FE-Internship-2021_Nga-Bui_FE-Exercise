@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IArticle } from './ArticleList';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import { replaceText } from '../../../core/functions/replaceText';
-import { formatDate } from '../../../core/functions/formatDate';
+import { formatDate, replaceText } from '../../../core/functions';
 
 interface PropsInterface {
   article: IArticle;

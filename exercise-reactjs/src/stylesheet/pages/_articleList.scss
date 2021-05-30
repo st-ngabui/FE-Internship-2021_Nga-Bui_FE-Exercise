@@ -50,16 +50,3 @@
     }
   }
 }
-
-.article-detail {
-  @include pxRem(border-radius, 8);
-  @include pxRem(margin-top, 36);
-  border: 1px solid map-get($color, light);
-  .img {
-    @include pxRem(height, 300);
-    background-size: cover;
-  }
-  .content {
-    @include pxRem(padding, 24);
-  }
-}

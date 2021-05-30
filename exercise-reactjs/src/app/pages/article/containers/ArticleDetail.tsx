@@ -4,8 +4,7 @@ import { IArticle } from './ArticleList';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import { replaceText } from '../../../core/functions/replaceText';
-import { formatDate } from '../../../core/functions/formatDate';
+import { formatDate, replaceText } from '../../../core/functions';
 
 type IArticleDetail = IArticle & {
   content: string;
@@ -28,7 +27,7 @@ interface IParam {
 const ArticleDetail = () => {
   const { id }: IParam = useParams();
   const [articleDetail, setArticleDetail] = useState<IArticleDetail>(initialState);
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
