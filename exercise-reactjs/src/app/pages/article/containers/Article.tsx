@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IArticle } from './ArticleList';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import { formatDate, replaceText } from '../../../core/functions';
+import {functions} from '../../../core/functions';
+import { Link } from 'react-router-dom';
 
 interface PropsInterface {
   article: IArticle;
@@ -12,7 +13,7 @@ const Article = (props: PropsInterface) => {
   const { article } = props;
   
   return (
-    <a href={`/articles/${article.id}`}>
+    <Link to={`/articles/${article.id}`}>
       <div className="row article">
         <div className="col-4 img-wrap">
           <img className="img" src={article.image} alt={article.title} />
@@ -24,13 +25,13 @@ const Article = (props: PropsInterface) => {
           </h4>
           <p className="desc">{article.desc}</p>
           <div className="group-info">
-            <p className="author">{replaceText(BY, article.author)}</p>
-            <p className="create-date">{replaceText(EST, formatDate(article.createdAt))}</p>
-            <p className="minsRead">{replaceText(MINSREAD, article.minsRead)}</p>
+            <p className="author">{functions.text.replaceText(BY, article.author)}</p>
+            <p className="create-date">{functions.text.replaceText(EST, functions.dateTime.formatDate(article.createdAt))}</p>
+            <p className="minsRead">{functions.text.replaceText(MINSREAD, article.minsRead)}</p>
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

@@ -4,7 +4,7 @@ import { IArticle } from './ArticleList';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import { formatDate, replaceText } from '../../../core/functions';
+import { functions  } from '../../../core/functions';
 
 type IArticleDetail = IArticle & {
   content: string;
@@ -12,14 +12,14 @@ type IArticleDetail = IArticle & {
 
 const initialState = {
   id: 0,
-  title: "",
-  desc: "",
-  author: "",
-  createdAt: "",
-  minsRead: "",
-  category: "",
-  image: "",
-  content: "",
+  title: '',
+  desc: '',
+  author: '',
+  createdAt: '',
+  minsRead: '',
+  category: '',
+  image: '',
+  content: '',
 }
 interface IParam {
   id: string;
@@ -60,9 +60,9 @@ const ArticleDetail = () => {
               <p className="desc">{articleDetail.desc}</p>
               <p className="content-text">{articleDetail.content}</p>
               <div className="group-info">
-                <p className="author">{replaceText(BY, articleDetail.author)}</p>
-                <p className="create-date">{replaceText(EST, formatDate(articleDetail.createdAt))}</p>
-                <p className="minsRead">{replaceText(MINSREAD, articleDetail.minsRead)}</p>
+                <p className="author">{functions.text.replaceText(BY, articleDetail.author)}</p>
+                <p className="create-date">{functions.text.replaceText(EST, functions.dateTime.formatDate(articleDetail.createdAt))}</p>
+                <p className="minsRead">{functions.text.replaceText(MINSREAD, articleDetail.minsRead)}</p>
               </div>
             </div>
           </div>
