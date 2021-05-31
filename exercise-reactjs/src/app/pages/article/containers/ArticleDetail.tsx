@@ -4,7 +4,7 @@ import { IArticle } from './ArticleList';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import { functions  } from '../../../core/functions';
+import { functions } from '../../../core/functions';
 
 type IArticleDetail = IArticle & {
   content: string;

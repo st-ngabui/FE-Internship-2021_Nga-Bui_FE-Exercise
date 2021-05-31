@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IArticle } from './ArticleList';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
-import {functions} from '../../../core/functions';
+import { functions } from '../../../core/functions';
 import { Link } from 'react-router-dom';
 
 interface PropsInterface {
