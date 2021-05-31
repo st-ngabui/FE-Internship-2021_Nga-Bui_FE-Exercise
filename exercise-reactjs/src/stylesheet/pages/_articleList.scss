@@ -23,12 +23,17 @@
       @include pxRem(font-size, map-get($font-size, xxl));
       @include pxRem(margin-bottom, 16);
       font-weight: 600;
+      color: map-get($color, base-text);
     }
     .desc {
       @include pxRem(margin-bottom, 24);
       @include pxRem(font-size, map-get($font-size, l));
       font-weight: 500;
       color: map-get($color, light);
+    }
+    .content-text {
+      @include pxRem(margin-bottom, 16);
+      color: map-get($color, base-text);
     }
     .group-info {
       display: flex;
@@ -37,6 +42,7 @@
         @include pxRem(font-size, map-get($font-size, l));
         @include pxRem(margin-right, 24);
         color: map-get($color, base-text);
+        font-weight: 600;
       }
       .create-date {
         @include pxRem(margin-right, 24);
