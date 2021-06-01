@@ -1,7 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import Article from './Article';
 import PageRenderer from './PageRenderer';
+import { useDispatch, useSelector } from 'react-redux';
+import { getArticles } from '../../../store/articles/actions';
+import { IState } from '../../../store/interface';
 
 export interface IArticle {
   id: number;
@@ -38,17 +40,13 @@ const ArticleListUI = (props: IPropsArticleList) => {
 const ArticleListRender = PageRenderer(ArticleListUI);
 
 const ArticleList = () => {
-  const [articleList, setArticleList] = React.useState<IArticle[]>();
+  const articleList = useSelector((state: IState) => state.articles.data);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/articles`)
-      .then(response => {
-        setArticleList(response.data);
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    dispatch(getArticles());
   }, [])
+  
   return (
     <ArticleListRender data={articleList} />
   );
