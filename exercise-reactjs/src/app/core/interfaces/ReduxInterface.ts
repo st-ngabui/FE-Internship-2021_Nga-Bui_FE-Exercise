@@ -1,4 +1,4 @@
-import { IArticle } from "../pages/article/containers/ArticleList";
+import { IArticle } from './ArticleInterface';
 
 export interface IAction {
   type: string;

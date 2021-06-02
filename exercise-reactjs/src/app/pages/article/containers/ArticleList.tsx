@@ -3,18 +3,8 @@ import Article from './Article';
 import PageRenderer from './PageRenderer';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticles } from '../../../store/articles/actions';
-import { IState } from '../../../store/interface';
-
-export interface IArticle {
-  id: number;
-  title: string;
-  desc: string;
-  author: string;
-  createdAt: string;
-  minsRead: string;
-  category: string;
-  image: string;
-}
+import { IArticle } from '../../../core/interfaces/ArticleInterface';
+import { IState } from '../../../core/interfaces/ReduxInterface';
 
 interface IPropsArticleList {
   data: IArticle[];

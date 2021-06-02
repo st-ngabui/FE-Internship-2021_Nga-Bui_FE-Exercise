@@ -1,6 +1,6 @@
 import * as types from './types';
 import axios from 'axios';
-import { IAction } from '../interface';
+import { IAction } from '../../core/interfaces/ReduxInterface';
 
 export const getArticles = () => async (dispatch: (arg0: IAction) => void) => {
   const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/articles`);

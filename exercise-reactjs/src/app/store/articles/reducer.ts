@@ -1,4 +1,4 @@
-import { IAction } from '../interface';
+import { IAction } from '../../core/interfaces/ReduxInterface';
 import * as types from './types';
 
 const initialState = {
