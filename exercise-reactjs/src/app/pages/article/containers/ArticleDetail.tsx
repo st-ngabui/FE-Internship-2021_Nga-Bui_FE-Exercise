@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { IArticle } from './ArticleList';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { BY, MINSREAD, EST } from '../../../core/constants/text';
 import { functions } from '../../../core/functions';
 import PageRenderer from './PageRenderer';
-
-type IArticleDetail = IArticle & {
-  content: string;
-}
+import { IArticleDetail } from '../../../core/interfaces/ArticleInterface';
 
 interface IParam {
   id: string;
